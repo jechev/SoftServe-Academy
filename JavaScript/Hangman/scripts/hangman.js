@@ -27,12 +27,9 @@ pointsContainer.innerHTML = 'Points: ' + points;
 
 setNewWord(); /// Create <ul> with '_' for the choosen word
 
-function clearContainer(container){
+function removeChildren(container){
   while (container.firstChild) {
     container.removeChild(container.firstChild);
-  }
-  while (lettersContainer.firstChild) {
-    lettersContainer.removeChild(lettersContainer.firstChild);
   }
 }
 
@@ -105,8 +102,8 @@ function setNewWord() {
   lives = 10;
   matchedLetters = 0;
   numberOfCanvasStep = 0;
-  clearContainer(listWithLetters);
-  clearContainer(lettersContainer);
+  removeChildren(listWithLetters);
+  removeChildren(lettersContainer);
   clearCanvas();
   setColor('#FFFFFF');
   setLineWidth(10);
