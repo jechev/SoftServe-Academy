@@ -10,7 +10,7 @@ parcel index.html
 ```
 
 https://github.com/typicode/json-server - json-server
-&nbsp;
+<br />
 https://github.com/axios/axios - axios
-&nbsp;
+<br />
 https://parceljs.org/ - parcel
