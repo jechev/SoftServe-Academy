@@ -1,3 +1,4 @@
+// Service makes http requests and return promises
 const axios = require('axios');
 
 const noteService = (function(){
@@ -5,8 +6,7 @@ const noteService = (function(){
    
   module.exports = {
     getNotes : function() {
-      return  axios.get(baseUrl);
-                
+      return  axios.get(baseUrl);       
     },
     postNote: function(description) {
       return axios.post(baseUrl, {
@@ -15,6 +15,11 @@ const noteService = (function(){
     },
     deleteNote: function(id) {
       return axios.delete(baseUrl + '/' + id);
+    },
+    editNote: function(id, description) {
+      return axios.put(baseUrl + '/' + id, {
+        description: description
+      });
     }
   };
 }());

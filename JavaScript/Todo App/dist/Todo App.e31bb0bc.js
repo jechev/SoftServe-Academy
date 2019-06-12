@@ -1831,6 +1831,7 @@ module.exports.default = axios;
 },{"./utils":"node_modules/axios/lib/utils.js","./helpers/bind":"node_modules/axios/lib/helpers/bind.js","./core/Axios":"node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"node_modules/axios/lib/core/mergeConfig.js","./defaults":"node_modules/axios/lib/defaults.js","./cancel/Cancel":"node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"node_modules/axios/lib/helpers/spread.js"}],"node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 },{"./lib/axios":"node_modules/axios/lib/axios.js"}],"noteService.js":[function(require,module,exports) {
+// Service makes http requests and return promises
 var axios = require('axios');
 
 var noteService = function () {
@@ -1846,6 +1847,11 @@ var noteService = function () {
     },
     deleteNote: function deleteNote(id) {
       return axios.delete(baseUrl + '/' + id);
+    },
+    editNote: function editNote(id, description) {
+      return axios.put(baseUrl + '/' + id, {
+        description: description
+      });
     }
   };
 }();
@@ -1854,22 +1860,23 @@ var noteService = function () {
 
 var _noteService = _interopRequireDefault(require("./noteService"));
 
-var _helper = _interopRequireDefault(require("./helper"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Helper with all events
 var eventHelper = function () {
-  var noteForm = document.noteForm; //submitButton.addEventListener("click", eventHelper.addNewNote);
-
+  var noteForm = document.noteForm;
+  var editForm = document.editForm;
   module.exports = {
     addNewNote: function addNewNote() {
       var noteValue = noteForm.description.value;
 
-      if (noteValue === "") {
-        alert("You cannot add empty note");
+      if (noteValue === '') {
+        alert('You cannot add empty note');
       } else {
         _noteService.default.postNote(noteValue).then(function (response) {
-          _helper.default.addNoteHTML(response.data);
+          location.reload();
+        }).catch(function (error) {
+          console.log(error);
         });
       }
 
@@ -1881,22 +1888,48 @@ var eventHelper = function () {
 
       _noteService.default.deleteNote(noteId).then(function (response) {
         document.getElementById('note-' + noteId).remove();
+      }).catch(function (error) {
+        console.log(error);
       });
     },
-    editNote: function editNote() {
+    editNote: function editNote(event) {
       var noteId = event.target.id.replace(/^\D+/g, '');
+      var noteText = document.getElementById('text-' + noteId).innerText;
+      editForm['note-id'].value = noteId;
+      editForm['edit-description'].value = noteText;
+      noteForm.style.display = 'none';
+      editForm.style.display = 'block';
+      console.log(noteText);
+    },
+    saveEditedNote: function saveEditedNote(event) {
+      var noteId = editForm['note-id'].value;
+      var newDescription = editForm['edit-description'].value;
+
+      if (newDescription === '') {
+        alert('You cannot add empty note');
+      } else {
+        _noteService.default.editNote(noteId, newDescription).then(function (response) {
+          console.log(response);
+          noteForm.style.display = 'block';
+          editForm.style.display = 'none';
+          location.reload();
+        }).catch(function (error) {
+          console.log(error);
+        });
+      }
     }
   };
 }();
-},{"./noteService":"noteService.js","./helper":"helper.js"}],"helper.js":[function(require,module,exports) {
+},{"./noteService":"noteService.js"}],"helper.js":[function(require,module,exports) {
 "use strict";
 
 var _eventHelper = _interopRequireDefault(require("./eventHelper"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var helpers = function () {
-  var notesList = document.getElementById("notes-list");
+/// HTML helper - methods for addNote item and buttons
+var helper = function () {
+  var notesList = document.getElementById('notes-list');
 
   function createButtons(parent, id) {
     var buttonEdit = document.createElement('button');
@@ -1907,68 +1940,87 @@ var helpers = function () {
     buttonDelete.classList.add('delete-btn');
     buttonEdit.id = 'edit-' + id;
     buttonDelete.id = 'delete-' + id;
-    buttonDelete.addEventListener("click", _eventHelper.default.deleteNote);
+    buttonDelete.addEventListener('click', _eventHelper.default.deleteNote);
+    buttonEdit.addEventListener('click', _eventHelper.default.editNote);
     parent.appendChild(buttonEdit);
     parent.appendChild(buttonDelete);
   }
 
-  function deleteNote() {}
-
   module.exports = {
     addNoteHTML: function addNoteHTML(note) {
-      var listItem = document.createElement("li");
+      var listItem = document.createElement('li');
+      var textSpan = document.createElement('span');
       listItem.id = 'note-' + note.id;
-      listItem.innerText = note.description;
+      textSpan.id = 'text-' + note.id;
+      textSpan.innerText = note.description;
+      listItem.appendChild(textSpan);
       createButtons(listItem, note.id);
       notesList.appendChild(listItem);
     }
   };
 }();
-},{"./eventHelper":"eventHelper.js"}],"index.js":[function(require,module,exports) {
+},{"./eventHelper":"eventHelper.js"}],"engine.js":[function(require,module,exports) {
 "use strict";
-
-var _noteService = _interopRequireDefault(require("./noteService"));
 
 var _helper = _interopRequireDefault(require("./helper"));
 
 var _eventHelper = _interopRequireDefault(require("./eventHelper"));
 
+var _noteService = _interopRequireDefault(require("./noteService"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var submitButton = document.getElementById("submit-btn");
-console.log(_eventHelper.default);
-loadAllNotes();
-submitButton.addEventListener("click", _eventHelper.default.addNewNote);
+// imports all modules
+var engine = function () {
+  module.exports = {
+    run: function run() {
+      var submitButton = document.getElementById("submit-btn");
+      var editButton = document.getElementById("save-btn");
+      submitButton.addEventListener("click", _eventHelper.default.addNewNote);
+      editButton.addEventListener("click", _eventHelper.default.saveEditedNote);
+      loadAllNotes();
 
-function loadAllNotes() {
-  _noteService.default.getNotes().then(function (response) {
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
+      function loadAllNotes() {
+        _noteService.default.getNotes().then(function (response) {
+          var _iteratorNormalCompletion = true;
+          var _didIteratorError = false;
+          var _iteratorError = undefined;
 
-    try {
-      for (var _iterator = response.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var note = _step.value;
+          try {
+            for (var _iterator = response.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+              var note = _step.value;
 
-        _helper.default.addNoteHTML(note);
-      }
-    } catch (err) {
-      _didIteratorError = true;
-      _iteratorError = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion && _iterator.return != null) {
-          _iterator.return();
-        }
-      } finally {
-        if (_didIteratorError) {
-          throw _iteratorError;
-        }
+              _helper.default.addNoteHTML(note);
+            }
+          } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion && _iterator.return != null) {
+                _iterator.return();
+              }
+            } finally {
+              if (_didIteratorError) {
+                throw _iteratorError;
+              }
+            }
+          }
+        });
       }
     }
-  });
-}
-},{"./noteService":"noteService.js","./helper":"helper.js","./eventHelper":"eventHelper.js"}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  };
+}();
+},{"./helper":"helper.js","./eventHelper":"eventHelper.js","./noteService":"noteService.js"}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _engine = _interopRequireDefault(require("./engine"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// main file
+_engine.default.run();
+},{"./engine":"engine.js"}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1996,7 +2048,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58758" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61728" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

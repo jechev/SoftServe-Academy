@@ -1,0 +1,38 @@
+span {
+  font-size: 16px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+li {
+  margin: 10px;
+  display: inline-block;
+  border: 3px solid green;
+  padding: 5px;
+}
+
+.edit-btn {
+  margin-left: 10px;
+  background-color: burlywood;
+  font-size: 14px;
+}
+
+.delete-btn {
+  margin-left: 2px;
+  background-color: red;
+  font-size: 14px;
+}
+
+form[name="editForm"] {
+  display: none;
+}
+
+#forms {
+  text-align: center;
+}
+
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */

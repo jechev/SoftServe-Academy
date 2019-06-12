@@ -1,17 +1,22 @@
 <html>
     <head>
-        
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <form name="noteForm">
-            <input type="text" name="description" id="description">
-            <button type="button" value="Add" id="submit-btn">Add</button>
-        </form>
+        <div id="forms">
+            <form name="noteForm">
+                <input type="text" name="description" id="description">
+                <button type="button" value="Add" id="submit-btn">Add</button>
+            </form>
+            <form name="editForm">
+                <input type="hidden" name="note-id" id="note-id">
+                <input type="text" name="edit-description" id="edit-description">
+                <button type="button" value="Save Changes" id="save-btn">Save Changes</button>
+            </form>
+        </div>
         <div id="notes-container">
             <ul id="notes-list"></ul>
         </div>
-        
-        <script src="index.js"></script>
-        
+        <script src="index.js"></script> 
     </body>
 </html>

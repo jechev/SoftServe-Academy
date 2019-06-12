@@ -1,14 +1,16 @@
+/// HTML helper - methods for addNote item and buttons
 import eventHelper from './eventHelper';
 
-const helpers = (function() {
+const helper = (function() {
   
-  const notesList = document.getElementById("notes-list");
+  const notesList = document.getElementById('notes-list');
 
   function createButtons(parent, id) {
     let buttonEdit = document.createElement('button');
     let buttonDelete = document.createElement('button');
-    buttonEdit.innerHTML = 'Edit'
-    buttonDelete.innerHTML = 'Delete'
+
+    buttonEdit.innerHTML = 'Edit';
+    buttonDelete.innerHTML = 'Delete';
   
     buttonEdit.classList.add('edit-btn');
     buttonDelete.classList.add('delete-btn');
@@ -16,22 +18,23 @@ const helpers = (function() {
     buttonEdit.id = 'edit-' + id;
     buttonDelete.id ='delete-' + id;
     
-    buttonDelete.addEventListener("click", eventHelper.deleteNote);
-  
+    buttonDelete.addEventListener('click', eventHelper.deleteNote);
+    buttonEdit.addEventListener('click', eventHelper.editNote);
+    
     parent.appendChild(buttonEdit);
     parent.appendChild(buttonDelete);
   }
 
-  function deleteNote() {
-
-  }
-
-
   module.exports = {
-    addNoteHTML : function(note) {
-      let listItem = document.createElement("li");
+    addNoteHTML: function(note) {
+      let listItem = document.createElement('li');
+      let textSpan = document.createElement('span');
+
       listItem.id = 'note-' + note.id;
-      listItem.innerText = note.description;
+      textSpan.id = 'text-' + note.id;
+      textSpan.innerText = note.description;
+
+      listItem.appendChild(textSpan);
       createButtons(listItem, note.id);
       notesList.appendChild(listItem);
     }
