@@ -4,11 +4,11 @@
     </head>
     <body>
         <div id="forms">
-            <form name="noteForm">
+            <form name="noteForm" method="POST">
                 <input type="text" name="description" id="description">
                 <button type="button" value="Add" id="submit-btn">Add</button>
             </form>
-            <form name="editForm">
+            <form name="editForm" method="POST">
                 <input type="hidden" name="note-id" id="note-id">
                 <input type="text" name="edit-description" id="edit-description">
                 <button type="button" value="Save Changes" id="save-btn">Save Changes</button>

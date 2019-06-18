@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$.ONPo9xyD7Nx4iQR3Lg.UuwfcjB7IVhDTm3PPv9zAtZ9fPc82Uj5G",
+      "id": 1
+    },
+    {
+      "email": "olivier1@mail.com",
+      "password": "$2a$10$YU97WuZ0DY0CFgyN7yPMAeSduyz1d96U2/n1lAY2AFsvqJaZ9UXDK",
+      "id": 2
+    },
+    {
+      "email": "dda@abv.bg",
+      "password": "$2a$10$HPUhZ7OL0hdJD1b7SZCaE.chEuecfADBJmNhLwijHu9leJeVpZVQi",
+      "id": 3
+    },
+    {
+      "email": "olivier12@mail.com",
+      "password": "$2a$10$yqZqlCxSVU9Ug1jxyfp3x.LkdPI8xmkN.v6diCiQX.TM5kdWQza6y",
+      "id": 4
+    },
+    {
+      "email": "jechkata@gmail.com",
+      "password": "$2a$10$i6QXJ1WPTOoSCqIc4.1ShuI1crJjep1dM.WqIXwBoNUBSdL1gIqB2",
+      "id": 5
+    },
+    {
+      "email": "olivier123@mail.com",
+      "password": "$2a$10$m0JZb1f8lVT3OvpiAe8qPONcMdJnm7WNAjCw4ivlBqRvCWMl6bV.y",
+      "id": 6
+    },
+    {
+      "email": "goshko@abv.bg",
+      "password": "$2a$10$oUqI/MBafkYZpBYC0zwweusVswqm5QZpmgio8WrfO/c3OE.CqI0dO",
+      "id": 7
+    }
+  ]
+}
