@@ -1,40 +1,36 @@
-const userService = (function() {
-  const baseUrl = 'http://localhost:3000/';
+const axios = require("axios");
 
-  function register(email, password) {
-    return axios.post(baseUrl + 'register', {
-      email: email,
-      password: password 
-    });
+class userService {
+  constructor() {
+    this.baseUrl = "http://localhost:3000/";
   }
 
-  function login(email, password) {
-    return axios.post(baseUrl + 'login', {
+  register(email, password) {
+    return axios.post(this.baseUrl + "register", {
       email: email,
       password: password
     });
   }
 
-  function saveToken(res) {
-    sessionStorage.setItem('accessToken', res.data.accessToken);
-    sessionStorage.setItem('email', JSON.parse(res.config.data).email);
+  login(email, password) {
+    return axios.post(this.baseUrl + "login", {
+      email: email,
+      password: password
+    });
   }
 
-  function isAuth() {
-    return sessionStorage.getItem('accessToken') !== null;
+  saveToken(res) {
+    sessionStorage.setItem("accessToken", res.data.accessToken);
+    sessionStorage.setItem("email", JSON.parse(res.config.data).email);
   }
 
-  function logout() {
-    sessionStorage.clear()
+  isAuth() {
+    return sessionStorage.getItem("accessToken") !== null;
   }
 
-  return {
-    register,
-    login,
-    saveToken,
-    isAuth,
-    logout
+  logout() {
+    sessionStorage.clear();
   }
+}
 
-
-}());
+module.exports = new userService();
