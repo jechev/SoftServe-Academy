@@ -34,6 +34,11 @@
       "email": "goshko@abv.bg",
       "password": "$2a$10$oUqI/MBafkYZpBYC0zwweusVswqm5QZpmgio8WrfO/c3OE.CqI0dO",
       "id": 7
+    },
+    {
+      "email": "demo@demo.bg",
+      "password": "$2a$10$yf3EB53yIAJJvJ0ALn0TVufMv1dBbpfcy.QTZ74USFgdtTrOoGAiy",
+      "id": 8
     }
   ]
 }

@@ -1,24 +1,37 @@
+import Mustache from "mustache";
+
 import userService from "../services/user-service";
 
-import home from "../../views/shared/header.html";
+import homePage from "../../views/home/homePage.mst";
+import header from "../../views/shared/header.mst";
+import footer from "../../views/shared/footer.mst";
 
-//console.log(html);
 class HomeController {
   getHome(ctx) {
     ctx.isAuth = userService.isAuth();
-    //ctx.email = sessionStorage.getItem("email");
-    console.log("Home controller");
-    console.log(userService);
-    console.log(ctx);
-    let main = document.getElementById("main");
-    main.innerHTML = home;
-    //ctx.partial(home);
-    // .then(function() {
-    //   this.partial("../../views/home/homePage.hbs");
-    // })
-    // .catch(function(err) {
-    //   console.log(err);
-    // });
+    ctx.email = sessionStorage.getItem("email");
+
+    // ctx.partial(
+    //   Mustache.render(
+    //     homePage,
+    //     {},
+    //     {
+    //       header: header,
+    //       footer: footer
+    //     }
+    //   )
+    // );
+    ctx
+      .loadPartials({
+        header: header,
+        footer: footer
+      })
+      .then(function() {
+        this.partial(homePage);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   }
 }
 
