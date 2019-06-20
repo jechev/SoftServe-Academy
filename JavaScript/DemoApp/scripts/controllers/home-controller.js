@@ -1,5 +1,4 @@
 import Mustache from "mustache";
-
 import userService from "../services/user-service";
 
 import homePage from "../../views/home/homePage.mst";
@@ -11,16 +10,6 @@ class HomeController {
     ctx.isAuth = userService.isAuth();
     ctx.email = sessionStorage.getItem("email");
 
-    // ctx.partial(
-    //   Mustache.render(
-    //     homePage,
-    //     {},
-    //     {
-    //       header: header,
-    //       footer: footer
-    //     }
-    //   )
-    // );
     ctx
       .loadPartials({
         header: header,
@@ -28,9 +17,6 @@ class HomeController {
       })
       .then(function() {
         this.partial(homePage);
-      })
-      .catch(function(err) {
-        console.log(err);
       });
   }
 }

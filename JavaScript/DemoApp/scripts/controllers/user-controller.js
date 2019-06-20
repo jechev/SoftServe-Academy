@@ -1,4 +1,6 @@
 import alertify from "alertifyjs";
+import "alertifyjs/build/css/alertify.min.css";
+import "alertifyjs/build/css/themes/default.min.css";
 import userService from "../services/user-service";
 
 import header from "../../views/shared/header.mst";
@@ -15,9 +17,6 @@ class UserController {
       })
       .then(function() {
         this.partial(registerPage);
-      })
-      .catch(function(err) {
-        console.log(err);
       });
   }
 
@@ -28,17 +27,15 @@ class UserController {
     userService
       .register(email, password)
       .then(res => {
-        console.log(res);
+        alertify.success("You have successfully registered!");
         ctx.redirect("#/home");
       })
       .catch(function(err) {
-        console.log(err);
+        alertify.error(err.response.data);
       });
   }
 
   getLogin(ctx) {
-    console.log("login");
-
     ctx
       .loadPartials({
         header: header,
@@ -46,9 +43,6 @@ class UserController {
       })
       .then(function() {
         this.partial(loginPage);
-      })
-      .catch(function(err) {
-        console.log(err);
       });
   }
 
@@ -59,13 +53,14 @@ class UserController {
     userService
       .login(email, password)
       .then(res => {
-        alertify.success("ok");
+        console.log(res);
+        alertify.success("You are successfully logged in");
         userService.saveToken(res);
         ctx.redirect("#/home");
       })
       .catch(function(err) {
-        alertify.error("err");
         console.log(err);
+        alertify.error(err.response.data);
       });
   }
 
