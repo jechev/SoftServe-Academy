@@ -40,5 +40,81 @@
       "password": "$2a$10$yf3EB53yIAJJvJ0ALn0TVufMv1dBbpfcy.QTZ74USFgdtTrOoGAiy",
       "id": 8
     }
+  ],
+  "books": [
+    {
+      "title": "demoBook",
+      "author": "Mastera",
+      "pages": "666",
+      "genre": "Autobiography",
+      "id": 1
+    },
+    {
+      "title": "demo2",
+      "author": "demo2",
+      "pages": "1111",
+      "genre": "Art",
+      "id": 2
+    },
+    {
+      "title": "dada",
+      "author": "dada",
+      "pages": "1111",
+      "genre": "Art",
+      "id": 3
+    },
+    {
+      "title": "dada",
+      "author": "dada",
+      "pages": "2111",
+      "genre": "Art",
+      "id": 4
+    },
+    {
+      "title": "dada",
+      "author": "dada",
+      "pages": "11",
+      "genre": "Art",
+      "id": 5
+    },
+    {
+      "title": "dada",
+      "author": "dada",
+      "pages": "11",
+      "genre": "Art",
+      "id": 6
+    },
+    {
+      "userId": 0,
+      "title": "dada",
+      "author": "11",
+      "pages": "111",
+      "genre": "Guide",
+      "id": 7
+    },
+    {
+      "userId": 0,
+      "title": "dada",
+      "author": "11",
+      "pages": "111",
+      "genre": "Guide",
+      "id": 8
+    },
+    {
+      "userId": 8,
+      "title": "demo4",
+      "author": "demo5",
+      "pages": "111",
+      "genre": "Autobiography",
+      "id": 9
+    },
+    {
+      "userId": 8,
+      "title": "demo5",
+      "author": "demo5",
+      "pages": "111",
+      "genre": "Art",
+      "id": 10
+    }
   ]
 }

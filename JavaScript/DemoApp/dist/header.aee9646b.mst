@@ -7,6 +7,9 @@
             </li>
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item">
+                    <a class="nav-link" href="#/addBook">Add Book</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Welcome, {{email}}</a>
                 </li>
                 <li class="nav-item">

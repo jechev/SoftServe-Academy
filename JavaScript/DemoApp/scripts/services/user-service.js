@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from "axios";
 
 class userService {
   constructor() {
@@ -30,6 +30,11 @@ class userService {
 
   logout() {
     sessionStorage.clear();
+  }
+
+  getUserInfo() {
+    let email = sessionStorage.getItem("email");
+    return axios.get(this.baseUrl + "users/?email=" + email);
   }
 }
 

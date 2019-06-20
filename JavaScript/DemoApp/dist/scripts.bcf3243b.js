@@ -2517,13 +2517,17 @@ module.exports.default = axios;
 },{"./utils":"node_modules/axios/lib/utils.js","./helpers/bind":"node_modules/axios/lib/helpers/bind.js","./core/Axios":"node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"node_modules/axios/lib/core/mergeConfig.js","./defaults":"node_modules/axios/lib/defaults.js","./cancel/Cancel":"node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"node_modules/axios/lib/helpers/spread.js"}],"node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 },{"./lib/axios":"node_modules/axios/lib/axios.js"}],"scripts/services/user-service.js":[function(require,module,exports) {
+"use strict";
+
+var _axios = _interopRequireDefault(require("axios"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var axios = require("axios");
 
 var userService =
 /*#__PURE__*/
@@ -2537,7 +2541,7 @@ function () {
   _createClass(userService, [{
     key: "register",
     value: function register(email, password) {
-      return axios.post(this.baseUrl + "register", {
+      return _axios.default.post(this.baseUrl + "register", {
         email: email,
         password: password
       });
@@ -2545,7 +2549,7 @@ function () {
   }, {
     key: "login",
     value: function login(email, password) {
-      return axios.post(this.baseUrl + "login", {
+      return _axios.default.post(this.baseUrl + "login", {
         email: email,
         password: password
       });
@@ -2565,6 +2569,12 @@ function () {
     key: "logout",
     value: function logout() {
       sessionStorage.clear();
+    }
+  }, {
+    key: "getUserInfo",
+    value: function getUserInfo() {
+      var email = sessionStorage.getItem("email");
+      return _axios.default.get(this.baseUrl + "users/?email=" + email);
     }
   }]);
 
@@ -6420,12 +6430,119 @@ function () {
 }();
 
 module.exports = new UserController();
-},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst","../../views/user/loginPage.mst":"views/user/loginPage.mst","../../views/user/registerPage.mst":"views/user/registerPage.mst"}],"scripts/index.js":[function(require,module,exports) {
+},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst","../../views/user/loginPage.mst":"views/user/loginPage.mst","../../views/user/registerPage.mst":"views/user/registerPage.mst"}],"scripts/services/book-service.js":[function(require,module,exports) {
+"use strict";
+
+var _axios = _interopRequireDefault(require("axios"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var BookService =
+/*#__PURE__*/
+function () {
+  function BookService() {
+    _classCallCheck(this, BookService);
+
+    this.baseUrl = "http://localhost:3000/books";
+  }
+
+  _createClass(BookService, [{
+    key: "addBook",
+    value: function addBook(book) {
+      return _axios.default.post(this.baseUrl, book);
+    }
+  }]);
+
+  return BookService;
+}();
+
+module.exports = new BookService();
+},{"axios":"node_modules/axios/index.js"}],"views/book/addBook.mst":[function(require,module,exports) {
+module.exports = "/addBook.0128200d.mst";
+},{}],"scripts/controllers/book-controller.js":[function(require,module,exports) {
+"use strict";
+
+var _alertifyjs = _interopRequireDefault(require("alertifyjs"));
+
+require("alertifyjs/build/css/alertify.min.css");
+
+require("alertifyjs/build/css/themes/default.min.css");
+
+var _userService = _interopRequireDefault(require("../services/user-service"));
+
+var _bookService = _interopRequireDefault(require("../services/book-service"));
+
+var _header = _interopRequireDefault(require("../../views/shared/header.mst"));
+
+var _footer = _interopRequireDefault(require("../../views/shared/footer.mst"));
+
+var _addBook = _interopRequireDefault(require("../../views/book/addBook.mst"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var BookController =
+/*#__PURE__*/
+function () {
+  function BookController() {
+    _classCallCheck(this, BookController);
+  }
+
+  _createClass(BookController, [{
+    key: "getAddBook",
+    value: function getAddBook(ctx) {
+      ctx.loadPartials({
+        header: _header.default,
+        footer: _footer.default
+      }).then(function () {
+        this.partial(_addBook.default);
+      });
+    }
+  }, {
+    key: "addBook",
+    value: function addBook(ctx) {
+      var book = {};
+
+      _userService.default.getUserInfo().then(function (res) {
+        book.userId = res.data[0].id;
+        book.title = ctx.params.title;
+        book.author = ctx.params.author;
+        book.pages = ctx.params.pages;
+        book.genre = ctx.params.genre;
+        return _bookService.default.addBook(book);
+      }).then(function (res) {
+        _alertifyjs.default.success("You added new book");
+
+        ctx.redirect("#/home");
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }]);
+
+  return BookController;
+}();
+
+module.exports = new BookController();
+},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst","../../views/book/addBook.mst":"views/book/addBook.mst"}],"scripts/index.js":[function(require,module,exports) {
 "use strict";
 
 var _homeController = _interopRequireDefault(require("./controllers/home-controller"));
 
 var _userController = _interopRequireDefault(require("./controllers/user-controller"));
+
+var _bookController = _interopRequireDefault(require("./controllers/book-controller"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6439,9 +6556,11 @@ var app = Sammy("#main", function () {
   this.post("#/register", _userController.default.registerUser);
   this.post("#/login", _userController.default.loginUser);
   this.get("#/logout", _userController.default.logoutUser);
+  this.get("#/addBook", _bookController.default.getAddBook);
+  this.post("#/addBook", _bookController.default.addBook);
 });
 app.run("#/home"); // run json server - json-server db.json -m ./node_modules/json-server-auth
-},{"./controllers/home-controller":"scripts/controllers/home-controller.js","./controllers/user-controller":"scripts/controllers/user-controller.js"}],"../../../../AppData/Roaming/npm-cache/_npx/62324/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./controllers/home-controller":"scripts/controllers/home-controller.js","./controllers/user-controller":"scripts/controllers/user-controller.js","./controllers/book-controller":"scripts/controllers/book-controller.js"}],"../../../../AppData/Roaming/npm-cache/_npx/81980/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -6469,7 +6588,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64067" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51876" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -6644,5 +6763,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../AppData/Roaming/npm-cache/_npx/62324/node_modules/parcel/src/builtins/hmr-runtime.js","scripts/index.js"], null)
+},{}]},{},["../../../../AppData/Roaming/npm-cache/_npx/81980/node_modules/parcel/src/builtins/hmr-runtime.js","scripts/index.js"], null)
 //# sourceMappingURL=/scripts.bcf3243b.js.map
