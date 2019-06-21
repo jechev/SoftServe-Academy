@@ -17,6 +17,11 @@ const app = Sammy("#main", function() {
 
   this.get("#/addBook", bookController.getAddBook);
   this.post("#/addBook", bookController.addBook);
+  this.get("#/books/:id", bookController.getBookDetail);
+  this.get("/books/delete/:id", bookController.deleteBook);
+  this.get("/books/edit/:id", bookController.getEditBookDetail);  
+  this.post("/books/edit/:id", bookController.editBook);
+  
 });
 app.run("#/home");
 

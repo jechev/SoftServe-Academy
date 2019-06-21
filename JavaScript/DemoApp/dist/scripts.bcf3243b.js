@@ -1779,7 +1779,7 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-},{"./../utils":"node_modules/axios/lib/utils.js","./../core/settle":"node_modules/axios/lib/core/settle.js","./../helpers/buildURL":"node_modules/axios/lib/helpers/buildURL.js","./../helpers/parseHeaders":"node_modules/axios/lib/helpers/parseHeaders.js","./../helpers/isURLSameOrigin":"node_modules/axios/lib/helpers/isURLSameOrigin.js","../core/createError":"node_modules/axios/lib/core/createError.js","./../helpers/cookies":"node_modules/axios/lib/helpers/cookies.js"}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
+},{"./../utils":"node_modules/axios/lib/utils.js","./../core/settle":"node_modules/axios/lib/core/settle.js","./../helpers/buildURL":"node_modules/axios/lib/helpers/buildURL.js","./../helpers/parseHeaders":"node_modules/axios/lib/helpers/parseHeaders.js","./../helpers/isURLSameOrigin":"node_modules/axios/lib/helpers/isURLSameOrigin.js","../core/createError":"node_modules/axios/lib/core/createError.js","./../helpers/cookies":"node_modules/axios/lib/helpers/cookies.js"}],"../../../../AppData/Roaming/npm-cache/_npx/10364/node_modules/parcel/node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -2089,7 +2089,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-},{"./utils":"node_modules/axios/lib/utils.js","./helpers/normalizeHeaderName":"node_modules/axios/lib/helpers/normalizeHeaderName.js","./adapters/http":"node_modules/axios/lib/adapters/xhr.js","./adapters/xhr":"node_modules/axios/lib/adapters/xhr.js","process":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js"}],"node_modules/axios/lib/helpers/isAbsoluteURL.js":[function(require,module,exports) {
+},{"./utils":"node_modules/axios/lib/utils.js","./helpers/normalizeHeaderName":"node_modules/axios/lib/helpers/normalizeHeaderName.js","./adapters/http":"node_modules/axios/lib/adapters/xhr.js","./adapters/xhr":"node_modules/axios/lib/adapters/xhr.js","process":"../../../../AppData/Roaming/npm-cache/_npx/10364/node_modules/parcel/node_modules/process/browser.js"}],"node_modules/axios/lib/helpers/isAbsoluteURL.js":[function(require,module,exports) {
 'use strict';
 
 /**
@@ -2610,9 +2610,29 @@ function () {
       return _axios.default.get(this.baseUrl);
     }
   }, {
+    key: "getBookById",
+    value: function getBookById(id) {
+      return _axios.default.get(this.baseUrl + "/" + id);
+    }
+  }, {
     key: "addBook",
     value: function addBook(book) {
       return _axios.default.post(this.baseUrl, book);
+    }
+  }, {
+    key: "deleteBook",
+    value: function deleteBook(id) {
+      return _axios.default.delete(this.baseUrl + "/" + id);
+    }
+  }, {
+    key: "editBook",
+    value: function editBook(id, title, author, genre, pages) {
+      return _axios.default.patch(this.baseUrl + "/" + id, {
+        title: title,
+        author: author,
+        genre: genre,
+        pages: pages
+      });
     }
   }]);
 
@@ -6292,7 +6312,7 @@ var define;
 
 } ( typeof window !== 'undefined' ? window : this ) );
 
-},{}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{}],"../../../../AppData/Roaming/npm-cache/_npx/10364/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -6324,7 +6344,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../../AppData/Roaming/npm-cache/_npx/10364/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -6359,19 +6379,19 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/alertifyjs/build/css/alertify.min.css":[function(require,module,exports) {
+},{"./bundle-url":"../../../../AppData/Roaming/npm-cache/_npx/10364/node_modules/parcel/src/builtins/bundle-url.js"}],"node_modules/alertifyjs/build/css/alertify.min.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/alertifyjs/build/css/themes/default.min.css":[function(require,module,exports) {
+},{"_css_loader":"../../../../AppData/Roaming/npm-cache/_npx/10364/node_modules/parcel/src/builtins/css-loader.js"}],"node_modules/alertifyjs/build/css/themes/default.min.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"views/user/loginPage.mst":[function(require,module,exports) {
+},{"_css_loader":"../../../../AppData/Roaming/npm-cache/_npx/10364/node_modules/parcel/src/builtins/css-loader.js"}],"views/user/loginPage.mst":[function(require,module,exports) {
 module.exports = "/loginPage.13a9fb86.mst";
 },{}],"views/user/registerPage.mst":[function(require,module,exports) {
 module.exports = "/registerPage.617fd4fa.mst";
@@ -6452,9 +6472,13 @@ function () {
       _userService.default.login(email, password).then(function (res) {
         console.log(res);
 
-        _alertifyjs.default.success("You are successfully logged in");
-
         _userService.default.saveToken(res);
+
+        return _userService.default.getUserInfo();
+      }).then(function (res) {
+        sessionStorage.setItem("userId", res.data[0].id);
+
+        _alertifyjs.default.success("You are successfully logged in");
 
         ctx.redirect("#/home");
       }).catch(function (err) {
@@ -6478,6 +6502,10 @@ function () {
 module.exports = new UserController();
 },{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst","../../views/user/loginPage.mst":"views/user/loginPage.mst","../../views/user/registerPage.mst":"views/user/registerPage.mst"}],"views/book/addBook.mst":[function(require,module,exports) {
 module.exports = "/addBook.0128200d.mst";
+},{}],"views/book/detailBook.mst":[function(require,module,exports) {
+module.exports = "/detailBook.b8a97bc0.mst";
+},{}],"views/book/editBook.mst":[function(require,module,exports) {
+module.exports = "/editBook.394aeb92.mst";
 },{}],"scripts/controllers/book-controller.js":[function(require,module,exports) {
 "use strict";
 
@@ -6497,6 +6525,10 @@ var _footer = _interopRequireDefault(require("../../views/shared/footer.mst"));
 
 var _addBook = _interopRequireDefault(require("../../views/book/addBook.mst"));
 
+var _detailBook = _interopRequireDefault(require("../../views/book/detailBook.mst"));
+
+var _editBook = _interopRequireDefault(require("../../views/book/editBook.mst"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6515,6 +6547,7 @@ function () {
   _createClass(BookController, [{
     key: "getAddBook",
     value: function getAddBook(ctx) {
+      ctx.isAuth = _userService.default.isAuth();
       ctx.loadPartials({
         header: _header.default,
         footer: _footer.default
@@ -6523,23 +6556,178 @@ function () {
       });
     }
   }, {
+    key: "getBookDetail",
+    value: function getBookDetail(ctx) {
+      ctx.isAuth = _userService.default.isAuth();
+      var bookId = ctx.params.id;
+
+      _bookService.default.getBookById(bookId).then(function (res) {
+        ctx.book = res.data;
+        var currentUserId = sessionStorage.getItem("userId");
+        ctx.isCreator = Number(currentUserId) === Number(ctx.book.userId) ? true : false;
+        ctx.loadPartials({
+          header: _header.default,
+          footer: _footer.default
+        }).then(function () {
+          this.partial(_detailBook.default);
+        });
+      });
+    }
+  }, {
+    key: "getEditBookDetail",
+    value: function getEditBookDetail(ctx) {
+      ctx.isAuth = _userService.default.isAuth();
+      var bookId = ctx.params.id;
+
+      _bookService.default.getBookById(bookId).then(function (res) {
+        ctx.book = res.data;
+
+        switch (ctx.book.genre) {
+          case "Art":
+            ctx.artCheck = true;
+            break;
+
+          case "Autobiography":
+            ctx.autobiographyCheck = true;
+            break;
+
+          case "Biography":
+            ctx.biographyCheck = true;
+            break;
+
+          case "Book review":
+            ctx.bookReviewCheck = true;
+            break;
+
+          case "Cookbook":
+            ctx.cookbookCheck = true;
+            break;
+
+          case "Diary":
+            ctx.diaryCheck = true;
+            break;
+
+          case "Dictionary":
+            ctx.dictionaryCheck = true;
+            break;
+
+          case "Encyclopedia":
+            ctx.encyclopediaCheck = true;
+            break;
+
+          case "Guide":
+            ctx.guideCheck = true;
+            break;
+
+          case "Health":
+            ctx.healthCheck = true;
+            break;
+
+          case "History":
+            ctx.historyCheck = true;
+            break;
+
+          case "Journal":
+            ctx.journalCheck = true;
+            break;
+
+          case "Math":
+            ctx.mathCheck = true;
+            break;
+
+          case "Memoir":
+            ctx.memoirCheck = true;
+            break;
+
+          case "prayer":
+            ctx.prayerCheck = true;
+            break;
+
+          case "Religion":
+            ctx.religionCheck = true;
+            break;
+
+          case "Textbook":
+            ctx.textbookCheck = true;
+            break;
+
+          case "Review":
+            ctx.reviewCheck = true;
+            break;
+
+          case "Sciene":
+            ctx.scienceCheck = true;
+            break;
+
+          case "Self help":
+            ctx.selfHelpCheck = true;
+            break;
+
+          case "Travel":
+            ctx.travelCheck = true;
+            break;
+
+          default:
+            console.log("default");
+            break;
+        }
+
+        ctx.loadPartials({
+          header: _header.default,
+          footer: _footer.default
+        }).then(function () {
+          this.partial(_editBook.default);
+        });
+      });
+    }
+  }, {
+    key: "editBook",
+    value: function editBook(ctx) {
+      var bookId = ctx.params.id;
+      var newTitle = ctx.params.title;
+      var newAuthor = ctx.params.author;
+      var newGenre = ctx.params.genre;
+      var newPages = ctx.params.pages;
+
+      _bookService.default.editBook(bookId, newTitle, newAuthor, newGenre, newPages).then(function (res) {
+        _alertifyjs.default.success("You edit the book.");
+
+        ctx.redirect("#/books/" + bookId);
+      }).catch(function (err) {
+        console.log(err);
+      });
+
+      console.log(ctx);
+    }
+  }, {
     key: "addBook",
     value: function addBook(ctx) {
       var book = {};
+      book.userId = sessionStorage.getItem("userId");
+      book.title = ctx.params.title;
+      book.author = ctx.params.author;
+      book.pages = ctx.params.pages;
+      book.genre = ctx.params.genre;
 
-      _userService.default.getUserInfo().then(function (res) {
-        book.userId = res.data[0].id;
-        book.title = ctx.params.title;
-        book.author = ctx.params.author;
-        book.pages = ctx.params.pages;
-        book.genre = ctx.params.genre;
-        return _bookService.default.addBook(book);
-      }).then(function (res) {
+      _bookService.default.addBook(book).then(function (res) {
         _alertifyjs.default.success("You added new book");
 
         ctx.redirect("#/home");
       }).catch(function (err) {
         console.log(err);
+      });
+    }
+  }, {
+    key: "deleteBook",
+    value: function deleteBook(ctx) {
+      var bookId = ctx.params.id;
+
+      _bookService.default.deleteBook(bookId).then(function (res) {
+        _alertifyjs.default.success("You deleted the book.");
+
+        ctx.redirect("#/home");
+      }).catch(function (err) {
+        _alertifyjs.default.console.error(err);
       });
     }
   }]);
@@ -6548,7 +6736,7 @@ function () {
 }();
 
 module.exports = new BookController();
-},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst","../../views/book/addBook.mst":"views/book/addBook.mst"}],"scripts/index.js":[function(require,module,exports) {
+},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst","../../views/book/addBook.mst":"views/book/addBook.mst","../../views/book/detailBook.mst":"views/book/detailBook.mst","../../views/book/editBook.mst":"views/book/editBook.mst"}],"scripts/index.js":[function(require,module,exports) {
 "use strict";
 
 var _homeController = _interopRequireDefault(require("./controllers/home-controller"));
@@ -6571,9 +6759,13 @@ var app = Sammy("#main", function () {
   this.get("#/logout", _userController.default.logoutUser);
   this.get("#/addBook", _bookController.default.getAddBook);
   this.post("#/addBook", _bookController.default.addBook);
+  this.get("#/books/:id", _bookController.default.getBookDetail);
+  this.get("/books/delete/:id", _bookController.default.deleteBook);
+  this.get("/books/edit/:id", _bookController.default.getEditBookDetail);
+  this.post("/books/edit/:id", _bookController.default.editBook);
 });
 app.run("#/home"); // run json server - json-server db.json -m ./node_modules/json-server-auth
-},{"./controllers/home-controller":"scripts/controllers/home-controller.js","./controllers/user-controller":"scripts/controllers/user-controller.js","./controllers/book-controller":"scripts/controllers/book-controller.js"}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./controllers/home-controller":"scripts/controllers/home-controller.js","./controllers/user-controller":"scripts/controllers/user-controller.js","./controllers/book-controller":"scripts/controllers/book-controller.js"}],"../../../../AppData/Roaming/npm-cache/_npx/10364/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -6601,7 +6793,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52617" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65039" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -6776,5 +6968,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","scripts/index.js"], null)
+},{}]},{},["../../../../AppData/Roaming/npm-cache/_npx/10364/node_modules/parcel/src/builtins/hmr-runtime.js","scripts/index.js"], null)
 //# sourceMappingURL=/scripts.bcf3243b.js.map

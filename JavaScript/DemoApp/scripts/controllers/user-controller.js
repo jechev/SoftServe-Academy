@@ -55,8 +55,12 @@ class UserController {
       .login(email, password)
       .then(res => {
         console.log(res);
-        alertify.success("You are successfully logged in");
         userService.saveToken(res);
+        return userService.getUserInfo();
+      })
+      .then(res => {
+        sessionStorage.setItem("userId", res.data[0].id);
+        alertify.success("You are successfully logged in");     
         ctx.redirect("#/home");
       })
       .catch(function(err) {

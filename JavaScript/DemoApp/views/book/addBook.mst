@@ -2,7 +2,7 @@
 <section id="addBookView">
     <div class="background-app">
         <div class="form-container">
-            <h1>Register</h1>
+            <h1>Add Book</h1>
             <form action="#/addBook" method="POST" name="addBookForm">
                 <div class="form-group">
                     <label for="title" class="white-labels">Title</label>

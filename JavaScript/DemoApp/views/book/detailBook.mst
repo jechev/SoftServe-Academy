@@ -1,0 +1,30 @@
+{{> header}}
+<div class="container">
+  <div class="row">
+    <div class="col">
+    Title - {{book.title}}
+    </div>
+    <div class="col">
+    Author - {{book.author}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    Genre - {{book.genre}}
+    </div>
+    <div class="col">
+    Pages -  {{book.pages}}
+    </div>
+  </div>
+  {{#isCreator}}
+  <div class="row">
+    <div class="col">
+        <a href="#/books/delete/{{book.id}}" class="btn btn-warning">Delete</a>
+    </div>
+    <div class="col">
+        <a href="#/books/edit/{{book.id}}" class="btn btn-info">Edit</a>
+    </div>
+  </div>
+  {{/isCreator}}
+</div>
+{{> footer}}
