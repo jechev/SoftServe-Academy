@@ -1,6 +1,26 @@
 {{> header}}
 <section id="homeView">
     <H1>Home Page</H1>
-    <p>This is demo page</p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Pages</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#books}}
+            <tr>
+            <td>{{title}}</td>
+            <td>{{author}}</td>
+            <td>{{genre}}</td>
+            <td>{{pages}}</td>
+            <td><a href="#/books/{{id}}" class="btn btn-info">Go to book</a></td>
+            </tr>
+            {{/books}}
+        </tbody>
+    </table>
 </section>
 {{> footer}}

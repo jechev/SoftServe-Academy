@@ -1,6 +1,6 @@
 body {
-  background: #333333;
-  color: white;
+  background: navajowhite;
+  color: green;
 }
 
 .background-form {
@@ -37,7 +37,8 @@ p {
   color: #333333;
 }
 
-h1, h4 {
+h1,
+h4 {
   text-align: center;
 }
 
@@ -52,8 +53,8 @@ form {
 }
 
 a {
-  color:white;
-  text-decoration:none
+  color: white;
+  text-decoration: none;
 }
 
 .white-labels {
@@ -63,11 +64,11 @@ a {
 }
 
 .btn-success {
-  background: #4B8B13;
+  background: #4b8b13;
 }
 
 .btn-danger {
-  background: #FF0100;
+  background: #ff0100;
 }
 
 .add-link {
@@ -84,7 +85,7 @@ form {
   width: 36%;
 }
 
-#homeView{
+#homeView {
   color: white;
-  padding:50px;
+  padding: 50px;
 }
