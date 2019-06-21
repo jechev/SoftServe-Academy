@@ -10,6 +10,7 @@ import footer from "../../views/shared/footer.mst";
 import addBook from "../../views/book/addBook.mst";
 import detailBook from "../../views/book/detailBook.mst"
 import editBook from "../../views/book/editBook.mst";
+import commentForm from "../../views/comment/commentForm.mst";
 
 class BookController {
   getAddBook(ctx) {
@@ -35,6 +36,7 @@ class BookController {
       ctx
       .loadPartials({
         header: header,
+        commentForm: commentForm,
         footer: footer
       })
       .then(function() {
@@ -123,6 +125,7 @@ class BookController {
       })
       .then(function() {
         this.partial(editBook);
+        console.log(document.editBookForm);
       })
     })
   }

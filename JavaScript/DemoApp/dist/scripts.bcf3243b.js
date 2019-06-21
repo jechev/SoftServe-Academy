@@ -6506,6 +6506,8 @@ module.exports = "/addBook.0128200d.mst";
 module.exports = "/detailBook.b8a97bc0.mst";
 },{}],"views/book/editBook.mst":[function(require,module,exports) {
 module.exports = "/editBook.394aeb92.mst";
+},{}],"views/comment/commentForm.mst":[function(require,module,exports) {
+module.exports = "/commentForm.09420a96.mst";
 },{}],"scripts/controllers/book-controller.js":[function(require,module,exports) {
 "use strict";
 
@@ -6528,6 +6530,8 @@ var _addBook = _interopRequireDefault(require("../../views/book/addBook.mst"));
 var _detailBook = _interopRequireDefault(require("../../views/book/detailBook.mst"));
 
 var _editBook = _interopRequireDefault(require("../../views/book/editBook.mst"));
+
+var _commentForm = _interopRequireDefault(require("../../views/comment/commentForm.mst"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6567,6 +6571,7 @@ function () {
         ctx.isCreator = Number(currentUserId) === Number(ctx.book.userId) ? true : false;
         ctx.loadPartials({
           header: _header.default,
+          commentForm: _commentForm.default,
           footer: _footer.default
         }).then(function () {
           this.partial(_detailBook.default);
@@ -6677,6 +6682,7 @@ function () {
           footer: _footer.default
         }).then(function () {
           this.partial(_editBook.default);
+          console.log(document.editBookForm);
         });
       });
     }
@@ -6736,7 +6742,7 @@ function () {
 }();
 
 module.exports = new BookController();
-},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst","../../views/book/addBook.mst":"views/book/addBook.mst","../../views/book/detailBook.mst":"views/book/detailBook.mst","../../views/book/editBook.mst":"views/book/editBook.mst"}],"scripts/index.js":[function(require,module,exports) {
+},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst","../../views/book/addBook.mst":"views/book/addBook.mst","../../views/book/detailBook.mst":"views/book/detailBook.mst","../../views/book/editBook.mst":"views/book/editBook.mst","../../views/comment/commentForm.mst":"views/comment/commentForm.mst"}],"scripts/index.js":[function(require,module,exports) {
 "use strict";
 
 var _homeController = _interopRequireDefault(require("./controllers/home-controller"));
