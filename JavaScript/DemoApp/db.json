@@ -69,10 +69,26 @@
     {
       "userId": "8",
       "title": "Origin",
-      "author": "Dawn Brown",
-      "pages": "",
-      "genre": "True crime",
+      "author": "Dawn",
+      "pages": "1111",
+      "genre": "Self help",
       "id": 12
+    }
+  ],
+  "comments": [
+    {
+      "postDate": 1561367609129,
+      "bookId": "9",
+      "userId": "8",
+      "text": "dada",
+      "id": 1
+    },
+    {
+      "postDate": 1561367611994,
+      "bookId": "9",
+      "userId": "8",
+      "text": "nene",
+      "id": 2
     }
   ]
 }

@@ -1,6 +1,7 @@
 import homeController from "./controllers/home-controller";
 import userController from "./controllers/user-controller";
 import bookController from "./controllers/book-controller";
+import commentController from "./controllers/comment-controller";
 
 const app = Sammy("#main", function() {
   this.use("Mustache", "mst");
@@ -19,9 +20,9 @@ const app = Sammy("#main", function() {
   this.post("#/addBook", bookController.addBook);
   this.get("#/books/:id", bookController.getBookDetail);
   this.get("/books/delete/:id", bookController.deleteBook);
-  this.get("/books/edit/:id", bookController.getEditBookDetail);  
+  this.get("/books/edit/:id", bookController.getEditBookDetail);
   this.post("/books/edit/:id", bookController.editBook);
-  
+  this.post("#/addComment", commentController.addComment);
 });
 app.run("#/home");
 
