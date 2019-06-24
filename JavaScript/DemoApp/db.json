@@ -48,7 +48,7 @@
       "author": "demo5",
       "pages": "111",
       "genre": "Autobiography",
-      "id": 9
+      "id": 1
     },
     {
       "userId": 8,
@@ -77,18 +77,36 @@
   ],
   "comments": [
     {
-      "postDate": 1561367609129,
-      "bookId": "9",
-      "userId": "8",
-      "text": "dada",
-      "id": 1
+      "id": 1,
+      "text": "some comment",
+      "bookId": 1,
+      "userId": 8
     },
     {
-      "postDate": 1561367611994,
-      "bookId": "9",
+      "id": 2,
+      "bookId": "1",
       "userId": "8",
-      "text": "nene",
-      "id": 2
+      "text": "demi1"
+    },
+    {
+      "bookId": "1",
+      "userId": "8",
+      "text": "demi2",
+      "id": 3
+    },
+    {
+      "bookId": 1,
+      "userId": 8,
+      "text": "demo4\r\n",
+      "postDate": 1561371750343,
+      "id": 4
+    },
+    {
+      "bookId": 1,
+      "userId": 8,
+      "text": "demo5",
+      "postDate": 1561371752722,
+      "id": 5
     }
   ]
 }

@@ -10,7 +10,7 @@ class BookService {
   }
 
   getBookById(id) {
-    return axios.get(this.baseUrl + "/" + id);
+    return axios.get(this.baseUrl + "/" + id + "?_embed=comments");
   }
 
   addBook(book) {
@@ -22,12 +22,12 @@ class BookService {
   }
 
   editBook(id, title, author, genre, pages) {
-    return axios.patch(this.baseUrl + "/" + id,{
+    return axios.patch(this.baseUrl + "/" + id, {
       title: title,
       author: author,
       genre: genre,
       pages: pages
-    })
+    });
   }
 }
 

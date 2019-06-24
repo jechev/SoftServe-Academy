@@ -2612,7 +2612,7 @@ function () {
   }, {
     key: "getBookById",
     value: function getBookById(id) {
-      return _axios.default.get(this.baseUrl + "/" + id);
+      return _axios.default.get(this.baseUrl + "/" + id + "?_embed=comments");
     }
   }, {
     key: "addBook",
@@ -6813,10 +6813,10 @@ function () {
     key: "addComment",
     value: function addComment(ctx) {
       var comment = {};
-      comment.postDate = Date.now();
-      comment.bookId = ctx.params.bookId;
-      comment.userId = ctx.params.userId;
+      comment.bookId = Number(ctx.params.bookId);
+      comment.userId = Number(ctx.params.userId);
       comment.text = ctx.params.text;
+      comment.postDate = Date.now();
 
       _commentService.default.addComment(comment).then(function (res) {
         _alertifyjs.default.success("You added new comment");

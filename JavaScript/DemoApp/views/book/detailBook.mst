@@ -26,6 +26,9 @@
     </div>
   </div>
   {{/isCreator}}
+  {{#isAuth}}
   {{> commentForm}}
+  {{/isAuth}}
+  
 </div>
 {{> footer}}

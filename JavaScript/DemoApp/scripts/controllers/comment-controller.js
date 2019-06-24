@@ -12,10 +12,10 @@ import footer from "../../views/shared/footer.mst";
 class CommentController {
   addComment(ctx) {
     let comment = {};
-    comment.postDate = Date.now();
-    comment.bookId = ctx.params.bookId;
-    comment.userId = ctx.params.userId;
+    comment.bookId = Number(ctx.params.bookId);
+    comment.userId = Number(ctx.params.userId);
     comment.text = ctx.params.text;
+    comment.postDate = Date.now();
 
     commentService
       .addComment(comment)
