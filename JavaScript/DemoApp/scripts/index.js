@@ -22,7 +22,9 @@ const app = Sammy("#main", function() {
   this.get("/books/delete/:id", bookController.deleteBook);
   this.get("/books/edit/:id", bookController.getEditBookDetail);
   this.post("/books/edit/:id", bookController.editBook);
+
   this.post("#/addComment", commentController.addComment);
+  this.get("#/comments/delete/:id", commentController.deleteComment);
 });
 app.run("#/home");
 

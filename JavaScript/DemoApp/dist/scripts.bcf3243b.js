@@ -6566,9 +6566,39 @@ function () {
       ctx.isAuth = _userService.default.isAuth();
       ctx.email = sessionStorage.getItem("email");
       var bookId = ctx.params.id;
+      console.log(ctx);
 
       _bookService.default.getBookById(bookId).then(function (res) {
         ctx.book = res.data;
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = ctx.book.comments[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var comment = _step.value;
+
+            if (comment.author === ctx.email) {
+              comment.isAuthor = true;
+            } else {
+              comment.isAuthor = false;
+            }
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return != null) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+
         var currentUserId = sessionStorage.getItem("userId");
         ctx.isCreator = Number(currentUserId) === Number(ctx.book.userId) ? true : false;
         ctx.loadPartials({
@@ -6765,9 +6795,19 @@ function () {
   }
 
   _createClass(CommentService, [{
+    key: "getCommentById",
+    value: function getCommentById(id) {
+      return _axios.default.get(this.baseUrl + "/" + id);
+    }
+  }, {
     key: "addComment",
     value: function addComment(comment) {
       return _axios.default.post(this.baseUrl, comment);
+    }
+  }, {
+    key: "deleteComment",
+    value: function deleteComment(id) {
+      return _axios.default.delete(this.baseUrl + "/" + id);
     }
   }]);
 
@@ -6813,15 +6853,35 @@ function () {
     key: "addComment",
     value: function addComment(ctx) {
       var comment = {};
+      var currentDate = new Date();
+      var formatted_date = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDate() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
       comment.bookId = Number(ctx.params.bookId);
       comment.userId = Number(ctx.params.userId);
+      comment.author = sessionStorage.getItem("email");
       comment.text = ctx.params.text;
-      comment.postDate = Date.now();
+      comment.postDate = formatted_date;
 
       _commentService.default.addComment(comment).then(function (res) {
         _alertifyjs.default.success("You added new comment");
 
         ctx.redirect("#/books/" + comment.bookId);
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }, {
+    key: "deleteComment",
+    value: function deleteComment(ctx) {
+      var commentId = ctx.params.id;
+      var bookId;
+
+      _commentService.default.getCommentById(commentId).then(function (res) {
+        bookId = res.data.bookId;
+        return _commentService.default.deleteComment(commentId);
+      }).then(function (res) {
+        _alertifyjs.default.success("You deleted comment");
+
+        ctx.redirect("#/books/" + bookId);
       }).catch(function (err) {
         console.log(err);
       });
@@ -6862,6 +6922,7 @@ var app = Sammy("#main", function () {
   this.get("/books/edit/:id", _bookController.default.getEditBookDetail);
   this.post("/books/edit/:id", _bookController.default.editBook);
   this.post("#/addComment", _commentController.default.addComment);
+  this.get("#/comments/delete/:id", _commentController.default.deleteComment);
 });
 app.run("#/home"); // run json server - json-server db.json -m ./node_modules/json-server-auth
 },{"./controllers/home-controller":"scripts/controllers/home-controller.js","./controllers/user-controller":"scripts/controllers/user-controller.js","./controllers/book-controller":"scripts/controllers/book-controller.js","./controllers/comment-controller":"scripts/controllers/comment-controller.js"}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

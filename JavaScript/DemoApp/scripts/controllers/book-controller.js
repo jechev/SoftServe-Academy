@@ -31,9 +31,16 @@ class BookController {
     ctx.isAuth = userService.isAuth();
     ctx.email = sessionStorage.getItem("email");
     let bookId = ctx.params.id;
-
+    console.log(ctx);
     bookService.getBookById(bookId).then(res => {
       ctx.book = res.data;
+      for (const comment of ctx.book.comments) {
+        if (comment.author === ctx.email) {
+          comment.isAuthor = true;
+        } else {
+          comment.isAuthor = false;
+        }
+      }
       let currentUserId = sessionStorage.getItem("userId");
       ctx.isCreator =
         Number(currentUserId) === Number(ctx.book.userId) ? true : false;

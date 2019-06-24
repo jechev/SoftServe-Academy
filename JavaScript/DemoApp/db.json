@@ -39,6 +39,11 @@
       "email": "demo@demo.bg",
       "password": "$2a$10$yf3EB53yIAJJvJ0ALn0TVufMv1dBbpfcy.QTZ74USFgdtTrOoGAiy",
       "id": 8
+    },
+    {
+      "email": "demo1@demo.bg",
+      "password": "$2a$10$e8PpogprFBypfxO73WsGwOeEQKSAinmHV2.PpJo1u9u0arJczVYHy",
+      "id": 9
     }
   ],
   "books": [
@@ -77,36 +82,12 @@
   ],
   "comments": [
     {
-      "id": 1,
-      "text": "some comment",
-      "bookId": 1,
-      "userId": 8
-    },
-    {
-      "id": 2,
-      "bookId": "1",
-      "userId": "8",
-      "text": "demi1"
-    },
-    {
-      "bookId": "1",
-      "userId": "8",
-      "text": "demi2",
-      "id": 3
-    },
-    {
       "bookId": 1,
       "userId": 8,
-      "text": "demo4\r\n",
-      "postDate": 1561371750343,
-      "id": 4
-    },
-    {
-      "bookId": 1,
-      "userId": 8,
-      "text": "demo5",
-      "postDate": 1561371752722,
-      "id": 5
+      "author": "demo@demo.bg",
+      "text": "dada",
+      "postDate": "2019-6-24 14:51:21",
+      "id": 1
     }
   ]
 }
