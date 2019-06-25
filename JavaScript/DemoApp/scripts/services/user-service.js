@@ -5,6 +5,12 @@ class userService {
     this.baseUrl = "http://localhost:3000/";
   }
 
+  userProfile(id) {
+    return axios.get(
+      this.baseUrl + "users/" + id + "?_embed=comments&_embed=books"
+    );
+  }
+
   register(email, password) {
     return axios.post(this.baseUrl + "register", {
       email: email,

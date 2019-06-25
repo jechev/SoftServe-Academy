@@ -6,19 +6,19 @@
             <form action="#/addBook" method="POST" name="addBookForm">
                 <div class="form-group">
                     <label for="title" class="white-labels">Title</label>
-                    <input type="text" name="title" class="form-control" placeholder="Title">
+                    <input type="text" name="title" class="form-control" placeholder="Title" required>
                 </div>
                 <div class="form-group">
                     <label for="author" class="white-labels">Author</label>
-                    <input type="text" name="author" class="form-control" placeholder="Author">
+                    <input type="text" name="author" class="form-control" placeholder="Author" required>
                 </div>
                 <div class="form-group">
                     <label for="pages" class="white-labels">Pages</label>
-                    <input type="number" name="pages" class="form-control" placeholder="Pages">
+                    <input type="number" name="pages" class="form-control" placeholder="Pages" required>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Art">Art
+                        <input type="radio" class="form-check-input" name="genre" value="Art" required>Art
                     </label>
                 </div>
                 <div class="form-check">

@@ -78,6 +78,22 @@
       "pages": "1111",
       "genre": "Self help",
       "id": 12
+    },
+    {
+      "userId": "8",
+      "title": "Murphy's Gramatic",
+      "author": "Murphy",
+      "pages": "356",
+      "genre": "Dictionary",
+      "id": 13
+    },
+    {
+      "userId": "8",
+      "title": "Жени",
+      "author": "Буковски",
+      "pages": "300",
+      "genre": "Art",
+      "id": 14
     }
   ],
   "comments": [
@@ -85,9 +101,41 @@
       "bookId": 1,
       "userId": 8,
       "author": "demo@demo.bg",
-      "text": "dada",
-      "postDate": "2019-6-24 14:51:21",
+      "text": "dada1",
+      "postDate": "2019-6-24 15:38:13",
       "id": 1
+    },
+    {
+      "bookId": 1,
+      "userId": 8,
+      "author": "demo@demo.bg",
+      "text": "dada2",
+      "postDate": "2019-6-24 15:38:14",
+      "id": 2
+    },
+    {
+      "bookId": 1,
+      "userId": 8,
+      "author": "demo@demo.bg",
+      "text": "dada3",
+      "postDate": "2019-6-24 15:38:16",
+      "id": 3
+    },
+    {
+      "bookId": 1,
+      "userId": 8,
+      "author": "demo@demo.bg",
+      "text": "stana li",
+      "postDate": "2019-6-25 15:26:0",
+      "id": 4
+    },
+    {
+      "bookId": 1,
+      "userId": 8,
+      "author": "demo1@demo.bg",
+      "text": "are e",
+      "postDate": "2019-6-25 15:41:28",
+      "id": 5
     }
   ]
 }

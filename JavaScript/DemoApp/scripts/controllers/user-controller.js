@@ -7,6 +7,7 @@ import userService from "../services/user-service";
 import header from "../../views/shared/header.mst";
 import footer from "../../views/shared/footer.mst";
 import loginPage from "../../views/user/loginPage.mst";
+import profile from "../../views/user/profile.mst";
 import registerPage from "../../views/user/registerPage.mst";
 
 class UserController {
@@ -54,19 +55,36 @@ class UserController {
     userService
       .login(email, password)
       .then(res => {
-        console.log(res);
         userService.saveToken(res);
         return userService.getUserInfo();
       })
       .then(res => {
         sessionStorage.setItem("userId", res.data[0].id);
-        alertify.success("You are successfully logged in");     
+        alertify.success("You are successfully logged in");
         ctx.redirect("#/home");
       })
       .catch(function(err) {
         console.log(err);
         alertify.error(err.response.data);
       });
+  }
+
+  getProfile(ctx) {
+    ctx.isAuth = userService.isAuth();
+    ctx.email = sessionStorage.getItem("email");
+    let currentUserId = sessionStorage.getItem("userId");
+    userService.userProfile(currentUserId).then(res => {
+      console.log(res);
+      ctx.user = res.data;
+      ctx
+        .loadPartials({
+          header: header,
+          footer: footer
+        })
+        .then(function() {
+          this.partial(profile);
+        });
+    });
   }
 
   logoutUser(ctx) {

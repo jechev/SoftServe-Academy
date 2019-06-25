@@ -2539,6 +2539,11 @@ function () {
   }
 
   _createClass(userService, [{
+    key: "userProfile",
+    value: function userProfile(id) {
+      return _axios.default.get(this.baseUrl + "users/" + id + "?_embed=comments&_embed=books");
+    }
+  }, {
     key: "register",
     value: function register(email, password) {
       return _axios.default.post(this.baseUrl + "register", {
@@ -6393,6 +6398,8 @@ module.exports = reloadCSS;
       
 },{"_css_loader":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"views/user/loginPage.mst":[function(require,module,exports) {
 module.exports = "/loginPage.13a9fb86.mst";
+},{}],"views/user/profile.mst":[function(require,module,exports) {
+module.exports = "/profile.99429cdb.mst";
 },{}],"views/user/registerPage.mst":[function(require,module,exports) {
 module.exports = "/registerPage.617fd4fa.mst";
 },{}],"scripts/controllers/user-controller.js":[function(require,module,exports) {
@@ -6411,6 +6418,8 @@ var _header = _interopRequireDefault(require("../../views/shared/header.mst"));
 var _footer = _interopRequireDefault(require("../../views/shared/footer.mst"));
 
 var _loginPage = _interopRequireDefault(require("../../views/user/loginPage.mst"));
+
+var _profile = _interopRequireDefault(require("../../views/user/profile.mst"));
 
 var _registerPage = _interopRequireDefault(require("../../views/user/registerPage.mst"));
 
@@ -6470,8 +6479,6 @@ function () {
       var password = ctx.params.password;
 
       _userService.default.login(email, password).then(function (res) {
-        console.log(res);
-
         _userService.default.saveToken(res);
 
         return _userService.default.getUserInfo();
@@ -6488,6 +6495,24 @@ function () {
       });
     }
   }, {
+    key: "getProfile",
+    value: function getProfile(ctx) {
+      ctx.isAuth = _userService.default.isAuth();
+      ctx.email = sessionStorage.getItem("email");
+      var currentUserId = sessionStorage.getItem("userId");
+
+      _userService.default.userProfile(currentUserId).then(function (res) {
+        console.log(res);
+        ctx.user = res.data;
+        ctx.loadPartials({
+          header: _header.default,
+          footer: _footer.default
+        }).then(function () {
+          this.partial(_profile.default);
+        });
+      });
+    }
+  }, {
     key: "logoutUser",
     value: function logoutUser(ctx) {
       _userService.default.logout();
@@ -6500,7 +6525,7 @@ function () {
 }();
 
 module.exports = new UserController();
-},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst","../../views/user/loginPage.mst":"views/user/loginPage.mst","../../views/user/registerPage.mst":"views/user/registerPage.mst"}],"views/book/addBook.mst":[function(require,module,exports) {
+},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst","../../views/user/loginPage.mst":"views/user/loginPage.mst","../../views/user/profile.mst":"views/user/profile.mst","../../views/user/registerPage.mst":"views/user/registerPage.mst"}],"views/book/addBook.mst":[function(require,module,exports) {
 module.exports = "/addBook.0128200d.mst";
 },{}],"views/book/detailBook.mst":[function(require,module,exports) {
 module.exports = "/detailBook.b8a97bc0.mst";
@@ -6910,6 +6935,7 @@ var app = Sammy("#main", function () {
   this.get("/index.html", _homeController.default.getHome);
   this.get("/", _homeController.default.getHome);
   this.get("#/home", _homeController.default.getHome);
+  this.get("#/profile", _userController.default.getProfile);
   this.get("#/register", _userController.default.getRegister);
   this.get("#/login", _userController.default.getLogin);
   this.post("#/register", _userController.default.registerUser);
@@ -6953,7 +6979,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49940" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55279" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

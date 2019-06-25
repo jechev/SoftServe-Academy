@@ -10,6 +10,7 @@ const app = Sammy("#main", function() {
   this.get("/", homeController.getHome);
   this.get("#/home", homeController.getHome);
 
+  this.get("#/profile", userController.getProfile);
   this.get("#/register", userController.getRegister);
   this.get("#/login", userController.getLogin);
   this.post("#/register", userController.registerUser);

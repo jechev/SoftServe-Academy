@@ -1,7 +1,9 @@
 {{> header}}
+
+<main role="main" class="container">
 <section id="homeView">
-    <H1>Home Page</H1>
-    <table class="table table-hover">
+    <input type="search" id="jetsSearch">
+    <table class="table table-hover" id="jetsContent">
         <thead>
             <tr>
             <th scope="col">Title</th>
@@ -23,4 +25,5 @@
         </tbody>
     </table>
 </section>
+</main>
 {{> footer}}

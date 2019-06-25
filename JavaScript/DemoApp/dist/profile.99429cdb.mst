@@ -1,0 +1,9 @@
+{{> header}}
+<section id="homeView">
+{{#user.books}}
+<div  class="col-lg-4">
+  {{title}}
+</div>
+{{/user.books}}
+</section> 
+{{> footer}}
