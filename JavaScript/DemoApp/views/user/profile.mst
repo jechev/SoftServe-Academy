@@ -1,9 +1,31 @@
 {{> header}}
-<section id="homeView">
+<main role="main" class="container">
+<h3>Your Books:</h3>
+<div class="row">
 {{#user.books}}
-<div  class="col-lg-4">
-  {{title}}
-</div>
+  <div class="col-md-4 my-book">
+    <h5>{{title}}</h5>
+    <p>Author - {{author}}, Pages - {{pages}}, Genre - {{genre}}</p>
+    <p><a class="btn btn-secondary" href="#/books/{{id}}" role="button">Go to book</a></p>
+  </div>
 {{/user.books}}
-</section> 
+  {{^user.books}}
+  <h4>No books</h4>
+  {{/user.books}}
+</div>
+
+<h3>Your comments:</h3>
+<div class="row">
+{{#user.comments}}
+  <div class="col-md-4 my-comment">
+    <h5>{{text}}</h5>
+    <span> Posted on {{postDate}}</span>
+    <p><a class="btn btn-secondary" href="#/books/{{bookId}}" role="button">Go to book</a></p>
+  </div>
+{{/user.comments}}
+{{^user.comments}}
+<h4>No comments</h4>
+{{/user.comments}}
+</div>
+</main>
 {{> footer}}

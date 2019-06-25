@@ -2,11 +2,11 @@ import axios from "axios";
 
 class BookService {
   constructor() {
-    this.baseUrl = "http://localhost:3000/books";
+    this.baseUrl = "http://localhost:3000/books/";
   }
 
-  getAllBooks() {
-    return axios.get(this.baseUrl);
+  getAllBooks(querySearch) {
+    return axios.get(this.baseUrl + querySearch);
   }
 
   getBookById(id) {

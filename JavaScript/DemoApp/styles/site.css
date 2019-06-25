@@ -10,6 +10,14 @@ form {
   display: inline-block;
 }
 
+.my-book {
+  border: 1px solid gray;
+  margin: 5px;
+}
+.my-comment {
+  border: 1px solid gray;
+  margin: 5px;
+}
 .img {
   width: 75px;
 }

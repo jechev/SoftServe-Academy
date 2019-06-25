@@ -49,14 +49,6 @@
   "books": [
     {
       "userId": 8,
-      "title": "demo4",
-      "author": "demo5",
-      "pages": "111",
-      "genre": "Autobiography",
-      "id": 1
-    },
-    {
-      "userId": 8,
       "title": "Demo1",
       "author": "Tq",
       "pages": "1",
@@ -94,48 +86,15 @@
       "pages": "300",
       "genre": "Art",
       "id": 14
+    },
+    {
+      "userId": "8",
+      "title": "demo5",
+      "author": "demoto",
+      "pages": "666",
+      "genre": "Math",
+      "id": 15
     }
   ],
-  "comments": [
-    {
-      "bookId": 1,
-      "userId": 8,
-      "author": "demo@demo.bg",
-      "text": "dada1",
-      "postDate": "2019-6-24 15:38:13",
-      "id": 1
-    },
-    {
-      "bookId": 1,
-      "userId": 8,
-      "author": "demo@demo.bg",
-      "text": "dada2",
-      "postDate": "2019-6-24 15:38:14",
-      "id": 2
-    },
-    {
-      "bookId": 1,
-      "userId": 8,
-      "author": "demo@demo.bg",
-      "text": "dada3",
-      "postDate": "2019-6-24 15:38:16",
-      "id": 3
-    },
-    {
-      "bookId": 1,
-      "userId": 8,
-      "author": "demo@demo.bg",
-      "text": "stana li",
-      "postDate": "2019-6-25 15:26:0",
-      "id": 4
-    },
-    {
-      "bookId": 1,
-      "userId": 8,
-      "author": "demo1@demo.bg",
-      "text": "are e",
-      "postDate": "2019-6-25 15:41:28",
-      "id": 5
-    }
-  ]
+  "comments": []
 }
