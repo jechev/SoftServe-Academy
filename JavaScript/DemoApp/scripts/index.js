@@ -1,3 +1,7 @@
+import "alertifyjs/build/css/alertify.min.css";
+import "alertifyjs/build/css/themes/default.min.css";
+import "../styles/site.css";
+
 import homeController from "./controllers/home-controller";
 import userController from "./controllers/user-controller";
 import bookController from "./controllers/book-controller";

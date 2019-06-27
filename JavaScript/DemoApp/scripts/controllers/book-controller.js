@@ -1,16 +1,13 @@
 import alertify from "alertifyjs";
-import "alertifyjs/build/css/alertify.min.css";
-import "alertifyjs/build/css/themes/default.min.css";
 
 import userService from "../services/user-service";
 import bookService from "../services/book-service";
 
-import header from "../../views/shared/header.mst";
-import footer from "../../views/shared/footer.mst";
-import addBook from "../../views/book/addBook.mst";
-import detailBook from "../../views/book/detailBook.mst";
-import editBook from "../../views/book/editBook.mst";
-import commentForm from "../../views/comment/commentForm.mst";
+import headerView from "../../views/shared/header.mst";
+import addBookView from "../../views/book/addBook.mst";
+import detailBookView from "../../views/book/detailBook.mst";
+import editBookView from "../../views/book/editBook.mst";
+import commentFormView from "../../views/comment/commentForm.mst";
 
 class BookController {
   getAddBook(ctx) {
@@ -19,11 +16,10 @@ class BookController {
 
     ctx
       .loadPartials({
-        header: header,
-        footer: footer
+        header: headerView
       })
       .then(function() {
-        this.partial(addBook);
+        this.partial(addBookView);
       });
   }
 
@@ -31,7 +27,7 @@ class BookController {
     ctx.isAuth = userService.isAuth();
     ctx.email = sessionStorage.getItem("email");
     let bookId = ctx.params.id;
-    console.log(ctx);
+
     bookService.getBookById(bookId).then(res => {
       ctx.book = res.data;
       for (const comment of ctx.book.comments) {
@@ -47,12 +43,11 @@ class BookController {
 
       ctx
         .loadPartials({
-          header: header,
-          commentForm: commentForm,
-          footer: footer
+          header: headerView,
+          commentForm: commentFormView
         })
         .then(function() {
-          this.partial(detailBook);
+          this.partial(detailBookView);
         });
     });
   }
@@ -65,81 +60,15 @@ class BookController {
     bookService.getBookById(bookId).then(res => {
       ctx.book = res.data;
 
-      switch (ctx.book.genre) {
-        case "Art":
-          ctx.artCheck = true;
-          break;
-        case "Autobiography":
-          ctx.autobiographyCheck = true;
-          break;
-        case "Biography":
-          ctx.biographyCheck = true;
-          break;
-        case "Book review":
-          ctx.bookReviewCheck = true;
-          break;
-        case "Cookbook":
-          ctx.cookbookCheck = true;
-          break;
-        case "Diary":
-          ctx.diaryCheck = true;
-          break;
-        case "Dictionary":
-          ctx.dictionaryCheck = true;
-          break;
-        case "Encyclopedia":
-          ctx.encyclopediaCheck = true;
-          break;
-        case "Guide":
-          ctx.guideCheck = true;
-          break;
-        case "Health":
-          ctx.healthCheck = true;
-          break;
-        case "History":
-          ctx.historyCheck = true;
-          break;
-        case "Journal":
-          ctx.journalCheck = true;
-          break;
-        case "Math":
-          ctx.mathCheck = true;
-          break;
-        case "Memoir":
-          ctx.memoirCheck = true;
-          break;
-        case "prayer":
-          ctx.prayerCheck = true;
-          break;
-        case "Religion":
-          ctx.religionCheck = true;
-          break;
-        case "Textbook":
-          ctx.textbookCheck = true;
-          break;
-        case "Review":
-          ctx.reviewCheck = true;
-          break;
-        case "Sciene":
-          ctx.scienceCheck = true;
-          break;
-        case "Self help":
-          ctx.selfHelpCheck = true;
-          break;
-        case "Travel":
-          ctx.travelCheck = true;
-          break;
-        default:
-          console.log("default");
-          break;
-      }
       ctx
         .loadPartials({
-          header: header,
-          footer: footer
+          header: headerView
         })
         .then(function() {
-          this.partial(editBook);
+          this.partial(editBookView);
+          setTimeout(_ => {
+            document.editBookForm.genre.value = ctx.book.genre;
+          }, 100);
         });
     });
   }
@@ -157,7 +86,7 @@ class BookController {
         ctx.redirect("#/books/" + bookId);
       })
       .catch(err => {
-        console.log(err);
+        alertify.error(err);
       });
   }
 
@@ -176,7 +105,7 @@ class BookController {
         ctx.redirect("#/home");
       })
       .catch(err => {
-        console.log(err);
+        alertify.error(err);
       });
   }
 
@@ -190,7 +119,7 @@ class BookController {
         ctx.redirect("#/home");
       })
       .catch(err => {
-        alertify.console.error(err);
+        alertify.error(err);
       });
   }
 }

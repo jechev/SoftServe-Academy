@@ -3,7 +3,6 @@ import bookService from "../services/book-service";
 
 import homePage from "../../views/home/homePage.mst";
 import header from "../../views/shared/header.mst";
-import footer from "../../views/shared/footer.mst";
 
 let self;
 class HomeController {
@@ -25,12 +24,10 @@ class HomeController {
       .getAllBooks(searchQuery)
       .then(res => {
         ctx.books = res.data;
-        // this.books = ctx.books;
-        // this.filtered = ctx.books;
+
         ctx
           .loadPartials({
-            header: header,
-            footer: footer
+            header: header
           })
           .then(function() {
             this.partial(homePage);
@@ -53,10 +50,10 @@ class HomeController {
         ctx.books = ctx.books.sort((a, b) => {
           return a.author.toLowerCase() > b.author.toLowerCase() ? 1 : -1;
         });
+
         ctx
           .loadPartials({
-            header: header,
-            footer: footer
+            header: header
           })
           .then(_ => {
             ctx.partial(homePage);
@@ -70,8 +67,7 @@ class HomeController {
         });
         ctx
           .loadPartials({
-            header: header,
-            footer: footer
+            header: header
           })
           .then(_ => {
             ctx.partial(homePage);

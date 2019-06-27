@@ -39,9 +39,10 @@
         <p class="text-secondary text-center">{{postDate}}</p>
     </div>
     <div class="col-md-10">
-        <p><strong>{{author}}</strong></p>
+        <p><strong>{{author}}</strong>{{#isAuthor}} (you) {{/isAuthor}}</p>
         <div class="clearfix"></div>
         <p>{{text}}</p>
+
     </div>
   </div>
   {{/book.comments}}

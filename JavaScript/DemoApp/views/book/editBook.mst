@@ -18,107 +18,107 @@
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Art" {{#artCheck}} checked {{/artCheck}}>Art
+                        <input type="radio" class="form-check-input" name="genre" value="Art" required>Art
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Autobiography" {{#autobiographyCheck}} checked {{/autobiographyCheck}}>Autobiography
+                        <input type="radio" class="form-check-input" name="genre" value="Autobiography" >Autobiography
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Biography" {{#biographyCheck}} checked {{/biographyCheck}}>Biography
+                        <input type="radio" class="form-check-input" name="genre" value="Biography">Biography
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Book review" {{#bookReviewCheck}} checked {{/bookReviewCheck}}>Book review
+                        <input type="radio" class="form-check-input" name="genre" value="Book review">Book review
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Cookbook" {{#cookbookCheck}} checked {{/cookbookCheck}}>Cookbook
+                        <input type="radio" class="form-check-input" name="genre" value="Cookbook">Cookbook
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Diary" {{#diaryCheck}} checked {{/diaryCheck}}>Diary
+                        <input type="radio" class="form-check-input" name="genre" value="Diary">Diary
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Dictionary" {{#dictionaryCheck}} checked {{/dictionaryCheck}}>Dictionary
+                        <input type="radio" class="form-check-input" name="genre" value="Dictionary">Dictionary
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Encyclopedia" {{#encyclopediaCheck}} checked {{/encyclopediaCheck}}>Encyclopedia
+                        <input type="radio" class="form-check-input" name="genre" value="Encyclopedia">Encyclopedia
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Guide" {{#guideCheck}} checked {{/guideCheck}}>Guide
+                        <input type="radio" class="form-check-input" name="genre" value="Guide">Guide
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Health" {{#healthCheck}} checked {{/healthCheck}}>Health
+                        <input type="radio" class="form-check-input" name="genre" value="Health">Health
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="History" {{#historyCheck}} checked {{/historyCheck}}>History
+                        <input type="radio" class="form-check-input" name="genre" value="History">History
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Journal" {{#journalCheck}} checked {{/journalCheck}}>Journal
+                        <input type="radio" class="form-check-input" name="genre" value="Journal">Journal
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Math" {{#mathCheck}} checked {{/mathCheck}}>Math
+                        <input type="radio" class="form-check-input" name="genre" value="Math">Math
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Memoir" {{#memoirCheck}} checked {{/memoirCheck}}>Memoir
+                        <input type="radio" class="form-check-input" name="genre" value="Memoir">Memoir
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Prayer" {{#prayerCheck}} checked {{/prayerCheck}}>Prayer
+                        <input type="radio" class="form-check-input" name="genre" value="Prayer">Prayer
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Religion" {{#religionCheck}} checked {{/religionCheck}}>Religion
+                        <input type="radio" class="form-check-input" name="genre" value="Religion">Religion
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Textbook" {{#textbookCheck}} checked {{/textbookCheck}}>Textbook
+                        <input type="radio" class="form-check-input" name="genre" value="Textbook">Textbook
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Review" {{#reviewCheck}} checked {{/reviewCheck}}>Review
+                        <input type="radio" class="form-check-input" name="genre" value="Review">Review
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Science" {{#scienceCheck}} checked {{/scienceCheck}}>Science
+                        <input type="radio" class="form-check-input" name="genre" value="Science">Science
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Self help" {{#selfHelpCheck}} checked {{/selfHelpCheck}}>Self help
+                        <input type="radio" class="form-check-input" name="genre" value="Self help">Self help
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="genre" value="Travel" {{#travelCheck}} checked {{/travelCheck}}>Travel
+                        <input type="radio" class="form-check-input" name="genre" value="Travel">Travel
                     </label>
                 </div>
                 <div class="form-check">
@@ -131,4 +131,3 @@
         </div>
     </div>
 </section>
-{{> footer}}

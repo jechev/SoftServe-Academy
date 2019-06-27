@@ -6,13 +6,14 @@
         <input type="search" id="search" name="search">
         <div class="form-check-inline">
             <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="searchType" value="author" required>Author
-        </div>
-        <div class="form-check-inline">
-            <label class="form-check-label">
                 <input type="radio" class="form-check-input" name="searchType" value="title">Title
             </label>
         </div>
+        <div class="form-check-inline">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="searchType" value="author" required>Author
+        </div>
+
         <div class="form-check-inline">
             <label class="form-check-label">
                 <input type="radio" class="form-check-input" name="searchType" value="genre">Genre
@@ -47,4 +48,3 @@
     </table>
 </section>
 </main>
-{{> footer}}

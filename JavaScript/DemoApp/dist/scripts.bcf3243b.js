@@ -117,7 +117,91 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+})({"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/alertifyjs/build/css/alertify.min.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/alertifyjs/build/css/themes/default.min.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"styles/site.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -1963,8 +2047,6 @@ module.exports = new BookService();
 module.exports = "/homePage.6a0db4b0.mst";
 },{}],"views/shared/header.mst":[function(require,module,exports) {
 module.exports = "/header.aee9646b.mst";
-},{}],"views/shared/footer.mst":[function(require,module,exports) {
-module.exports = "/footer.b7df0ca1.mst";
 },{}],"scripts/controllers/home-controller.js":[function(require,module,exports) {
 "use strict";
 
@@ -1975,8 +2057,6 @@ var _bookService = _interopRequireDefault(require("../services/book-service"));
 var _homePage = _interopRequireDefault(require("../../views/home/homePage.mst"));
 
 var _header = _interopRequireDefault(require("../../views/shared/header.mst"));
-
-var _footer = _interopRequireDefault(require("../../views/shared/footer.mst"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2011,12 +2091,9 @@ function () {
       ctx.email = sessionStorage.getItem("email");
 
       _bookService.default.getAllBooks(searchQuery).then(function (res) {
-        ctx.books = res.data; // this.books = ctx.books;
-        // this.filtered = ctx.books;
-
+        ctx.books = res.data;
         ctx.loadPartials({
-          header: _header.default,
-          footer: _footer.default
+          header: _header.default
         }).then(function () {
           this.partial(_homePage.default);
           self.click(ctx);
@@ -2039,8 +2116,7 @@ function () {
             return a.author.toLowerCase() > b.author.toLowerCase() ? 1 : -1;
           });
           ctx.loadPartials({
-            header: _header.default,
-            footer: _footer.default
+            header: _header.default
           }).then(function (_) {
             ctx.partial(_homePage.default);
             self.click(ctx);
@@ -2052,8 +2128,7 @@ function () {
             return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
           });
           ctx.loadPartials({
-            header: _header.default,
-            footer: _footer.default
+            header: _header.default
           }).then(function (_) {
             ctx.partial(_homePage.default);
             self.click(ctx);
@@ -2068,7 +2143,7 @@ function () {
 
 self = new HomeController();
 module.exports = self;
-},{"../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../../views/home/homePage.mst":"views/home/homePage.mst","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst"}],"node_modules/alertifyjs/build/alertify.js":[function(require,module,exports) {
+},{"../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../../views/home/homePage.mst":"views/home/homePage.mst","../../views/shared/header.mst":"views/shared/header.mst"}],"node_modules/alertifyjs/build/alertify.js":[function(require,module,exports) {
 var define;
 /**
  * alertifyjs 1.11.4 http://alertifyjs.com
@@ -5680,86 +5755,7 @@ var define;
 
 } ( typeof window !== 'undefined' ? window : this ) );
 
-},{}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/alertifyjs/build/css/alertify.min.css":[function(require,module,exports) {
-
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-},{"_css_loader":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/alertifyjs/build/css/themes/default.min.css":[function(require,module,exports) {
-
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-},{"_css_loader":"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"views/user/loginPage.mst":[function(require,module,exports) {
+},{}],"views/user/loginPage.mst":[function(require,module,exports) {
 module.exports = "/loginPage.13a9fb86.mst";
 },{}],"views/user/profile.mst":[function(require,module,exports) {
 module.exports = "/profile.99429cdb.mst";
@@ -5769,10 +5765,6 @@ module.exports = "/registerPage.617fd4fa.mst";
 "use strict";
 
 var _alertifyjs = _interopRequireDefault(require("alertifyjs"));
-
-require("alertifyjs/build/css/alertify.min.css");
-
-require("alertifyjs/build/css/themes/default.min.css");
 
 var _userService = _interopRequireDefault(require("../services/user-service"));
 
@@ -5885,7 +5877,7 @@ function () {
 }();
 
 module.exports = new UserController();
-},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/user/loginPage.mst":"views/user/loginPage.mst","../../views/user/profile.mst":"views/user/profile.mst","../../views/user/registerPage.mst":"views/user/registerPage.mst"}],"views/book/addBook.mst":[function(require,module,exports) {
+},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","../services/user-service":"scripts/services/user-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/user/loginPage.mst":"views/user/loginPage.mst","../../views/user/profile.mst":"views/user/profile.mst","../../views/user/registerPage.mst":"views/user/registerPage.mst"}],"views/book/addBook.mst":[function(require,module,exports) {
 module.exports = "/addBook.0128200d.mst";
 },{}],"views/book/detailBook.mst":[function(require,module,exports) {
 module.exports = "/detailBook.b8a97bc0.mst";
@@ -5898,17 +5890,11 @@ module.exports = "/commentForm.09420a96.mst";
 
 var _alertifyjs = _interopRequireDefault(require("alertifyjs"));
 
-require("alertifyjs/build/css/alertify.min.css");
-
-require("alertifyjs/build/css/themes/default.min.css");
-
 var _userService = _interopRequireDefault(require("../services/user-service"));
 
 var _bookService = _interopRequireDefault(require("../services/book-service"));
 
 var _header = _interopRequireDefault(require("../../views/shared/header.mst"));
-
-var _footer = _interopRequireDefault(require("../../views/shared/footer.mst"));
 
 var _addBook = _interopRequireDefault(require("../../views/book/addBook.mst"));
 
@@ -5939,8 +5925,7 @@ function () {
       ctx.isAuth = _userService.default.isAuth();
       ctx.email = sessionStorage.getItem("email");
       ctx.loadPartials({
-        header: _header.default,
-        footer: _footer.default
+        header: _header.default
       }).then(function () {
         this.partial(_addBook.default);
       });
@@ -5951,7 +5936,6 @@ function () {
       ctx.isAuth = _userService.default.isAuth();
       ctx.email = sessionStorage.getItem("email");
       var bookId = ctx.params.id;
-      console.log(ctx);
 
       _bookService.default.getBookById(bookId).then(function (res) {
         ctx.book = res.data;
@@ -5988,8 +5972,7 @@ function () {
         ctx.isCreator = Number(currentUserId) === Number(ctx.book.userId) ? true : false;
         ctx.loadPartials({
           header: _header.default,
-          commentForm: _commentForm.default,
-          footer: _footer.default
+          commentForm: _commentForm.default
         }).then(function () {
           this.partial(_detailBook.default);
         });
@@ -6004,102 +5987,13 @@ function () {
 
       _bookService.default.getBookById(bookId).then(function (res) {
         ctx.book = res.data;
-
-        switch (ctx.book.genre) {
-          case "Art":
-            ctx.artCheck = true;
-            break;
-
-          case "Autobiography":
-            ctx.autobiographyCheck = true;
-            break;
-
-          case "Biography":
-            ctx.biographyCheck = true;
-            break;
-
-          case "Book review":
-            ctx.bookReviewCheck = true;
-            break;
-
-          case "Cookbook":
-            ctx.cookbookCheck = true;
-            break;
-
-          case "Diary":
-            ctx.diaryCheck = true;
-            break;
-
-          case "Dictionary":
-            ctx.dictionaryCheck = true;
-            break;
-
-          case "Encyclopedia":
-            ctx.encyclopediaCheck = true;
-            break;
-
-          case "Guide":
-            ctx.guideCheck = true;
-            break;
-
-          case "Health":
-            ctx.healthCheck = true;
-            break;
-
-          case "History":
-            ctx.historyCheck = true;
-            break;
-
-          case "Journal":
-            ctx.journalCheck = true;
-            break;
-
-          case "Math":
-            ctx.mathCheck = true;
-            break;
-
-          case "Memoir":
-            ctx.memoirCheck = true;
-            break;
-
-          case "prayer":
-            ctx.prayerCheck = true;
-            break;
-
-          case "Religion":
-            ctx.religionCheck = true;
-            break;
-
-          case "Textbook":
-            ctx.textbookCheck = true;
-            break;
-
-          case "Review":
-            ctx.reviewCheck = true;
-            break;
-
-          case "Sciene":
-            ctx.scienceCheck = true;
-            break;
-
-          case "Self help":
-            ctx.selfHelpCheck = true;
-            break;
-
-          case "Travel":
-            ctx.travelCheck = true;
-            break;
-
-          default:
-            console.log("default");
-            break;
-        }
-
         ctx.loadPartials({
-          header: _header.default,
-          footer: _footer.default
+          header: _header.default
         }).then(function () {
           this.partial(_editBook.default);
+          setTimeout(function (_) {
+            document.editBookForm.genre.value = ctx.book.genre;
+          }, 100);
         });
       });
     }
@@ -6117,7 +6011,7 @@ function () {
 
         ctx.redirect("#/books/" + bookId);
       }).catch(function (err) {
-        console.log(err);
+        _alertifyjs.default.error(err);
       });
     }
   }, {
@@ -6135,7 +6029,7 @@ function () {
 
         ctx.redirect("#/home");
       }).catch(function (err) {
-        console.log(err);
+        _alertifyjs.default.error(err);
       });
     }
   }, {
@@ -6148,7 +6042,7 @@ function () {
 
         ctx.redirect("#/home");
       }).catch(function (err) {
-        _alertifyjs.default.console.error(err);
+        _alertifyjs.default.error(err);
       });
     }
   }]);
@@ -6157,7 +6051,7 @@ function () {
 }();
 
 module.exports = new BookController();
-},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst","../../views/book/addBook.mst":"views/book/addBook.mst","../../views/book/detailBook.mst":"views/book/detailBook.mst","../../views/book/editBook.mst":"views/book/editBook.mst","../../views/comment/commentForm.mst":"views/comment/commentForm.mst"}],"scripts/services/comment-service.js":[function(require,module,exports) {
+},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/book/addBook.mst":"views/book/addBook.mst","../../views/book/detailBook.mst":"views/book/detailBook.mst","../../views/book/editBook.mst":"views/book/editBook.mst","../../views/comment/commentForm.mst":"views/comment/commentForm.mst"}],"scripts/services/comment-service.js":[function(require,module,exports) {
 "use strict";
 
 var _axios = _interopRequireDefault(require("axios"));
@@ -6205,19 +6099,7 @@ module.exports = new CommentService();
 
 var _alertifyjs = _interopRequireDefault(require("alertifyjs"));
 
-require("alertifyjs/build/css/alertify.min.css");
-
-require("alertifyjs/build/css/themes/default.min.css");
-
-var _userService = _interopRequireDefault(require("../services/user-service"));
-
-var _bookService = _interopRequireDefault(require("../services/book-service"));
-
 var _commentService = _interopRequireDefault(require("../services/comment-service"));
-
-var _header = _interopRequireDefault(require("../../views/shared/header.mst"));
-
-var _footer = _interopRequireDefault(require("../../views/shared/footer.mst"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6239,36 +6121,19 @@ function () {
     value: function addComment(ctx) {
       var comment = {};
       var currentDate = new Date();
-      var formatted_date = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDate() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+      var formatedDate = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDate() + " " + currentDate.getHours().toString().padStart(2, "0") + ":" + currentDate.getMinutes().toString().padStart(2, "0") + ":" + currentDate.getSeconds().toString().padStart(2, "0");
       comment.bookId = Number(ctx.params.bookId);
       comment.userId = Number(ctx.params.userId);
       comment.author = sessionStorage.getItem("email");
       comment.text = ctx.params.text;
-      comment.postDate = formatted_date;
+      comment.postDate = formatedDate;
 
       _commentService.default.addComment(comment).then(function (res) {
         _alertifyjs.default.success("You added new comment");
 
         ctx.redirect("#/books/" + comment.bookId);
       }).catch(function (err) {
-        console.log(err);
-      });
-    }
-  }, {
-    key: "deleteComment",
-    value: function deleteComment(ctx) {
-      var commentId = ctx.params.id;
-      var bookId;
-
-      _commentService.default.getCommentById(commentId).then(function (res) {
-        bookId = res.data.bookId;
-        return _commentService.default.deleteComment(commentId);
-      }).then(function (res) {
-        _alertifyjs.default.success("You deleted comment");
-
-        ctx.redirect("#/books/" + bookId);
-      }).catch(function (err) {
-        console.log(err);
+        _alertifyjs.default.error(err);
       });
     }
   }]);
@@ -6277,8 +6142,14 @@ function () {
 }();
 
 module.exports = new CommentController();
-},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../services/comment-service":"scripts/services/comment-service.js","../../views/shared/header.mst":"views/shared/header.mst","../../views/shared/footer.mst":"views/shared/footer.mst"}],"scripts/index.js":[function(require,module,exports) {
+},{"alertifyjs":"node_modules/alertifyjs/build/alertify.js","../services/comment-service":"scripts/services/comment-service.js"}],"scripts/index.js":[function(require,module,exports) {
 "use strict";
+
+require("alertifyjs/build/css/alertify.min.css");
+
+require("alertifyjs/build/css/themes/default.min.css");
+
+require("../styles/site.css");
 
 var _homeController = _interopRequireDefault(require("./controllers/home-controller"));
 
@@ -6311,7 +6182,7 @@ var app = Sammy("#main", function () {
   this.get("#/comments/delete/:id", _commentController.default.deleteComment);
 });
 app.run("#/home"); // run json server - json-server db.json -m ./node_modules/json-server-auth
-},{"./controllers/home-controller":"scripts/controllers/home-controller.js","./controllers/user-controller":"scripts/controllers/user-controller.js","./controllers/book-controller":"scripts/controllers/book-controller.js","./controllers/comment-controller":"scripts/controllers/comment-controller.js"}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"alertifyjs/build/css/alertify.min.css":"node_modules/alertifyjs/build/css/alertify.min.css","alertifyjs/build/css/themes/default.min.css":"node_modules/alertifyjs/build/css/themes/default.min.css","../styles/site.css":"styles/site.css","./controllers/home-controller":"scripts/controllers/home-controller.js","./controllers/user-controller":"scripts/controllers/user-controller.js","./controllers/book-controller":"scripts/controllers/book-controller.js","./controllers/comment-controller":"scripts/controllers/comment-controller.js"}],"C:/Users/dimit/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

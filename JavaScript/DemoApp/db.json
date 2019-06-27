@@ -4,6 +4,11 @@
       "email": "demo@demo.bg",
       "password": "$2a$10$plQf2OIwOFeOX5WT5x0YlOmj9T7kWNn8yaxZxHyT1CCPVvsUufj72",
       "id": 1
+    },
+    {
+      "email": "ivan@ivan.bg",
+      "password": "$2a$10$cI9UvV5pMwFQ7mNqHFHdCu.EE/Hqxa7jfHKJSIjhF9uJ9.FMwMz5K",
+      "id": 2
     }
   ],
   "books": [
@@ -42,9 +47,9 @@
     {
       "userId": 1,
       "title": "Year of Yes",
-      "author": "Shonda Rimes",
+      "author": "Shonda",
       "pages": "311",
-      "genre": "Self help",
+      "genre": "Math",
       "id": 5
     }
   ],
@@ -56,6 +61,30 @@
       "text": "Do you like this book?\r\n",
       "postDate": "2019-6-27 9:44:50",
       "id": 1
+    },
+    {
+      "bookId": 1,
+      "userId": 1,
+      "author": "ivan@ivan.bg",
+      "text": "No",
+      "postDate": "2019-6-27 11:48:53",
+      "id": 2
+    },
+    {
+      "bookId": 1,
+      "userId": 1,
+      "author": "ivan@ivan.bg",
+      "text": "Jeannette Walls is not a good author for me",
+      "postDate": "2019-6-27 11:49:15",
+      "id": 3
+    },
+    {
+      "bookId": 1,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "text": "Are you sure?",
+      "postDate": "2019-6-27 11:49:33",
+      "id": 4
     }
   ]
 }
