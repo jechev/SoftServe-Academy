@@ -22,9 +22,8 @@ form {
   width: 75px;
 }
 
-#book-header {
-  text-align: center;
-  color: goldenrod;
+.th-click {
+  cursor: pointer;
 }
 
 .comment-container {

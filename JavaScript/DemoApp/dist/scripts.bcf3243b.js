@@ -2045,8 +2045,6 @@ function () {
 module.exports = new BookService();
 },{"axios":"node_modules/axios/index.js"}],"views/home/homePage.mst":[function(require,module,exports) {
 module.exports = "/homePage.6a0db4b0.mst";
-},{}],"views/shared/header.mst":[function(require,module,exports) {
-module.exports = "/header.aee9646b.mst";
 },{}],"scripts/controllers/home-controller.js":[function(require,module,exports) {
 "use strict";
 
@@ -2055,8 +2053,6 @@ var _userService = _interopRequireDefault(require("../services/user-service"));
 var _bookService = _interopRequireDefault(require("../services/book-service"));
 
 var _homePage = _interopRequireDefault(require("../../views/home/homePage.mst"));
-
-var _header = _interopRequireDefault(require("../../views/shared/header.mst"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2081,23 +2077,15 @@ function () {
       ctx.isAuth = _userService.default.isAuth();
       ctx.email = sessionStorage.getItem("email");
       var searchQuery = "";
-      console.log(ctx.params);
 
       if (ctx.params.hasOwnProperty("search") && ctx.params.hasOwnProperty("searchType")) {
         searchQuery = "?" + ctx.params.searchType + "_like=" + ctx.params.search;
       }
 
-      ctx.isAuth = _userService.default.isAuth();
-      ctx.email = sessionStorage.getItem("email");
-
       _bookService.default.getAllBooks(searchQuery).then(function (res) {
         ctx.books = res.data;
-        ctx.loadPartials({
-          header: _header.default
-        }).then(function () {
-          this.partial(_homePage.default);
-          self.click(ctx);
-        });
+        ctx.partial(_homePage.default);
+        self.click(ctx);
       }).catch(function (err) {
         console.log(err);
       });
@@ -2105,34 +2093,38 @@ function () {
   }, {
     key: "click",
     value: function click(ctx) {
-      setTimeout(function (_) {
+      setTimeout(function () {
         var auth = document.querySelector(".tb-author");
-        var title = document.querySelector(".tb-title"); // auth.innerHTML = "authauthauth";
-        // console.log("authauthauthauth", auth);
-
+        var title = document.querySelector(".tb-title");
+        var genre = document.querySelector(".tb-genre");
+        var pages = document.querySelector(".tb-pages");
         auth.addEventListener("click", function (e) {
-          // console.log("added listener");
           ctx.books = ctx.books.sort(function (a, b) {
             return a.author.toLowerCase() > b.author.toLowerCase() ? 1 : -1;
           });
-          ctx.loadPartials({
-            header: _header.default
-          }).then(function (_) {
-            ctx.partial(_homePage.default);
-            self.click(ctx);
-          });
+          ctx.partial(homePage);
+          self.click(ctx);
         });
         title.addEventListener("click", function (e) {
-          // console.log("added listener");
           ctx.books = ctx.books.sort(function (a, b) {
             return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
           });
-          ctx.loadPartials({
-            header: _header.default
-          }).then(function (_) {
-            ctx.partial(_homePage.default);
-            self.click(ctx);
+          ctx.partial(homePage);
+          self.click(ctx);
+        });
+        genre.addEventListener("click", function (e) {
+          ctx.books = ctx.books.sort(function (a, b) {
+            return a.genre.toLowerCase() > b.genre.toLowerCase() ? 1 : -1;
           });
+          ctx.partial(homePage);
+          self.click(ctx);
+        });
+        pages.addEventListener("click", function (e) {
+          ctx.books = ctx.books.sort(function (a, b) {
+            return a.pages > b.pages ? 1 : -1;
+          });
+          ctx.partial(homePage);
+          self.click(ctx);
         });
       }, 500);
     }
@@ -2143,7 +2135,7 @@ function () {
 
 self = new HomeController();
 module.exports = self;
-},{"../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../../views/home/homePage.mst":"views/home/homePage.mst","../../views/shared/header.mst":"views/shared/header.mst"}],"node_modules/alertifyjs/build/alertify.js":[function(require,module,exports) {
+},{"../services/user-service":"scripts/services/user-service.js","../services/book-service":"scripts/services/book-service.js","../../views/home/homePage.mst":"views/home/homePage.mst"}],"node_modules/alertifyjs/build/alertify.js":[function(require,module,exports) {
 var define;
 /**
  * alertifyjs 1.11.4 http://alertifyjs.com
@@ -5755,6 +5747,8 @@ var define;
 
 } ( typeof window !== 'undefined' ? window : this ) );
 
+},{}],"views/shared/header.mst":[function(require,module,exports) {
+module.exports = "/header.aee9646b.mst";
 },{}],"views/user/loginPage.mst":[function(require,module,exports) {
 module.exports = "/loginPage.13a9fb86.mst";
 },{}],"views/user/profile.mst":[function(require,module,exports) {
@@ -6123,7 +6117,7 @@ function () {
       var currentDate = new Date();
       var formatedDate = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDate() + " " + currentDate.getHours().toString().padStart(2, "0") + ":" + currentDate.getMinutes().toString().padStart(2, "0") + ":" + currentDate.getSeconds().toString().padStart(2, "0");
       comment.bookId = Number(ctx.params.bookId);
-      comment.userId = Number(ctx.params.userId);
+      comment.userId = Number(sessionStorage.getItem("userId"));
       comment.author = sessionStorage.getItem("email");
       comment.text = ctx.params.text;
       comment.postDate = formatedDate;

@@ -6,15 +6,15 @@
             <form action="#/books/edit/{{book.id}}" method="POST" name="editBookForm">
                 <div class="form-group">
                     <label for="title" class="white-labels">Title</label>
-                    <input type="text" name="title" class="form-control" placeholder="Title" value={{book.title}}>
+                    <input type="text" name="title" class="form-control" placeholder="Title" value={{book.title}} required>
                 </div>
                 <div class="form-group">
                     <label for="author" class="white-labels">Author</label>
-                    <input type="text" name="author" class="form-control" placeholder="Author" value={{book.author}}>
+                    <input type="text" name="author" class="form-control" placeholder="Author" value={{book.author}} required>
                 </div>
                 <div class="form-group">
                     <label for="pages" class="white-labels">Pages</label>
-                    <input type="number" name="pages" class="form-control" placeholder="Pages" value={{book.pages}}>
+                    <input type="number" name="pages" class="form-control" placeholder="Pages" value={{book.pages}} required>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">

@@ -1,8 +1,7 @@
 <form action="#/addComment" method="POST" name="addCommentForm">
   <div class="form-group">
     <label for="comment"><strong>Comment:</strong></label>
-    <input type="hidden" name="bookId" value={{book.id}} >
-    <input type="hidden" name="userId" value={{book.userId}}>
+    <input type="hidden" name="bookId" value={{book.id}}>
     <textarea class="form-control" rows="5" id="text" name="text"></textarea>
     <button type="submit" class="btn btn-primary">Add Comment</button>
   </div>

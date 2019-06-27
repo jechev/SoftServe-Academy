@@ -9,6 +9,11 @@
       "email": "ivan@ivan.bg",
       "password": "$2a$10$cI9UvV5pMwFQ7mNqHFHdCu.EE/Hqxa7jfHKJSIjhF9uJ9.FMwMz5K",
       "id": 2
+    },
+    {
+      "email": "goshko@abv.bg",
+      "password": "$2a$10$037QwOh/j/0httJEcMJFvOxDDJ6Zch172.05QlPevR8Ch9frqBT9m",
+      "id": 3
     }
   ],
   "books": [
@@ -51,6 +56,22 @@
       "pages": "311",
       "genre": "Math",
       "id": 5
+    },
+    {
+      "userId": 2,
+      "title": "Origin",
+      "author": "Dawn Brown",
+      "pages": "424",
+      "genre": "True crime",
+      "id": 6
+    },
+    {
+      "userId": 3,
+      "title": "Eloquent JavaScript",
+      "author": "Marijn Haverbeke",
+      "pages": "474",
+      "genre": "Guide",
+      "id": 7
     }
   ],
   "comments": [
@@ -64,7 +85,7 @@
     },
     {
       "bookId": 1,
-      "userId": 1,
+      "userId": 2,
       "author": "ivan@ivan.bg",
       "text": "No",
       "postDate": "2019-6-27 11:48:53",
@@ -72,7 +93,7 @@
     },
     {
       "bookId": 1,
-      "userId": 1,
+      "userId": 2,
       "author": "ivan@ivan.bg",
       "text": "Jeannette Walls is not a good author for me",
       "postDate": "2019-6-27 11:49:15",
@@ -85,6 +106,94 @@
       "text": "Are you sure?",
       "postDate": "2019-6-27 11:49:33",
       "id": 4
+    },
+    {
+      "bookId": 1,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "text": "yes",
+      "postDate": "2019-6-27 13:07:21",
+      "id": 5
+    },
+    {
+      "bookId": 3,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "text": "Niceee",
+      "postDate": "2019-6-27 13:07:52",
+      "id": 6
+    },
+    {
+      "bookId": 3,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "text": "hmm",
+      "postDate": "2019-6-27 13:08:36",
+      "id": 7
+    },
+    {
+      "bookId": 3,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "text": "I like it",
+      "postDate": "2019-6-27 13:11:32",
+      "id": 8
+    },
+    {
+      "bookId": 6,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "text": "I love Robert Langdon",
+      "postDate": "2019-6-27 13:14:17",
+      "id": 9
+    },
+    {
+      "bookId": 2,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "text": "Nicee book",
+      "postDate": "2019-6-27 13:16:54",
+      "id": 10
+    },
+    {
+      "bookId": 6,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "text": "nice book!",
+      "postDate": "2019-6-27 13:19:23",
+      "id": 11
+    },
+    {
+      "bookId": 6,
+      "userId": 3,
+      "author": "goshko@abv.bg",
+      "text": "The lost symbol is the best....",
+      "postDate": "2019-6-27 13:54:30",
+      "id": 12
+    },
+    {
+      "bookId": 2,
+      "userId": 3,
+      "author": "goshko@abv.bg",
+      "text": "wHattttttttttt",
+      "postDate": "2019-6-27 13:54:44",
+      "id": 13
+    },
+    {
+      "bookId": 7,
+      "userId": 3,
+      "author": "goshko@abv.bg",
+      "text": "😜",
+      "postDate": "2019-6-27 13:55:10",
+      "id": 14
+    },
+    {
+      "bookId": 7,
+      "userId": 3,
+      "author": "goshko@abv.bg",
+      "text": "🐱‍🏍",
+      "postDate": "2019-6-27 13:55:24",
+      "id": 15
     }
   ]
 }

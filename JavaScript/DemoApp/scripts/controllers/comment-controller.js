@@ -29,7 +29,7 @@ class CommentController {
         .padStart(2, "0");
 
     comment.bookId = Number(ctx.params.bookId);
-    comment.userId = Number(ctx.params.userId);
+    comment.userId = Number(sessionStorage.getItem("userId"));
     comment.author = sessionStorage.getItem("email");
     comment.text = ctx.params.text;
     comment.postDate = formatedDate;
