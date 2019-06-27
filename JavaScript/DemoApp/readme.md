@@ -19,8 +19,13 @@ parcel index.html
 ##### Libraries:
 
 https://github.com/typicode/json-server - json-server
+<br />
 https://github.com/axios/axios - axios
+<br />
 https://parceljs.org/ - parcel
+<br />
 http://sammyjs.org/ - sammy
+<br />
 https://mustache.github.io/ - mustache
+<br />
 https://alertifyjs.com/ - alertifyjs
