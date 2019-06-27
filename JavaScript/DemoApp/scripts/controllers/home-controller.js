@@ -41,7 +41,7 @@ class HomeController {
           return a.author.toLowerCase() > b.author.toLowerCase() ? 1 : -1;
         });
 
-        ctx.partial(homePage);
+        ctx.partial(homePageView);
         self.click(ctx);
       });
       title.addEventListener("click", e => {
@@ -49,7 +49,7 @@ class HomeController {
           return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
         });
 
-        ctx.partial(homePage);
+        ctx.partial(homePageView);
         self.click(ctx);
       });
 
@@ -58,7 +58,7 @@ class HomeController {
           return a.genre.toLowerCase() > b.genre.toLowerCase() ? 1 : -1;
         });
 
-        ctx.partial(homePage);
+        ctx.partial(homePageView);
         self.click(ctx);
       });
 
@@ -67,7 +67,7 @@ class HomeController {
           return a.pages > b.pages ? 1 : -1;
         });
 
-        ctx.partial(homePage);
+        ctx.partial(homePageView);
         self.click(ctx);
       });
     }, 500);

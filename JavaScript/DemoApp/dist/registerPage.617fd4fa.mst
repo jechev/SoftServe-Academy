@@ -4,11 +4,11 @@
     <form action="#/register" method="POST" name="registerForm" class="user-forms">
         <div class="form-group">
             <label for="email" class="white-labels">Email</label>
-            <input type="text" name="email" class="form-control" placeholder="Enter Email">
+            <input type="text" name="email" class="form-control" placeholder="Enter Email" required>
         </div>
         <div class="form-group">
             <label for="password" class="white-labels">Password</label>
-            <input type="password" name="password" class="form-control" placeholder="Password">
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>

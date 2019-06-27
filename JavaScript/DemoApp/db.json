@@ -19,14 +19,6 @@
   "books": [
     {
       "userId": 1,
-      "title": "The Glass Castle",
-      "author": "Jeannette Walls",
-      "pages": "340",
-      "genre": "Art",
-      "id": 1
-    },
-    {
-      "userId": 1,
       "title": "Angela’s Ashes",
       "author": "Frank McCourt",
       "pages": "400",
@@ -72,49 +64,17 @@
       "pages": "474",
       "genre": "Guide",
       "id": 7
+    },
+    {
+      "userId": 1,
+      "title": "demoBook",
+      "author": "demo5",
+      "pages": "555",
+      "genre": "Health",
+      "id": 8
     }
   ],
   "comments": [
-    {
-      "bookId": 1,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "text": "Do you like this book?\r\n",
-      "postDate": "2019-6-27 9:44:50",
-      "id": 1
-    },
-    {
-      "bookId": 1,
-      "userId": 2,
-      "author": "ivan@ivan.bg",
-      "text": "No",
-      "postDate": "2019-6-27 11:48:53",
-      "id": 2
-    },
-    {
-      "bookId": 1,
-      "userId": 2,
-      "author": "ivan@ivan.bg",
-      "text": "Jeannette Walls is not a good author for me",
-      "postDate": "2019-6-27 11:49:15",
-      "id": 3
-    },
-    {
-      "bookId": 1,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "text": "Are you sure?",
-      "postDate": "2019-6-27 11:49:33",
-      "id": 4
-    },
-    {
-      "bookId": 1,
-      "userId": 2,
-      "author": "ivan@ivan.bg",
-      "text": "yes",
-      "postDate": "2019-6-27 13:07:21",
-      "id": 5
-    },
     {
       "bookId": 3,
       "userId": 2,
