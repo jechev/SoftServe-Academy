@@ -163,7 +163,7 @@ class BookController {
 
   addBook(ctx) {
     let book = {};
-    book.userId = sessionStorage.getItem("userId");
+    book.userId = Number(sessionStorage.getItem("userId"));
     book.title = ctx.params.title;
     book.author = ctx.params.author;
     book.pages = ctx.params.pages;

@@ -30,6 +30,7 @@
             <th scope="col" class="tb-author">Author</th>
             <th scope="col" class="tb-genre">Genre</th>
             <th scope="col" class="tb-pages">Pages</th>
+            <th scope="col"></th>
             </tr>
         </thead>
         <tbody>

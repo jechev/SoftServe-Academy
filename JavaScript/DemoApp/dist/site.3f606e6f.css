@@ -22,6 +22,11 @@ form {
   width: 75px;
 }
 
+#book-header {
+  text-align: center;
+  color: goldenrod;
+}
+
 .comment-container {
   border: 1px solid black;
   margin: 7px 0 7px 0;

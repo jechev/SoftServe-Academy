@@ -15,4 +15,4 @@
 
     <h1 class="h3 mb-3 font-weight-normal">No account yet? <a href="#/register" class="add-link">Register</a></h1>
 </div>
-{{> footer}}
+

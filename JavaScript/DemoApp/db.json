@@ -1,100 +1,61 @@
 {
   "users": [
     {
-      "email": "olivier@mail.com",
-      "password": "$2a$10$.ONPo9xyD7Nx4iQR3Lg.UuwfcjB7IVhDTm3PPv9zAtZ9fPc82Uj5G",
-      "id": 1
-    },
-    {
-      "email": "olivier1@mail.com",
-      "password": "$2a$10$YU97WuZ0DY0CFgyN7yPMAeSduyz1d96U2/n1lAY2AFsvqJaZ9UXDK",
-      "id": 2
-    },
-    {
-      "email": "dda@abv.bg",
-      "password": "$2a$10$HPUhZ7OL0hdJD1b7SZCaE.chEuecfADBJmNhLwijHu9leJeVpZVQi",
-      "id": 3
-    },
-    {
-      "email": "olivier12@mail.com",
-      "password": "$2a$10$yqZqlCxSVU9Ug1jxyfp3x.LkdPI8xmkN.v6diCiQX.TM5kdWQza6y",
-      "id": 4
-    },
-    {
-      "email": "jechkata@gmail.com",
-      "password": "$2a$10$i6QXJ1WPTOoSCqIc4.1ShuI1crJjep1dM.WqIXwBoNUBSdL1gIqB2",
-      "id": 5
-    },
-    {
-      "email": "olivier123@mail.com",
-      "password": "$2a$10$m0JZb1f8lVT3OvpiAe8qPONcMdJnm7WNAjCw4ivlBqRvCWMl6bV.y",
-      "id": 6
-    },
-    {
-      "email": "goshko@abv.bg",
-      "password": "$2a$10$oUqI/MBafkYZpBYC0zwweusVswqm5QZpmgio8WrfO/c3OE.CqI0dO",
-      "id": 7
-    },
-    {
       "email": "demo@demo.bg",
-      "password": "$2a$10$yf3EB53yIAJJvJ0ALn0TVufMv1dBbpfcy.QTZ74USFgdtTrOoGAiy",
-      "id": 8
-    },
-    {
-      "email": "demo1@demo.bg",
-      "password": "$2a$10$e8PpogprFBypfxO73WsGwOeEQKSAinmHV2.PpJo1u9u0arJczVYHy",
-      "id": 9
+      "password": "$2a$10$plQf2OIwOFeOX5WT5x0YlOmj9T7kWNn8yaxZxHyT1CCPVvsUufj72",
+      "id": 1
     }
   ],
   "books": [
     {
-      "userId": 8,
-      "title": "Demo1",
-      "author": "Tq",
-      "pages": "1",
+      "userId": 1,
+      "title": "The Glass Castle",
+      "author": "Jeannette Walls",
+      "pages": "340",
       "genre": "Art",
-      "id": 10
+      "id": 1
     },
     {
-      "userId": 8,
-      "title": "Novata Kniga",
-      "author": "Sybota",
-      "pages": "666",
-      "genre": "Review",
-      "id": 11
+      "userId": 1,
+      "title": "Angela’s Ashes",
+      "author": "Frank McCourt",
+      "pages": "400",
+      "genre": "Art",
+      "id": 2
     },
     {
-      "userId": "8",
-      "title": "Origin",
-      "author": "Dawn",
-      "pages": "1111",
+      "userId": 1,
+      "title": "Look Me in the Eye",
+      "author": "John Elder Robison",
+      "pages": "560",
+      "genre": "Science",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "title": "Night",
+      "author": "Elie Wiesel",
+      "pages": "250",
+      "genre": "Art",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "title": "Year of Yes",
+      "author": "Shonda Rimes",
+      "pages": "311",
       "genre": "Self help",
-      "id": 12
-    },
-    {
-      "userId": "8",
-      "title": "Murphy's Gramatic",
-      "author": "Murphy",
-      "pages": "356",
-      "genre": "Dictionary",
-      "id": 13
-    },
-    {
-      "userId": "8",
-      "title": "Жени",
-      "author": "Буковски",
-      "pages": "300",
-      "genre": "Art",
-      "id": 14
-    },
-    {
-      "userId": "8",
-      "title": "demo5",
-      "author": "demoto",
-      "pages": "666",
-      "genre": "Math",
-      "id": 15
+      "id": 5
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "bookId": 1,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "text": "Do you like this book?\r\n",
+      "postDate": "2019-6-27 9:44:50",
+      "id": 1
+    }
+  ]
 }

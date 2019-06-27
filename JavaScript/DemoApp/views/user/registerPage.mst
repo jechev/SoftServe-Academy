@@ -14,5 +14,3 @@
     </form>
     <h1 class="h3 mb-3 font-weight-normal">Already have an account? <a href="#/login" class="add-link">Login</a></h1>
 </div>
-
-{{> footer}}

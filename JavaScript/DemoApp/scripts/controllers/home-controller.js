@@ -1,4 +1,3 @@
-import Mustache from "mustache";
 import userService from "../services/user-service";
 import bookService from "../services/book-service";
 
@@ -9,7 +8,8 @@ import footer from "../../views/shared/footer.mst";
 let self;
 class HomeController {
   getHome(ctx) {
-    console.log(ctx);
+    ctx.isAuth = userService.isAuth();
+    ctx.email = sessionStorage.getItem("email");
     let searchQuery = "";
     console.log(ctx.params);
     if (

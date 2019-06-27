@@ -23,7 +23,7 @@
     {{#isCreator}}
     <div class="row">
       <div class="col">
-          <a href="#/books/delete/{{book.id}}" class="btn btn-warning">Delete</a>
+          <a href="#/books/delete/{{book.id}}" class="btn btn-danger">Delete</a>
       </div>
       <div class="col">
           <a href="#/books/edit/{{book.id}}" class="btn btn-info">Edit</a>
@@ -42,12 +42,6 @@
         <p><strong>{{author}}</strong></p>
         <div class="clearfix"></div>
         <p>{{text}}</p>
-        {{#isAuthor}}
-        <p>
-            <a href="#/comments/delete/{{id}}" class="float-right btn btn-danger ml-2">Delete</a>
-            <a href="#/comments/edit/{{id}}" class="float-right btn btn-info ml-2">Edit</a>
-        </p>
-        {{/isAuthor}}
     </div>
   </div>
   {{/book.comments}}
@@ -60,4 +54,3 @@
   {{/isAuth}}
 </section>
 </main>
-{{> footer}}

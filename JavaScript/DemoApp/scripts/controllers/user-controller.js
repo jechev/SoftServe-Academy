@@ -4,21 +4,19 @@ import "alertifyjs/build/css/themes/default.min.css";
 
 import userService from "../services/user-service";
 
-import header from "../../views/shared/header.mst";
-import footer from "../../views/shared/footer.mst";
-import loginPage from "../../views/user/loginPage.mst";
-import profile from "../../views/user/profile.mst";
-import registerPage from "../../views/user/registerPage.mst";
+import headerView from "../../views/shared/header.mst";
+import loginPageView from "../../views/user/loginPage.mst";
+import profileView from "../../views/user/profile.mst";
+import registerPageView from "../../views/user/registerPage.mst";
 
 class UserController {
   getRegister(ctx) {
     ctx
       .loadPartials({
-        header: header,
-        footer: footer
+        header: headerView
       })
       .then(function() {
-        this.partial(registerPage);
+        this.partial(registerPageView);
       });
   }
 
@@ -40,11 +38,10 @@ class UserController {
   getLogin(ctx) {
     ctx
       .loadPartials({
-        header: header,
-        footer: footer
+        header: headerView
       })
       .then(function() {
-        this.partial(loginPage);
+        this.partial(loginPageView);
       });
   }
 
@@ -78,17 +75,17 @@ class UserController {
       ctx.user = res.data;
       ctx
         .loadPartials({
-          header: header,
-          footer: footer
+          header: headerView
         })
         .then(function() {
-          this.partial(profile);
+          this.partial(profileView);
         });
     });
   }
 
   logoutUser(ctx) {
     userService.logout();
+    alertify.success("You have successfully logged out!");
     ctx.redirect("#/home");
   }
 }
