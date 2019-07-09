@@ -1,0 +1,11 @@
+<div class="text-center">
+  <p class="text-center" *ngIf="lives > 0">Lives : {{ lives }}</p>
+  <h1 class="text-center" *ngIf="lives === 0">Game OVER</h1>
+  <button
+    type="button"
+    class="btn btn-success letter-button"
+    (click)="resetGame()"
+  >
+    Reset
+  </button>
+</div>

@@ -1,0 +1,13 @@
+<div class="jumbotron text-center">
+  <button
+    type="button"
+    class="btn btn-info letter-button"
+    *ngFor="let letter of letters; let i = index"
+    value="{{ letter.value }}"
+    id="{{ i }}"
+    (click)="clickLetter($event)"
+    [disabled]="letter.isUsed"
+  >
+    {{ letter.value }}
+  </button>
+</div>
