@@ -1,0 +1,179 @@
+{
+  "users": [
+    {
+      "email": "demo@demo.bg",
+      "password": "$2a$10$plQf2OIwOFeOX5WT5x0YlOmj9T7kWNn8yaxZxHyT1CCPVvsUufj72",
+      "id": 1
+    },
+    {
+      "email": "ivan@ivan.bg",
+      "password": "$2a$10$cI9UvV5pMwFQ7mNqHFHdCu.EE/Hqxa7jfHKJSIjhF9uJ9.FMwMz5K",
+      "id": 2
+    },
+    {
+      "email": "goshko@abv.bg",
+      "password": "$2a$10$037QwOh/j/0httJEcMJFvOxDDJ6Zch172.05QlPevR8Ch9frqBT9m",
+      "id": 3
+    },
+    {
+      "email": "demo3@demo.bg",
+      "password": "$2a$10$wTP6h1PGgFFuwHpVMrtupekjSYaDzXLQ.PH94b8HixVtEwaVfJ8Ve",
+      "id": 4
+    },
+    {
+      "email": "demo5@demo.bg",
+      "password": "$2a$10$4WjC2msO.Wbl5XwExADuhOQImqew92IKc/sJH31gqAIT6wy8Xd0jm",
+      "id": 5
+    },
+    {
+      "email": "slark@abv.bg",
+      "password": "$2a$10$sUEkVInDidURRncvhKRkW.9qAVDjk7vzUAht2SKT4zZ/qupwJ2QCS",
+      "id": 6
+    },
+    {
+      "email": "demo6@demo.bg",
+      "password": "$2a$10$cbSx/Aq2OGA/YXPNubQwzueJWbxabZBCOxdkqxZBUL48hrCP175dC",
+      "id": 7
+    }
+  ],
+  "books": [
+    {
+      "userId": 1,
+      "title": "Angela’s Ashes",
+      "author": "Frank McCourt",
+      "pages": "400",
+      "genre": "Art",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "title": "Look Me in the Eye",
+      "author": "John Elder Robison",
+      "pages": "560",
+      "genre": "Science",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "title": "Night",
+      "author": "Elie Wiesel",
+      "pages": "250",
+      "genre": "Art",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "title": "Year of Yes",
+      "author": "Shonda",
+      "pages": "311",
+      "genre": "Math",
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "title": "Origin",
+      "author": "Dawn Brown",
+      "pages": "424",
+      "genre": "True crime",
+      "id": 6
+    },
+    {
+      "userId": 3,
+      "title": "Eloquent JavaScript",
+      "author": "Marijn Haverbeke",
+      "pages": "474",
+      "genre": "Guide",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "title": "demoBook",
+      "author": "demo5",
+      "pages": "555",
+      "genre": "Health",
+      "id": 8
+    }
+  ],
+  "comments": [
+    {
+      "bookId": 3,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "text": "Niceee",
+      "postDate": "2019-6-27 13:07:52",
+      "id": 6
+    },
+    {
+      "bookId": 3,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "text": "hmm",
+      "postDate": "2019-6-27 13:08:36",
+      "id": 7
+    },
+    {
+      "bookId": 3,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "text": "I like it",
+      "postDate": "2019-6-27 13:11:32",
+      "id": 8
+    },
+    {
+      "bookId": 6,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "text": "I love Robert Langdon",
+      "postDate": "2019-6-27 13:14:17",
+      "id": 9
+    },
+    {
+      "bookId": 2,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "text": "Nicee book",
+      "postDate": "2019-6-27 13:16:54",
+      "id": 10
+    },
+    {
+      "bookId": 6,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "text": "nice book!",
+      "postDate": "2019-6-27 13:19:23",
+      "id": 11
+    },
+    {
+      "bookId": 6,
+      "userId": 3,
+      "author": "goshko@abv.bg",
+      "text": "The lost symbol is the best....",
+      "postDate": "2019-6-27 13:54:30",
+      "id": 12
+    },
+    {
+      "bookId": 2,
+      "userId": 3,
+      "author": "goshko@abv.bg",
+      "text": "wHattttttttttt",
+      "postDate": "2019-6-27 13:54:44",
+      "id": 13
+    },
+    {
+      "bookId": 7,
+      "userId": 3,
+      "author": "goshko@abv.bg",
+      "text": "😜",
+      "postDate": "2019-6-27 13:55:10",
+      "id": 14
+    },
+    {
+      "bookId": 7,
+      "userId": 3,
+      "author": "goshko@abv.bg",
+      "text": "🐱‍🏍",
+      "postDate": "2019-6-27 13:55:24",
+      "id": 15
+    }
+  ]
+}
