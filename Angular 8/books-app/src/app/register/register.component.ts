@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   register() {
     this.userService
       .register(this.model.email, this.model.password)
-      .then(res => {
+      .then(() => {
         this.alertifyService.success('Registration succesful');
       })
       .catch(err => {

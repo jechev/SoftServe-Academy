@@ -10,11 +10,13 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { BookListComponent } from './book/book-list/book-list.component';
+import { BookDetailComponent } from './book/book-detail/book-detail.component';
 
 import { UserService } from './_services/user.service';
+import { BookService } from './_services/book.service';
 import { AlertifyService } from './_services/alertify.service';
 import { appRoutes } from './routes';
-import { BooksComponent } from './books/books.component';
 import { AuthGuard } from './_guards/auth.guard';
 
 @NgModule({
@@ -23,7 +25,8 @@ import { AuthGuard } from './_guards/auth.guard';
     NavComponent,
     HomeComponent,
     RegisterComponent,
-    BooksComponent
+    BookListComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { AuthGuard } from './_guards/auth.guard';
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService, AlertifyService, AuthGuard],
+  providers: [UserService, BookService, AlertifyService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
