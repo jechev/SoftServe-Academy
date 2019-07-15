@@ -25,6 +25,10 @@ export class NavComponent implements OnInit {
       .then(res => {
         this.userService.saveToken(res);
         this.email = sessionStorage.getItem('email');
+        return this.userService.getUserDetails();
+      })
+      .then(res => {
+        sessionStorage.setItem('userId', res.data[0].id);
         this.alertifyService.success('Logged in successfully');
         this.router.navigate(['/books']);
       })

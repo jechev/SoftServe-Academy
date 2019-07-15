@@ -12,10 +12,14 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { BookListComponent } from './book/book-list/book-list.component';
 import { BookDetailComponent } from './book/book-detail/book-detail.component';
+import { AddCommentComponent } from './comment/add-comment/add-comment.component';
+import { CommentDetailComponent } from './comment/comment-detail/comment-detail.component';
 
 import { UserService } from './_services/user.service';
 import { BookService } from './_services/book.service';
+import { CommentService } from './_services/comment.service';
 import { AlertifyService } from './_services/alertify.service';
+
 import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
 
@@ -26,7 +30,9 @@ import { AuthGuard } from './_guards/auth.guard';
     HomeComponent,
     RegisterComponent,
     BookListComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    AddCommentComponent,
+    CommentDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,13 @@ import { AuthGuard } from './_guards/auth.guard';
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService, BookService, AlertifyService, AuthGuard],
+  providers: [
+    UserService,
+    BookService,
+    CommentService,
+    AlertifyService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

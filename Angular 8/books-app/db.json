@@ -34,6 +34,11 @@
       "email": "demo6@demo.bg",
       "password": "$2a$10$cbSx/Aq2OGA/YXPNubQwzueJWbxabZBCOxdkqxZBUL48hrCP175dC",
       "id": 7
+    },
+    {
+      "email": "demo7@demo.bg",
+      "password": "$2a$10$O6ZLKsQw36tzU5wk0xpOOurpOAsVKGbE29lItq.YJQ9rPeYUt5/36",
+      "id": 8
     }
   ],
   "books": [
@@ -174,6 +179,14 @@
       "text": "🐱‍🏍",
       "postDate": "2019-6-27 13:55:24",
       "id": 15
+    },
+    {
+      "text": "dada",
+      "bookId": 2,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "postDate": 1563218389267,
+      "id": 16
     }
   ]
 }

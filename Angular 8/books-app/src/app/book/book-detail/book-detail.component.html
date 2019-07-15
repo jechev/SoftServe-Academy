@@ -1,3 +1,33 @@
-<p>
-  book-detail works!
-</p>
+<div class="container ">
+  <div class="text-center">
+    <div class="col-lg-12">
+      <h1 class="mt-4">{{ book?.title }}</h1>
+      <p class="lead">
+        by
+        <a href="#">{{ book?.author }}</a>
+      </p>
+      <hr />
+      <p>
+        Genre: <strong>{{ book?.genre }}</strong>
+      </p>
+      <hr />
+      <p>Pages: {{ book?.pages }}</p>
+      <hr />
+      <div class="row" *ngIf="currentUserId === book?.userId">
+        <div class="col">
+          <a href="#/books/delete/{{ book.id }}" class="btn btn-danger"
+            >Delete</a
+          >
+        </div>
+        <div class="col">
+          <a href="#/books/edit/{{ book.id }}" class="btn btn-info">Edit</a>
+        </div>
+      </div>
+      <hr />
+      <app-add-comment></app-add-comment>
+      <div class="media mb-4" *ngFor="let comment of book?.comments">
+        <app-comment-detail [comment]="comment"></app-comment-detail>
+      </div>
+    </div>
+  </div>
+</div>

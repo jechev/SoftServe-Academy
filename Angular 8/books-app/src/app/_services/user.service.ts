@@ -34,4 +34,9 @@ export class UserService {
   public logout() {
     sessionStorage.clear();
   }
+
+  public getUserDetails() {
+    const email = sessionStorage.getItem('email');
+    return axios.get(this.baseUrl + 'users/?email=' + email);
+  }
 }

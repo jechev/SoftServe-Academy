@@ -1,0 +1,12 @@
+<div class="media mb-4">
+  <img
+    class="d-flex mr-3 rounded-circle"
+    src="{{ '../../../assets/user.png' }}"
+    alt=""
+  />
+  <div class="media-body">
+    <h5 class="mt-0">{{ comment.author }}</h5>
+    <h6>Posted on {{ comment.postDate | date: 'medium' }}</h6>
+    {{ comment.text }}
+  </div>
+</div>

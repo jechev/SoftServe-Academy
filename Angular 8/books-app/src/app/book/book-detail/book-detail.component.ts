@@ -9,6 +9,7 @@ import { BookService } from '../../_services/book.service';
 })
 export class BookDetailComponent implements OnInit {
   book: any;
+  currentUserId;
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService
@@ -16,6 +17,7 @@ export class BookDetailComponent implements OnInit {
 
   ngOnInit() {
     const bookId = this.route.snapshot.paramMap.get('id');
+    this.currentUserId = Number(sessionStorage.getItem('userId'));
     this.bookService
       .getBookById(bookId)
       .then(res => {
