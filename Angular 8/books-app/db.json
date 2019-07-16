@@ -59,30 +59,6 @@
       "id": 3
     },
     {
-      "userId": 1,
-      "title": "Night",
-      "author": "Elie Wiesel",
-      "pages": "250",
-      "genre": "Art",
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "title": "Year of Yes",
-      "author": "Shonda",
-      "pages": "311",
-      "genre": "Math",
-      "id": 5
-    },
-    {
-      "userId": 2,
-      "title": "Origin",
-      "author": "Dawn Brown",
-      "pages": "424",
-      "genre": "True crime",
-      "id": 6
-    },
-    {
       "userId": 3,
       "title": "Eloquent JavaScript",
       "author": "Marijn Haverbeke",
@@ -92,11 +68,27 @@
     },
     {
       "userId": 1,
-      "title": "demoBook",
-      "author": "demo5",
-      "pages": "555",
-      "genre": "Health",
+      "title": "The Silent Patient",
+      "author": "Alex Michaelides ",
+      "pages": 336,
+      "genre": "Thriller",
       "id": 8
+    },
+    {
+      "userId": 1,
+      "title": "Underland: A Deep Time Journey",
+      "author": "Robert Macfarlane ",
+      "pages": 496,
+      "genre": "Science fiction",
+      "id": 9
+    },
+    {
+      "title": "The Parisian",
+      "author": "Isabella Hammad",
+      "pages": 576,
+      "genre": "Memoir",
+      "userId": 1,
+      "id": 10
     }
   ],
   "comments": [
@@ -125,36 +117,12 @@
       "id": 8
     },
     {
-      "bookId": 6,
-      "userId": 2,
-      "author": "ivan@ivan.bg",
-      "text": "I love Robert Langdon",
-      "postDate": "2019-6-27 13:14:17",
-      "id": 9
-    },
-    {
       "bookId": 2,
       "userId": 2,
       "author": "ivan@ivan.bg",
       "text": "Nicee book",
       "postDate": "2019-6-27 13:16:54",
       "id": 10
-    },
-    {
-      "bookId": 6,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "text": "nice book!",
-      "postDate": "2019-6-27 13:19:23",
-      "id": 11
-    },
-    {
-      "bookId": 6,
-      "userId": 3,
-      "author": "goshko@abv.bg",
-      "text": "The lost symbol is the best....",
-      "postDate": "2019-6-27 13:54:30",
-      "id": 12
     },
     {
       "bookId": 2,
@@ -187,6 +155,14 @@
       "author": "demo@demo.bg",
       "postDate": 1563218389267,
       "id": 16
+    },
+    {
+      "text": "dada",
+      "bookId": 3,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "postDate": 1563295191056,
+      "id": 17
     }
   ]
 }

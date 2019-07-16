@@ -15,9 +15,9 @@
       <hr />
       <div class="row" *ngIf="currentUserId === book?.userId">
         <div class="col">
-          <a href="#/books/delete/{{ book.id }}" class="btn btn-danger"
-            >Delete</a
-          >
+          <button (click)="deleteBook(book.id)" class="btn btn-danger">
+            Delete
+          </button>
         </div>
         <div class="col">
           <a href="#/books/edit/{{ book.id }}" class="btn btn-info">Edit</a>

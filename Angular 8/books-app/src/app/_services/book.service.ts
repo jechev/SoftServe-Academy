@@ -15,4 +15,12 @@ export class BookService {
   public getBookById(id) {
     return axios.get(this.baseUrl + '/' + id + '?_embed=comments');
   }
+
+  public addBook(book) {
+    return axios.post(this.baseUrl, book);
+  }
+
+  public deleteBook(id) {
+    return axios.delete(this.baseUrl + '/' + id);
+  }
 }

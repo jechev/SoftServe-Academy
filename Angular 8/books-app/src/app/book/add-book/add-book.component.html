@@ -1,0 +1,53 @@
+<form #AddBookForm="ngForm" (ngSubmit)="addBook()">
+  <h2 class="text-center text-success">Add book</h2>
+  <hr />
+
+  <div class="form-group text-center">
+    <input
+      class="form-control mr-sm-2"
+      type="text"
+      name="title"
+      placeholder="Title"
+      required
+      [(ngModel)]="book.title"
+    />
+  </div>
+  <div class="form-group text-center">
+    <input
+      class="form-control mr-sm-2"
+      type="text"
+      name="author"
+      placeholder="Author"
+      required
+      [(ngModel)]="book.author"
+    />
+  </div>
+  <div class="form-group text-center">
+    <input
+      class="form-control mr-sm-2"
+      type="number"
+      name="pages"
+      placeholder="Pages"
+      required
+      [(ngModel)]="book.pages"
+    />
+  </div>
+  <mat-form-field>
+    <mat-label>Genre</mat-label>
+    <mat-select [(ngModel)]="book.genre" name="genre" required>
+      <mat-option *ngFor="let genre of genres" [value]="genre">
+        {{ genre }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="form-group text-center">
+    <button
+      class="btn btn-success"
+      type="submit"
+      [disabled]="!AddBookForm.valid"
+    >
+      AddBook
+    </button>
+  </div>
+</form>

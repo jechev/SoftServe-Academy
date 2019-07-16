@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MatSelectModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BsDropdownModule } from 'ngx-bootstrap';
 
@@ -14,6 +16,7 @@ import { BookListComponent } from './book/book-list/book-list.component';
 import { BookDetailComponent } from './book/book-detail/book-detail.component';
 import { AddCommentComponent } from './comment/add-comment/add-comment.component';
 import { CommentDetailComponent } from './comment/comment-detail/comment-detail.component';
+import { AddBookComponent } from './book/add-book/add-book.component';
 
 import { UserService } from './_services/user.service';
 import { BookService } from './_services/book.service';
@@ -32,14 +35,17 @@ import { AuthGuard } from './_guards/auth.guard';
     BookListComponent,
     BookDetailComponent,
     AddCommentComponent,
-    CommentDetailComponent
+    CommentDetailComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatSelectModule,
+    BrowserAnimationsModule
   ],
   providers: [
     UserService,
