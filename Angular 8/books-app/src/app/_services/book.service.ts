@@ -23,4 +23,8 @@ export class BookService {
   public deleteBook(id) {
     return axios.delete(this.baseUrl + '/' + id);
   }
+
+  public editBook(id, book) {
+    return axios.put(this.baseUrl + '/' + id, book);
+  }
 }
