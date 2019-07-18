@@ -5,6 +5,8 @@ import { BookListComponent } from './book/book-list/book-list.component';
 import { BookDetailComponent } from './book/book-detail/book-detail.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { BookEditComponent } from './book/book-edit/book-edit.component';
+import { BookByUserComponent } from './book/book-by-user/book-by-user.component';
+import { AuthorComponent } from './author/author.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,7 +14,11 @@ export const appRoutes: Routes = [
     path: '',
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
-    children: [{ path: 'books', component: BookListComponent }]
+    children: [
+      { path: 'books', component: BookListComponent },
+      { path: 'my-books', component: BookByUserComponent },
+      { path: 'authors', component: AuthorComponent }
+    ]
   },
   {
     path: 'book',

@@ -1,0 +1,9 @@
+<div class="container mt-5 text-center">
+  <h1>My Books</h1>
+  <div *ngFor="let book of books" class="row mt-2 text-center">
+    <a [routerLink]="['/book/' + book.id]" class="btn-primary px-2"
+      >{{ book.title }} - {{ book.author }} - Pages {{ book.pages }}; Comments -
+      {{ book.comments.length }}</a
+    >
+  </div>
+</div>

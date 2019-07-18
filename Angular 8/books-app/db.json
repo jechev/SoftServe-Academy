@@ -90,14 +90,6 @@
       "genre": "Memoir",
       "userId": 1,
       "id": 10
-    },
-    {
-      "title": "Billion Dollar Whale",
-      "author": "Bradley Hope",
-      "pages": 400,
-      "genre": "Memoir",
-      "userId": 1,
-      "id": 11
     }
   ],
   "comments": [
@@ -284,14 +276,6 @@
       "author": "demo@demo.bg",
       "postDate": 1563467058742,
       "id": 31
-    },
-    {
-      "text": "hello",
-      "bookId": 11,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "postDate": "2019-07-18T17:20:13.501Z",
-      "id": 32
     }
   ]
 }

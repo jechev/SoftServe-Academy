@@ -18,6 +18,8 @@ import { AddCommentComponent } from './comment/add-comment/add-comment.component
 import { CommentDetailComponent } from './comment/comment-detail/comment-detail.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { BookEditComponent } from './book/book-edit/book-edit.component';
+import { BookByUserComponent } from './book/book-by-user/book-by-user.component';
+import { AuthorComponent } from './author/author.component';
 
 import { UserService } from './_services/user.service';
 import { BookService } from './_services/book.service';
@@ -38,7 +40,9 @@ import { AuthGuard } from './_guards/auth.guard';
     AddCommentComponent,
     CommentDetailComponent,
     AddBookComponent,
-    BookEditComponent
+    BookEditComponent,
+    BookByUserComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,

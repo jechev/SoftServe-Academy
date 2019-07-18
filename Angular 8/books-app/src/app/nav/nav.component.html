@@ -7,6 +7,9 @@
         <a class="nav-link" [routerLink]="['/books']">Books</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/authors']">Authors</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/book/create']">Add Book</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
@@ -21,8 +24,8 @@
       </a>
 
       <div class="dropdown-menu mt-3" *dropdownMenu>
-        <a class="dropdown-item" [routerLink]="['/member/edit']"
-          ><i class="fa fa-user"></i> Edit Profile</a
+        <a class="dropdown-item" [routerLink]="['/my-books']"
+          ><i class="fa fa-book"></i> My Books</a
         >
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="logout()"

@@ -27,4 +27,12 @@ export class BookService {
   public editBook(id, book) {
     return axios.put(this.baseUrl + '/' + id, book);
   }
+
+  public getBookByUser(userId) {
+    return axios.get(this.baseUrl + '?userId=' + userId + '&_embed=comments');
+  }
+
+  public getBooksByAuthor(author) {
+    return axios.get(this.baseUrl + '?author=' + author);
+  }
 }

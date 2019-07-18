@@ -40,7 +40,8 @@ export class BookEditComponent implements OnInit {
     this.bookService
       .editBook(this.book.id, this.book)
       .then(res => {
-        console.log(res);
+        this.alertifyService.success('You edited the book.');
+        this.router.navigate(['/book/' + this.book.id]);
       })
       .catch(err => {
         console.log(err);

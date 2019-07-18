@@ -15,7 +15,7 @@
             Pages: {{ book.pages }}<br />Posted from:
             {{ book.user.email }}
           </p>
-          <a href="book/{{ book.id }}" class="btn btn-primary"
+          <a [routerLink]="['/book/' + book.id]" class="btn btn-primary"
             >Go to the book</a
           >
         </div>
