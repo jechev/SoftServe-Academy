@@ -26,7 +26,9 @@
         </div>
       </div>
       <hr />
-      <app-add-comment></app-add-comment>
+      <app-add-comment
+        (sendNewComment)="addNewComment($event)"
+      ></app-add-comment>
       <div class="media mb-4" *ngFor="let comment of book?.comments">
         <app-comment-detail [comment]="comment"></app-comment-detail>
       </div>

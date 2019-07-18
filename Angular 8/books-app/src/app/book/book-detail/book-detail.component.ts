@@ -35,6 +35,10 @@ export class BookDetailComponent implements OnInit {
     }
   }
 
+  addNewComment($event) {
+    this.book.comments.push($event);
+  }
+
   ngOnInit() {
     const bookId = this.route.snapshot.paramMap.get('id');
     this.currentUserId = Number(sessionStorage.getItem('userId'));

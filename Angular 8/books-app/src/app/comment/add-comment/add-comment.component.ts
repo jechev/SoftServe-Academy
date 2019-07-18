@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommentService } from '../../_services/comment.service';
 import { AlertifyService } from '../../_services/alertify.service';
@@ -9,6 +9,7 @@ import { AlertifyService } from '../../_services/alertify.service';
   styleUrls: ['./add-comment.component.scss']
 })
 export class AddCommentComponent implements OnInit {
+  @Output() sendNewComment = new EventEmitter();
   comment: any = {};
   constructor(
     private route: ActivatedRoute,
@@ -23,10 +24,11 @@ export class AddCommentComponent implements OnInit {
     this.comment.userId = Number(sessionStorage.getItem('userId'));
     this.comment.author = sessionStorage.getItem('email');
     this.comment.postDate = Date.now();
-    console.log(this.comment.text);
     this.commentService
       .addComment(this.comment)
-      .then(() => {
+      .then(res => {
+        console.log(res.data);
+        this.sendNewComment.emit(res.data);
         this.alertifyService.success('You added a new comment');
       })
       .catch(err => {
