@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../../_services/book.service';
 import { AlertifyService } from '../../_services/alertify.service';
+import { Book } from 'src/app/_models/book';
 
 @Component({
   selector: 'app-book-detail',
@@ -9,7 +10,7 @@ import { AlertifyService } from '../../_services/alertify.service';
   styleUrls: ['./book-detail.component.scss']
 })
 export class BookDetailComponent implements OnInit {
-  book: any;
+  book: Book;
   currentUserId;
 
   constructor(
@@ -46,7 +47,6 @@ export class BookDetailComponent implements OnInit {
       .getBookById(bookId)
       .then(res => {
         this.book = res.data;
-        console.log(this.book);
       })
       .catch(err => {
         console.log(err);

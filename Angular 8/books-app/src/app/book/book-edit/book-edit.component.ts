@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../_services/book.service';
 import { AlertifyService } from '../../_services/alertify.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Book } from 'src/app/_models/book';
 @Component({
   selector: 'app-book-edit',
   templateUrl: './book-edit.component.html',
   styleUrls: ['./book-edit.component.scss']
 })
 export class BookEditComponent implements OnInit {
-  book: any = {};
+  book: Book = new Book();
   genres: string[] = [
     'Fantasy',
     'Science fiction',
@@ -47,9 +48,10 @@ export class BookEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.book.id = this.route.snapshot.paramMap.get('id');
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    console.log(id);
     this.bookService
-      .getBookById(this.book.id)
+      .getBookById(id)
       .then(res => {
         this.book = res.data;
         console.log(this.book);

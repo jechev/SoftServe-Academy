@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../_services/book.service';
 import { AlertifyService } from '../../_services/alertify.service';
 import { Router } from '@angular/router';
+import { Book } from 'src/app/_models/book';
 
 @Component({
   selector: 'app-add-book',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-book.component.scss']
 })
 export class AddBookComponent implements OnInit {
-  book: any = {};
+  book: Book = new Book();
+
   genres: string[] = [
     'Fantasy',
     'Science fiction',
@@ -29,6 +31,7 @@ export class AddBookComponent implements OnInit {
     'DIY (Do It Yourself)',
     'Dictionary'
   ];
+
   constructor(
     private bookService: BookService,
     private router: Router,

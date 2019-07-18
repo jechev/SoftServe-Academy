@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommentService } from '../../_services/comment.service';
 import { AlertifyService } from '../../_services/alertify.service';
+import { NgForm } from '@angular/forms';
+import { Comment } from 'src/app/_models/comment';
 
 @Component({
   selector: 'app-add-comment',
@@ -10,7 +12,7 @@ import { AlertifyService } from '../../_services/alertify.service';
 })
 export class AddCommentComponent implements OnInit {
   @Output() sendNewComment = new EventEmitter();
-  comment: any = {};
+  comment: Comment = new Comment();
   constructor(
     private route: ActivatedRoute,
     private commentService: CommentService,
@@ -19,17 +21,17 @@ export class AddCommentComponent implements OnInit {
 
   ngOnInit() {}
 
-  addComment() {
+  addComment(form: NgForm) {
     this.comment.bookId = Number(this.route.snapshot.paramMap.get('id'));
     this.comment.userId = Number(sessionStorage.getItem('userId'));
     this.comment.author = sessionStorage.getItem('email');
-    this.comment.postDate = Date.now();
+    this.comment.postDate = new Date(Date.now());
     this.commentService
       .addComment(this.comment)
       .then(res => {
-        console.log(res.data);
         this.sendNewComment.emit(res.data);
         this.alertifyService.success('You added a new comment');
+        form.resetForm();
       })
       .catch(err => {
         console.log(err);
