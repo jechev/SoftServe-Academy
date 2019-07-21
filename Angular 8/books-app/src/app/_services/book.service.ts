@@ -8,8 +8,14 @@ export class BookService {
   private baseUrl = 'http://localhost:3000/books';
   constructor() {}
 
-  public getAllBooksWithCreator() {
-    return axios.get(this.baseUrl + '?_expand=user');
+  public getAllBooksWithCreator(page?) {
+    if (page === 0) {
+      return axios.get(this.baseUrl + '?_expand=user');
+    } else {
+      return axios.get(
+        this.baseUrl + '?_expand=user&_page=' + page + '&_limit=5'
+      );
+    }
   }
 
   public getBookById(id) {

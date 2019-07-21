@@ -9,12 +9,25 @@ import { Book } from '../../_models/book';
 })
 export class BookListComponent implements OnInit {
   books: Book[];
+  page = 1;
+  totalItems;
   constructor(private bookService: BookService) {}
 
   ngOnInit() {
+    this.loadBooks();
+  }
+
+  pageChanged(event: any): void {
+    this.page = event.page;
+    this.loadBooks();
+  }
+
+  loadBooks() {
     this.bookService
-      .getAllBooksWithCreator()
+      .getAllBooksWithCreator(this.page)
       .then(res => {
+        console.log(res.headers['x-total-count']);
+        this.totalItems = res.headers['x-total-count'];
         this.books = res.data;
         console.log(this.books);
       })

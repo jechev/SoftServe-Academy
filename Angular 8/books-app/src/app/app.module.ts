@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MatSelectModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { BsDropdownModule, PaginationModule } from 'ngx-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +50,8 @@ import { AuthGuard } from './_guards/auth.guard';
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     MatSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PaginationModule.forRoot()
   ],
   providers: [
     UserService,
