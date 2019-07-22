@@ -1,0 +1,25 @@
+<form #MsgForm="ngForm" (ngSubmit)="sendMessage()">
+  <mat-form-field>
+    <mat-label>Recipient</mat-label>
+    <mat-select [(ngModel)]="recipient" name="recipient" required>
+      <mat-option *ngFor="let user of users" [value]="user">
+        {{ user.email }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="form-group text-center">
+    <textarea
+      class="form-control"
+      name="content"
+      placeholder="Message"
+      required
+      [(ngModel)]="msgText"
+    ></textarea>
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-success" type="submit" [disabled]="!MsgForm.valid">
+      Send Message
+    </button>
+  </div>
+</form>

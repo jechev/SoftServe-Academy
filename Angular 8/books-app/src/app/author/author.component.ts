@@ -11,14 +11,14 @@ export class AuthorComponent implements OnInit {
   constructor(private bookService: BookService) {}
 
   ngOnInit() {
-    this.bookService
-      .getAllBooksWithCreator()
-      .then(res => {
-        this.authors = [...new Set(res.data.map(item => item.author))];
-        console.log(this.authors);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // this.bookService
+    //   .getAllBooksWithCreator()
+    //   .then(res => {
+    //     this.authors = [...new Set(res.data.map(item => item.author))];
+    //     console.log(this.authors);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   }
 }

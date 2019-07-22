@@ -276,5 +276,23 @@
       "postDate": 1563467058742,
       "id": 31
     }
+  ],
+  "messages": [
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "Hello, Ivan",
+      "recipient": "ivan@ivan.bg",
+      "recipientId": 2,
+      "id": 1
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "Hello Goshko",
+      "recipient": "goshko@abv.bg",
+      "recipientId": 3,
+      "id": 2
+    }
   ]
 }

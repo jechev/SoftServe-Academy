@@ -23,6 +23,8 @@ import { AddBookComponent } from './book/add-book/add-book.component';
 import { BookEditComponent } from './book/book-edit/book-edit.component';
 import { BookByUserComponent } from './book/book-by-user/book-by-user.component';
 import { AuthorComponent } from './author/author.component';
+import { MessageSendComponent } from './messages/message-send/message-send.component';
+import { InboxComponent } from './messages/inbox/inbox.component';
 
 import { UserService } from './_services/user.service';
 import { BookService } from './_services/book.service';
@@ -45,7 +47,9 @@ import { AuthGuard } from './_guards/auth.guard';
     AddBookComponent,
     BookEditComponent,
     BookByUserComponent,
-    AuthorComponent
+    AuthorComponent,
+    MessageSendComponent,
+    InboxComponent
   ],
   imports: [
     BrowserModule,

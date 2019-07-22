@@ -22,6 +22,10 @@ export class UserService {
     });
   }
 
+  public getAllUsers() {
+    return axios.get(this.baseUrl + 'users');
+  }
+
   public saveToken(res) {
     sessionStorage.setItem('accessToken', res.data.accessToken);
     sessionStorage.setItem('email', JSON.parse(res.config.data).email);
