@@ -47,6 +47,51 @@
     >
       Reset Filter
     </button>
+
+    <div class="col">
+      <div class="btn-group float-right">
+        <button
+          type="button"
+          name="orderBy"
+          class="btn btn-primary"
+          btnRadio="title"
+          [(ngModel)]="orderBy"
+          (click)="loadBooks()"
+        >
+          Title
+        </button>
+        <button
+          type="button"
+          name="orderBy"
+          class="btn btn-primary"
+          btnRadio="author"
+          [(ngModel)]="orderBy"
+          (click)="loadBooks()"
+        >
+          Author
+        </button>
+        <button
+          type="button"
+          name="orderBy"
+          class="btn btn-primary"
+          btnRadio="genre"
+          [(ngModel)]="orderBy"
+          (click)="loadBooks()"
+        >
+          Genre
+        </button>
+        <button
+          type="button"
+          name="orderBy"
+          class="btn btn-primary"
+          btnRadio="pages"
+          [(ngModel)]="orderBy"
+          (click)="loadBooks()"
+        >
+          Pages
+        </button>
+      </div>
+    </div>
   </form>
   <br />
   <div class="row">

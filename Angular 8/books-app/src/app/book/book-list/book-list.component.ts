@@ -18,6 +18,7 @@ export class BookListComponent implements OnInit {
   searchType;
   page = 1;
   totalItems;
+  orderBy = 'id';
   constructor(private bookService: BookService) {}
 
   ngOnInit() {
@@ -36,13 +37,18 @@ export class BookListComponent implements OnInit {
   }
 
   loadBooks() {
+    // Check if has search options
     if (this.searchValue && this.searchType) {
       this.page = 1;
     }
     this.bookService
-      .getAllBooksWithCreator(this.page, this.searchValue, this.searchType)
+      .getAllBooksWithCreator(
+        this.page,
+        this.orderBy,
+        this.searchValue,
+        this.searchType
+      )
       .then(res => {
-        console.log(res.headers['x-total-count']);
         this.totalItems = res.headers['x-total-count'];
         this.books = res.data;
         console.log(this.books);
