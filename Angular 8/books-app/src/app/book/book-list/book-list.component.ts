@@ -9,6 +9,13 @@ import { Book } from '../../_models/book';
 })
 export class BookListComponent implements OnInit {
   books: Book[];
+  searchList = [
+    { value: 'title', display: 'Title' },
+    { value: 'author', display: 'Author' },
+    { value: 'genre', display: 'Genre' }
+  ];
+  searchValue;
+  searchType;
   page = 1;
   totalItems;
   constructor(private bookService: BookService) {}
@@ -22,9 +29,18 @@ export class BookListComponent implements OnInit {
     this.loadBooks();
   }
 
+  resetFilter() {
+    this.searchType = undefined;
+    this.searchValue = undefined;
+    this.loadBooks();
+  }
+
   loadBooks() {
+    if (this.searchValue && this.searchType) {
+      this.page = 1;
+    }
     this.bookService
-      .getAllBooksWithCreator(this.page)
+      .getAllBooksWithCreator(this.page, this.searchValue, this.searchType)
       .then(res => {
         console.log(res.headers['x-total-count']);
         this.totalItems = res.headers['x-total-count'];

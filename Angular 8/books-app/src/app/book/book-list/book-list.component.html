@@ -1,4 +1,54 @@
+<br />
 <div class="container mt-5">
+  <div class="text-center mt-3">
+    <h2>Result - {{ books.length }} books</h2>
+  </div>
+
+  <form
+    class="form-inline"
+    #searchForm="ngForm"
+    (ngSubmit)="loadBooks()"
+    novalidate
+  >
+    <div class="form-group px-2">
+      <label for="searchValue">Search</label>
+      <input
+        type="text"
+        class="form-control ml-1"
+        style="width: 150px"
+        id="searchValue"
+        name="searchValue"
+        [(ngModel)]="searchValue"
+      />
+    </div>
+
+    <div class="form-group px-2">
+      <label for="prop">in </label>
+      <select
+        class="form-control ml-1"
+        style="width: 130px"
+        id="prop"
+        name="prop"
+        [(ngModel)]="searchType"
+      >
+        <option *ngFor="let item of searchList" [value]="item.value">{{
+          item.display
+        }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-left:10px">
+      Apply Filters
+    </button>
+    <button
+      type="button"
+      class="btn btn-info"
+      style="margin-left:10px"
+      (click)="resetFilter()"
+    >
+      Reset Filter
+    </button>
+  </form>
+  <br />
   <div class="row">
     <div *ngFor="let book of books" class="col-lg-2 col-md-3 col-sm-6">
       <div class="card mb-4" style="width: 10rem;">
@@ -22,17 +72,17 @@
       </div>
     </div>
   </div>
-  <div class="justify-content-center text-center" *ngIf="totalItems > 5">
-    <pagination
-      [boundaryLinks]="true"
-      [totalItems]="totalItems"
-      [itemsPerPage]="5"
-      previousText="&lsaquo;"
-      nextText="&rsaquo;"
-      firstText="&laquo;"
-      lastText="&raquo;"
-      (pageChanged)="pageChanged($event)"
-    >
-    </pagination>
-  </div>
+</div>
+<div class="d-flex justify-content-center" *ngIf="totalItems > 5">
+  <pagination
+    [boundaryLinks]="true"
+    [totalItems]="totalItems"
+    [itemsPerPage]="5"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+    (pageChanged)="pageChanged($event)"
+  >
+  </pagination>
 </div>

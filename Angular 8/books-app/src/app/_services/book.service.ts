@@ -8,9 +8,17 @@ export class BookService {
   private baseUrl = 'http://localhost:3000/books';
   constructor() {}
 
-  public getAllBooksWithCreator(page?) {
-    if (page === 0) {
-      return axios.get(this.baseUrl + '?_expand=user');
+  public getAllBooksWithCreator(page, searchValue?, searchType?) {
+    if (searchValue && searchType) {
+      return axios.get(
+        this.baseUrl +
+          '?_expand=user&_page=' +
+          page +
+          '&_limit=5&' +
+          searchType +
+          '_like=' +
+          searchValue
+      );
     } else {
       return axios.get(
         this.baseUrl + '?_expand=user&_page=' + page + '&_limit=5'
