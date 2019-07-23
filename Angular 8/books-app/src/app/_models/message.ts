@@ -6,4 +6,5 @@ export class Message {
   recipient: string;
   content: string;
   isRead: boolean;
+  postDate: number;
 }

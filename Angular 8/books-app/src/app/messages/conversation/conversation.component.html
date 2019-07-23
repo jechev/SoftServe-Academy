@@ -1,0 +1,10 @@
+<div class="container text-center">
+  <h3>Conversation with {{ otherUser }}</h3>
+  <div class="media mb-4" *ngFor="let msg of allMessages">
+    <div class="media-body">
+      <h5 class="mt-0">{{ msg.sender }}</h5>
+      <h6>Posted on {{ msg.postDate | date: 'medium' }}</h6>
+      {{ msg.content }}
+    </div>
+  </div>
+</div>

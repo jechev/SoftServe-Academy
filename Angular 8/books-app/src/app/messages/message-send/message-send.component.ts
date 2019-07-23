@@ -28,7 +28,6 @@ export class MessageSendComponent implements OnInit {
             this.users.push(element);
           }
         });
-        console.log(this.users);
       })
       .catch(err => {
         console.log(err);
@@ -41,9 +40,8 @@ export class MessageSendComponent implements OnInit {
     this.newMessage.content = this.msgText;
     this.newMessage.recipient = this.recipient.email;
     this.newMessage.recipientId = this.recipient.id;
+    this.newMessage.postDate = Date.now();
 
-    console.log(this.newMessage);
-    console.log(this.msgText);
     this.msgService
       .sendMessage(this.newMessage)
       .then(res => {

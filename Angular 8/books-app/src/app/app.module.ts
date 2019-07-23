@@ -25,6 +25,7 @@ import { BookByUserComponent } from './book/book-by-user/book-by-user.component'
 import { AuthorComponent } from './author/author.component';
 import { MessageSendComponent } from './messages/message-send/message-send.component';
 import { InboxComponent } from './messages/inbox/inbox.component';
+import { ConversationComponent } from './messages/conversation/conversation.component';
 
 import { UserService } from './_services/user.service';
 import { BookService } from './_services/book.service';
@@ -49,7 +50,8 @@ import { AuthGuard } from './_guards/auth.guard';
     BookByUserComponent,
     AuthorComponent,
     MessageSendComponent,
-    InboxComponent
+    InboxComponent,
+    ConversationComponent
   ],
   imports: [
     BrowserModule,

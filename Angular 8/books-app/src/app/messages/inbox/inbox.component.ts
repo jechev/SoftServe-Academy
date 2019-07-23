@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'src/app/_services/message.service';
 
@@ -8,11 +9,32 @@ import { MessageService } from 'src/app/_services/message.service';
 })
 export class InboxComponent implements OnInit {
   curentUserId;
-  allMessages: any[] = new Array();
+  allUsers: any[] = new Array();
+  uniqueUsers: any;
   subjects: any;
   constructor(private msgService: MessageService) {}
 
   ngOnInit() {
     this.curentUserId = sessionStorage.getItem('userId');
+    this.msgService
+      .getMessagesForRecepient(this.curentUserId)
+      .then(res => {
+        res.data.forEach(element => {
+          this.allUsers.push(element.sender);
+        });
+        return this.msgService.getMessagesForSender(this.curentUserId);
+      })
+      .then(res => {
+        res.data.forEach(element => {
+          this.allUsers.push(element.recipient);
+        });
+      })
+      .then(() => {
+        this.uniqueUsers = _.uniq(this.allUsers);
+        console.log(this.uniqueUsers);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 }

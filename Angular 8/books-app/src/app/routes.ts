@@ -9,6 +9,7 @@ import { BookByUserComponent } from './book/book-by-user/book-by-user.component'
 import { AuthorComponent } from './author/author.component';
 import { MessageSendComponent } from './messages/message-send/message-send.component';
 import { InboxComponent } from './messages/inbox/inbox.component';
+import { ConversationComponent } from './messages/conversation/conversation.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,7 +22,8 @@ export const appRoutes: Routes = [
       { path: 'my-books', component: BookByUserComponent },
       { path: 'authors', component: AuthorComponent },
       { path: 'send-message', component: MessageSendComponent },
-      { path: 'inbox', component: InboxComponent }
+      { path: 'inbox', component: InboxComponent },
+      { path: 'conversation/:user', component: ConversationComponent }
     ]
   },
   {

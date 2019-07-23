@@ -39,8 +39,10 @@ export class UserService {
     sessionStorage.clear();
   }
 
-  public getUserDetails() {
-    const email = sessionStorage.getItem('email');
+  public getUserDetails(email?) {
+    if (email === undefined) {
+      email = sessionStorage.getItem('email');
+    }
     return axios.get(this.baseUrl + 'users/?email=' + email);
   }
 }

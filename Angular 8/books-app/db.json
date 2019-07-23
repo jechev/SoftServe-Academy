@@ -281,18 +281,65 @@
     {
       "sender": "demo@demo.bg",
       "senderId": 1,
-      "content": "Hello, Ivan",
-      "recipient": "ivan@ivan.bg",
-      "recipientId": 2,
+      "content": "Hi Goshko",
+      "recipient": "goshko@abv.bg",
+      "recipientId": 3,
+      "postDate": 1563871027557,
       "id": 1
     },
     {
       "sender": "demo@demo.bg",
       "senderId": 1,
-      "content": "Hello Goshko",
+      "content": "Hi Slark",
+      "recipient": "slark@abv.bg",
+      "recipientId": 6,
+      "postDate": 1563871036340,
+      "id": 2
+    },
+    {
+      "sender": "goshko@abv.bg",
+      "senderId": 3,
+      "content": "Hi Demo, how are you",
+      "recipient": "demo@demo.bg",
+      "recipientId": 1,
+      "postDate": 1563871899259,
+      "id": 3
+    },
+    {
+      "sender": "demo5@demo.bg",
+      "senderId": 5,
+      "content": "Yooo demoo",
+      "recipient": "demo@demo.bg",
+      "recipientId": 1,
+      "postDate": 1563871920197,
+      "id": 4
+    },
+    {
+      "sender": "goshko@abv.bg",
+      "senderId": 3,
+      "content": "Are you there",
+      "recipient": "demo@demo.bg",
+      "recipientId": 1,
+      "postDate": 1563872255797,
+      "id": 5
+    },
+    {
+      "sender": "goshko@abv.bg",
+      "senderId": 3,
+      "content": "Pfff",
+      "recipient": "demo@demo.bg",
+      "recipientId": 1,
+      "postDate": 1563872261958,
+      "id": 6
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "goshooo",
       "recipient": "goshko@abv.bg",
       "recipientId": 3,
-      "id": 2
+      "postDate": 1563879303827,
+      "id": 7
     }
   ]
 }

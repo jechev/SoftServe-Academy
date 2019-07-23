@@ -19,4 +19,10 @@ export class MessageService {
   public getMessagesForSender(userId) {
     return axios.get(this.baseUrl + '?senderId=' + userId);
   }
+
+  public getConversation(senderId, recipientId) {
+    return axios.get(
+      this.baseUrl + '?senderId=' + senderId + '&recipientId=' + recipientId
+    );
+  }
 }
