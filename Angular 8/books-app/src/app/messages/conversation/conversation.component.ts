@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { MessageService } from 'src/app/_services/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { Message } from 'src/app/_models/message';
@@ -12,9 +12,9 @@ import { UserService } from 'src/app/_services/user.service';
 })
 export class ConversationComponent implements OnInit {
   currentUserId = sessionStorage.getItem('userId');
-  otherUser;
+  otherUser: any;
   allMessages: Message[] = new Array();
-  otherUserId;
+  otherUserId: any;
   constructor(
     private route: ActivatedRoute,
     private msgService: MessageService,

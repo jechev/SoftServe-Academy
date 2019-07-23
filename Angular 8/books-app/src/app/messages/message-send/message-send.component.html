@@ -1,5 +1,5 @@
 <form #MsgForm="ngForm" (ngSubmit)="sendMessage()">
-  <mat-form-field>
+  <mat-form-field *ngIf="!partner">
     <mat-label>Recipient</mat-label>
     <mat-select [(ngModel)]="recipient" name="recipient" required>
       <mat-option *ngFor="let user of users" [value]="user">

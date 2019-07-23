@@ -340,6 +340,69 @@
       "recipientId": 3,
       "postDate": 1563879303827,
       "id": 7
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "Hi demo",
+      "recipient": "demo7@demo.bg",
+      "recipientId": 8,
+      "postDate": 1563897130540,
+      "id": 8
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "Goshkoooo",
+      "recipient": "goshko@abv.bg",
+      "recipientId": 3,
+      "postDate": 1563898362069,
+      "id": 9
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "Vanioo",
+      "recipient": "ivan@ivan.bg",
+      "recipientId": 2,
+      "postDate": 1563898434589,
+      "id": 10
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "brattt miii",
+      "recipient": "ivan@ivan.bg",
+      "recipientId": 2,
+      "postDate": 1563898687008,
+      "id": 11
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "yooo",
+      "recipient": "demo3@demo.bg",
+      "recipientId": 4,
+      "postDate": 1563898697740,
+      "id": 12
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "ddaa",
+      "recipient": "demo6@demo.bg",
+      "recipientId": 7,
+      "postDate": 1563898709513,
+      "id": 13
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "daaaaaaa",
+      "recipient": "goshko@abv.bg",
+      "recipientId": 3,
+      "postDate": 1563898715715,
+      "id": 14
     }
   ]
 }
