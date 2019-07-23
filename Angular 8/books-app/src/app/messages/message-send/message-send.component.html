@@ -1,4 +1,4 @@
-<form #MsgForm="ngForm" (ngSubmit)="sendMessage()">
+<form #MsgForm="ngForm" (ngSubmit)="sendMessage(MsgForm)">
   <mat-form-field *ngIf="!partner">
     <mat-label>Recipient</mat-label>
     <mat-select [(ngModel)]="recipient" name="recipient" required>
@@ -7,6 +7,12 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <div
+    *ngIf="MsgForm.controls?.content?.invalid && MsgForm.submitted"
+    class="error"
+  >
+    Choose recipient please!
+  </div>
   <div class="form-group text-center">
     <textarea
       class="form-control"
@@ -15,10 +21,16 @@
       required
       [(ngModel)]="msgText"
     ></textarea>
+    <div
+      *ngIf="MsgForm.controls?.content?.invalid && MsgForm.submitted"
+      class="error"
+    >
+      Message is empty!
+    </div>
   </div>
 
   <div class="form-group text-center">
-    <button class="btn btn-success" type="submit" [disabled]="!MsgForm.valid">
+    <button class="btn btn-success" type="submit">
       Send Message
     </button>
   </div>

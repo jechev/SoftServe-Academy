@@ -22,6 +22,9 @@ export class AddCommentComponent implements OnInit {
   ngOnInit() {}
 
   addComment(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
     this.comment.bookId = Number(this.route.snapshot.paramMap.get('id'));
     this.comment.userId = Number(sessionStorage.getItem('userId'));
     this.comment.author = sessionStorage.getItem('email');

@@ -38,7 +38,10 @@ export class AddBookComponent implements OnInit {
     private alertifyService: AlertifyService
   ) {}
 
-  addBook() {
+  addBook(form) {
+    if (form.invalid) {
+      return;
+    }
     this.book.userId = Number(sessionStorage.getItem('userId'));
     this.bookService
       .addBook(this.book)

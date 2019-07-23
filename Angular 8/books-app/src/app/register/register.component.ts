@@ -17,7 +17,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {}
 
-  register() {
+  register(form) {
+    if (form.invalid) {
+      return;
+    }
     this.userService
       .register(this.model.email, this.model.password)
       .then(() => {

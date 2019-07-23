@@ -47,7 +47,10 @@ export class MessageSendComponent implements OnInit {
     console.log(this.partner);
   }
 
-  sendMessage() {
+  sendMessage(form) {
+    if (form.invalid) {
+      return;
+    }
     this.newMessage.sender = sessionStorage.getItem('email');
     this.newMessage.senderId = Number(sessionStorage.getItem('userId'));
     this.newMessage.content = this.msgText;
