@@ -54,9 +54,10 @@
       "userId": 1,
       "title": "Look Me in the Eye",
       "author": "John Elder Robison",
-      "pages": "560",
-      "genre": "Science",
-      "id": 3
+      "pages": 560,
+      "genre": "Fantasy",
+      "id": 3,
+      "comments": []
     },
     {
       "userId": 3,

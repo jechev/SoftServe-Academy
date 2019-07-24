@@ -1,74 +1,76 @@
-<form #addBookForm="ngForm" (ngSubmit)="addBook(addBookForm)" novalidate>
-  <h2 class="text-center text-success">Add book</h2>
-  <hr />
+<div class="d-flex mx-auto justify-content-center">
+  <form #addBookForm="ngForm" (ngSubmit)="addBook(addBookForm)" novalidate>
+    <h2 class="text-center text-success">Add book</h2>
+    <hr />
 
-  <div class="form-group text-center">
-    <input
-      class="form-control mr-sm-2"
-      type="text"
-      name="title"
-      placeholder="Title"
-      required
-      [(ngModel)]="book.title"
-      minlength="5"
-    />
+    <div class="form-group text-center">
+      <input
+        class="form-control mr-sm-2"
+        type="text"
+        name="title"
+        placeholder="Title"
+        required
+        [(ngModel)]="book.title"
+        minlength="5"
+      />
+      <div
+        *ngIf="addBookForm.controls?.title?.invalid && addBookForm.submitted"
+        class="error"
+      >
+        The title should be at least 5 characters.
+      </div>
+    </div>
+    <div class="form-group text-center">
+      <input
+        class="form-control mr-sm-2"
+        type="text"
+        name="author"
+        placeholder="Author"
+        required
+        [(ngModel)]="book.author"
+        minlength="5"
+      />
+      <div
+        *ngIf="addBookForm.controls?.author?.invalid && addBookForm.submitted"
+        class="error"
+      >
+        The author should be at least 5 characters.
+      </div>
+    </div>
+    <div class="form-group text-center">
+      <input
+        class="form-control mr-sm-2"
+        type="number"
+        name="pages"
+        placeholder="Pages"
+        required
+        [(ngModel)]="book.pages"
+      />
+      <div
+        *ngIf="addBookForm.controls?.pages?.invalid && addBookForm.submitted"
+        class="error"
+      >
+        The pages are required.
+      </div>
+    </div>
+    <mat-form-field>
+      <mat-label>Genre</mat-label>
+      <mat-select [(ngModel)]="book.genre" name="genre" required>
+        <mat-option *ngFor="let genre of genres" [value]="genre">
+          {{ genre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <div
-      *ngIf="addBookForm.controls?.title?.invalid && addBookForm.submitted"
+      *ngIf="addBookForm.controls?.genre?.invalid && addBookForm.submitted"
       class="error"
     >
-      The title should be at least 5 characters.
+      The genre is requried.
     </div>
-  </div>
-  <div class="form-group text-center">
-    <input
-      class="form-control mr-sm-2"
-      type="text"
-      name="author"
-      placeholder="Author"
-      required
-      [(ngModel)]="book.author"
-      minlength="5"
-    />
-    <div
-      *ngIf="addBookForm.controls?.author?.invalid && addBookForm.submitted"
-      class="error"
-    >
-      The author should be at least 5 characters.
+    <div class="form-group text-center">
+      <button class="btn btn-success" type="submit">
+        AddBook
+      </button>
     </div>
-  </div>
-  <div class="form-group text-center">
-    <input
-      class="form-control mr-sm-2"
-      type="number"
-      name="pages"
-      placeholder="Pages"
-      required
-      [(ngModel)]="book.pages"
-    />
-    <div
-      *ngIf="addBookForm.controls?.pages?.invalid && addBookForm.submitted"
-      class="error"
-    >
-      The pages are required.
-    </div>
-  </div>
-  <mat-form-field>
-    <mat-label>Genre</mat-label>
-    <mat-select [(ngModel)]="book.genre" name="genre" required>
-      <mat-option *ngFor="let genre of genres" [value]="genre">
-        {{ genre }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <div
-    *ngIf="addBookForm.controls?.genre?.invalid && addBookForm.submitted"
-    class="error"
-  >
-    The genre is requried.
-  </div>
-  <div class="form-group text-center">
-    <button class="btn btn-success" type="submit">
-      AddBook
-    </button>
-  </div>
-</form>
+  </form>
+</div>

@@ -36,7 +36,10 @@ export class BookEditComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  editBook() {
+  editBook(form) {
+    if (form.invalid) {
+      return;
+    }
     this.bookService
       .editBook(this.book.id, this.book)
       .then(res => {
@@ -50,12 +53,10 @@ export class BookEditComponent implements OnInit {
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(id);
     this.bookService
       .getBookById(id)
       .then(res => {
         this.book = res.data;
-        console.log(this.book);
       })
       .catch(err => console.log(err));
   }
