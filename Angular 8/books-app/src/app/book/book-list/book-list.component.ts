@@ -18,6 +18,7 @@ export class BookListComponent implements OnInit {
   searchType;
   page = 1;
   totalItems;
+  // Default sort by id
   orderBy = 'id';
   constructor(private bookService: BookService) {}
 
@@ -51,7 +52,6 @@ export class BookListComponent implements OnInit {
       .then(res => {
         this.totalItems = res.headers['x-total-count'];
         this.books = res.data;
-        console.log(this.books);
       })
       .catch(err => {
         console.log(err);

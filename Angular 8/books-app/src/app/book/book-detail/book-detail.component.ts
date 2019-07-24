@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../../_services/book.service';
@@ -11,7 +12,9 @@ import { Book } from 'src/app/_models/book';
 })
 export class BookDetailComponent implements OnInit {
   book: Book;
-  currentUserId;
+  currentUserId: number;
+  startPage: number;
+  paginationLimit: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,19 +40,29 @@ export class BookDetailComponent implements OnInit {
   }
 
   addNewComment($event) {
-    this.book.comments.push($event);
+    this.book.comments.unshift($event);
   }
 
   ngOnInit() {
+    this.startPage = 0;
+    this.paginationLimit = 3;
     const bookId = this.route.snapshot.paramMap.get('id');
     this.currentUserId = Number(sessionStorage.getItem('userId'));
     this.bookService
       .getBookById(bookId)
       .then(res => {
         this.book = res.data;
+        this.book.comments = _.orderBy(this.book.comments, 'postDate', 'desc');
       })
       .catch(err => {
         console.log(err);
       });
+  }
+
+  showMoreComments() {
+    this.paginationLimit = Number(this.paginationLimit) + 3;
+  }
+  showLessComments() {
+    this.paginationLimit = Number(this.paginationLimit) - 3;
   }
 }

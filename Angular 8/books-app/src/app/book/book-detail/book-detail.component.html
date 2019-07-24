@@ -29,9 +29,32 @@
       <app-add-comment
         (sendNewComment)="addNewComment($event)"
       ></app-add-comment>
-      <div class="media mb-4" *ngFor="let comment of book?.comments">
-        <app-comment-detail [comment]="comment"></app-comment-detail>
+      <div class="d-flex mx-auto justify-content-center">
+        <ul class="media-list">
+          <li
+            *ngFor="
+              let comment of book?.comments | slice: startPage:paginationLimit
+            "
+            class="media"
+          >
+            <app-comment-detail [comment]="comment"></app-comment-detail>
+          </li>
+        </ul>
       </div>
+      <button
+        *ngIf="paginationLimit < book?.comments.length"
+        (click)="showMoreComments()"
+        class="btn btn-success mr-2"
+      >
+        Show More
+      </button>
+      <button
+        *ngIf="paginationLimit > 3"
+        (click)="showLessComments()"
+        class="btn btn-info"
+      >
+        Show Less
+      </button>
     </div>
   </div>
 </div>

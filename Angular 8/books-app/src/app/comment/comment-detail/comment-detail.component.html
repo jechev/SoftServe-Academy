@@ -1,12 +1,14 @@
-<div class="media mb-4">
-  <img
-    class="d-flex mr-3 rounded-circle"
-    src="{{ '../../../assets/user.png' }}"
-    alt=""
-  />
-  <div class="media-body">
-    <h5 class="mt-0">{{ comment.author }}</h5>
-    <h6>Posted on {{ comment.postDate | date: 'medium' }}</h6>
+<a href="#" class="pull-left">
+  <img src="{{ '../../../assets/user.png' }}" alt="" class="img-circle" />
+</a>
+<div class="media-body">
+  <span class="text-muted pull-right">
+    <small class="text-muted"
+      >Posted on {{ comment.postDate | date: 'medium' }}</small
+    >
+  </span>
+  <strong class="text-success">{{ comment.author }}</strong>
+  <p>
     {{ comment.text }}
-  </div>
+  </p>
 </div>

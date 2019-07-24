@@ -14,7 +14,6 @@ export class BookByUserComponent implements OnInit {
   ngOnInit() {
     this.bookService.getBookByUser(this.userId).then(res => {
       this.books = res.data;
-      console.log(this.books);
     });
   }
 }
