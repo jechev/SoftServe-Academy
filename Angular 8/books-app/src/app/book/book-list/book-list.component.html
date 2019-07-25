@@ -7,7 +7,7 @@
   <form
     class="form-inline"
     #searchForm="ngForm"
-    (ngSubmit)="loadBooks()"
+    (ngSubmit)="loadBooks('search')"
     novalidate
   >
     <div class="form-group px-2">
@@ -127,6 +127,7 @@
     nextText="&rsaquo;"
     firstText="&laquo;"
     lastText="&raquo;"
+    [(ngModel)]="page"
     (pageChanged)="pageChanged($event)"
   >
   </pagination>

@@ -39,6 +39,21 @@
       "email": "demo7@demo.bg",
       "password": "$2a$10$O6ZLKsQw36tzU5wk0xpOOurpOAsVKGbE29lItq.YJQ9rPeYUt5/36",
       "id": 8
+    },
+    {
+      "email": "more@more.bg",
+      "password": "$2a$10$XsnB2nqCJnKSVPAg3IYcuOOUSCiZVOXNuyxTkd8fPrHcFe92KAn6q",
+      "id": 9
+    },
+    {
+      "email": "dido@abv.bg",
+      "password": "$2a$10$xlpDYDf2/xoo/6im3GRJH.eE7By35Gl2kZHCuVXCSEs95ugQj.JKC",
+      "id": 10
+    },
+    {
+      "email": "dido1@abv.bg",
+      "password": "$2a$10$2.kYiMeI5nDhe3hLcJonUuLmgNJtCarht3c1w2VLQEuQ8Pd2AHMom",
+      "id": 11
     }
   ],
   "books": [
@@ -92,23 +107,90 @@
       "id": 11
     },
     {
-      "title": "Elderhood",
-      "author": "Louise Aronson",
-      "pages": 464,
-      "genre": "Science fiction",
-      "userId": 1,
-      "id": 13
+      "title": "Milkman: A Novel",
+      "author": "Anna Burns",
+      "pages": 360,
+      "genre": "Romance",
+      "userId": 3,
+      "id": 14
+    },
+    {
+      "title": "Fairview",
+      "author": "Jackie Sibblies Drury",
+      "pages": 120,
+      "genre": "Romance",
+      "userId": 3,
+      "id": 15
+    },
+    {
+      "title": "Origin: A Novel",
+      "author": "Dan Brown",
+      "pages": 656,
+      "genre": "Thriller",
+      "userId": 3,
+      "id": 16
+    },
+    {
+      "author": "Dan Brown",
+      "title": "The Lost Symbol",
+      "pages": 530,
+      "genre": "Thriller",
+      "userId": 3,
+      "id": 17
+    },
+    {
+      "title": "The Da Vinci Code",
+      "author": "Dan Brown",
+      "pages": 597,
+      "genre": "Thriller",
+      "userId": 3,
+      "id": 18
+    },
+    {
+      "title": "Gone Girl",
+      "author": "Gillian Flynn",
+      "pages": 450,
+      "genre": "Thriller",
+      "userId": 3,
+      "id": 19
+    },
+    {
+      "title": "Stillhouse Lake",
+      "author": "Rachel Caine",
+      "pages": 340,
+      "genre": "Thriller",
+      "userId": 3,
+      "id": 20,
+      "comments": []
+    },
+    {
+      "title": "The Shining",
+      "author": "Stephen King",
+      "pages": 470,
+      "genre": "Thriller",
+      "userId": 3,
+      "id": 21
+    },
+    {
+      "title": "My Year of Rest and Relaxation",
+      "author": "Ottessa Moshfegh",
+      "pages": 100,
+      "genre": "Haiku",
+      "userId": 11,
+      "id": 22,
+      "comments": [
+        {
+          "text": "nicee",
+          "bookId": 22,
+          "userId": 11,
+          "author": "dido1@abv.bg",
+          "postDate": "2019-07-25T11:54:15.619Z",
+          "id": 44
+        }
+      ]
     }
   ],
   "comments": [
-    {
-      "text": "good book",
-      "bookId": 13,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "postDate": "2019-07-24T18:33:57.946Z",
-      "id": 32
-    },
     {
       "text": "hmm",
       "bookId": 2,
@@ -166,12 +248,36 @@
       "id": 39
     },
     {
-      "text": "nice book, I like it",
-      "bookId": 13,
+      "text": "hmm",
+      "bookId": 2,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "postDate": "2019-07-25T10:27:17.850Z",
+      "id": 42
+    },
+    {
+      "text": "nice book. i like it",
+      "bookId": 15,
+      "userId": 11,
+      "author": "dido1@abv.bg",
+      "postDate": "2019-07-25T11:50:54.517Z",
+      "id": 43
+    },
+    {
+      "text": "nicee",
+      "bookId": 22,
+      "userId": 11,
+      "author": "dido1@abv.bg",
+      "postDate": "2019-07-25T11:54:15.619Z",
+      "id": 44
+    },
+    {
+      "text": "niceee",
+      "bookId": 19,
       "userId": 2,
       "author": "ivan@ivan.bg",
-      "postDate": "2019-07-25T07:05:58.650Z",
-      "id": 40
+      "postDate": "2019-07-25T11:55:36.250Z",
+      "id": 45
     }
   ],
   "messages": [
@@ -327,6 +433,51 @@
       "recipientId": 3,
       "postDate": 1564042108414,
       "id": 17
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "hi",
+      "recipient": "goshko@abv.bg",
+      "recipientId": 3,
+      "postDate": 1564050272049,
+      "id": 18
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "hmm",
+      "recipient": "demo6@demo.bg",
+      "recipientId": 7,
+      "postDate": 1564050280166,
+      "id": 19
+    },
+    {
+      "sender": "dido1@abv.bg",
+      "senderId": 11,
+      "content": "hii",
+      "recipient": "ivan@ivan.bg",
+      "recipientId": 2,
+      "postDate": 1564055548390,
+      "id": 20
+    },
+    {
+      "sender": "ivan@ivan.bg",
+      "senderId": 2,
+      "content": "hii",
+      "recipient": "dido1@abv.bg",
+      "recipientId": 11,
+      "postDate": 1564055717471,
+      "id": 21
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "Didoooooooo",
+      "recipient": "dido@abv.bg",
+      "recipientId": 10,
+      "postDate": 1564055964028,
+      "id": 22
     }
   ]
 }

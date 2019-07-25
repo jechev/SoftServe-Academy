@@ -7,6 +7,7 @@ import { Comment } from '../../_models/comment';
   styleUrls: ['./comment-detail.component.scss']
 })
 export class CommentDetailComponent implements OnInit {
+  // Take comment from parent element
   @Input() comment: Comment;
   constructor() {}
 

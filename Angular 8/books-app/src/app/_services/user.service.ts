@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService {
   private baseUrl = 'http://localhost:3000/';
   constructor() {}
@@ -40,6 +38,7 @@ export class UserService {
   }
 
   public getUserDetails(email?) {
+    // If email miss like arg, than it's return info for current user
     if (email === undefined) {
       email = sessionStorage.getItem('email');
     }

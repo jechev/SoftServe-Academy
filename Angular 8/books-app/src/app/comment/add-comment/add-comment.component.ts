@@ -11,6 +11,7 @@ import { Comment } from 'src/app/_models/comment';
   styleUrls: ['./add-comment.component.scss']
 })
 export class AddCommentComponent implements OnInit {
+  // Send new comment to parent (book-detail) element
   @Output() sendNewComment = new EventEmitter();
   comment: Comment = new Comment();
   constructor(

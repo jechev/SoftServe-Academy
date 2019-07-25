@@ -38,7 +38,7 @@ export class BookDetailComponent implements OnInit {
       );
     }
   }
-
+  // method take the new comment from child element.
   addNewComment($event) {
     this.book.comments.unshift($event);
   }
@@ -48,6 +48,7 @@ export class BookDetailComponent implements OnInit {
     this.paginationLimit = 3;
     const bookId = this.route.snapshot.paramMap.get('id');
     this.currentUserId = Number(sessionStorage.getItem('userId'));
+
     this.bookService
       .getBookById(bookId)
       .then(res => {

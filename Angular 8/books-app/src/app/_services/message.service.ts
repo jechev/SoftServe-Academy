@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MessageService {
   private baseUrl = 'http://localhost:3000/messages';
   constructor() {}

@@ -8,13 +8,14 @@ import { MessageService } from 'src/app/_services/message.service';
   styleUrls: ['./inbox.component.scss']
 })
 export class InboxComponent implements OnInit {
-  curentUserId;
+  curentUserId: string;
   allUsers: any[] = new Array();
   uniqueUsers: any;
   subjects: any;
   constructor(private msgService: MessageService) {}
 
   ngOnInit() {
+    // Take all messages and users from conversations for current user
     this.curentUserId = sessionStorage.getItem('userId');
     this.msgService
       .getMessagesForRecepient(this.curentUserId)
@@ -31,7 +32,6 @@ export class InboxComponent implements OnInit {
       })
       .then(() => {
         this.uniqueUsers = _.uniq(this.allUsers);
-        console.log(this.uniqueUsers);
       })
       .catch(err => {
         console.log(err);

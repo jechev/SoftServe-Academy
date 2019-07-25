@@ -34,6 +34,7 @@ import { UserService } from './_services/user.service';
 import { BookService } from './_services/book.service';
 import { CommentService } from './_services/comment.service';
 import { AlertifyService } from './_services/alertify.service';
+import { MessageService } from './_services/message.service';
 
 import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
@@ -71,6 +72,7 @@ import { AuthGuard } from './_guards/auth.guard';
     BookService,
     CommentService,
     AlertifyService,
+    MessageService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

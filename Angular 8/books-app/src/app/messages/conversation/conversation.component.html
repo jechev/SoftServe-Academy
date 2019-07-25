@@ -45,5 +45,8 @@
     </div>
   </div>
   <br />
-  <app-message-send [partner]="otherUser"></app-message-send>
+  <app-message-send
+    [partner]="otherUser"
+    (sendNewMsg)="addNewMsg($event)"
+  ></app-message-send>
 </div>

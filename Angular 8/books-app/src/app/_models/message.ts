@@ -5,6 +5,5 @@ export class Message {
   recipientId: number;
   recipient: string;
   content: string;
-  isRead: boolean;
   postDate: number;
 }

@@ -8,7 +8,7 @@ import { Book } from '../../_models/book';
 })
 export class BookByUserComponent implements OnInit {
   books: Book[];
-  userId = sessionStorage.getItem('userId');
+  userId: string = sessionStorage.getItem('userId');
   constructor(private bookService: BookService) {}
 
   ngOnInit() {

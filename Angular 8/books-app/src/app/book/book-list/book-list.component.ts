@@ -9,16 +9,16 @@ import { Book } from '../../_models/book';
 })
 export class BookListComponent implements OnInit {
   books: Book[];
-  searchList = [
+  searchList: {}[] = [
     { value: 'title', display: 'Title' },
     { value: 'author', display: 'Author' },
     { value: 'genre', display: 'Genre' }
   ];
-  searchValue;
-  searchType;
+  searchValue: string;
+  searchType: string;
   page = 1;
-  totalItems;
-  // Default sort by id
+  totalItems: number;
+  // Default sort is by id
   orderBy = 'id';
   constructor(private bookService: BookService) {}
 
@@ -31,15 +31,18 @@ export class BookListComponent implements OnInit {
     this.loadBooks();
   }
 
+  // clear from search and sorting
   resetFilter() {
     this.searchType = undefined;
     this.searchValue = undefined;
+    this.page = 1;
+    this.orderBy = 'id';
     this.loadBooks();
   }
 
-  loadBooks() {
-    // Check if has search options
-    if (this.searchValue && this.searchType) {
+  loadBooks(form?) {
+    // Check if has search then the page is 1.
+    if (form) {
       this.page = 1;
     }
     this.bookService

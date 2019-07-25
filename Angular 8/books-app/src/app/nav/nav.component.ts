@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   model: any = {};
-  email = sessionStorage.getItem('email');
+  email: string = sessionStorage.getItem('email');
   constructor(
     private userService: UserService,
     private alertifyService: AlertifyService,

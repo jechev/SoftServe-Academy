@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MessageService } from 'src/app/_services/message.service';
 import { UserService } from 'src/app/_services/user.service';
 import { Message } from 'src/app/_models/message';
@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./message-send.component.scss']
 })
 export class MessageSendComponent implements OnInit {
+  // Take other user from conversation from parent element
   @Input() partner: any;
+  // send new message to parent component
+  @Output() sendNewMsg = new EventEmitter();
   users: any[] = new Array();
   recipient = { id: null, email: null };
   msgText: string;
@@ -26,7 +29,6 @@ export class MessageSendComponent implements OnInit {
   ngOnInit() {
     if (this.partner) {
       this.userService.getUserDetails(this.partner).then(res => {
-        console.log(res.data[0]);
         this.recipient.id = res.data[0].id;
         this.recipient.email = this.partner;
       });
@@ -44,7 +46,6 @@ export class MessageSendComponent implements OnInit {
           console.log(err);
         });
     }
-    console.log(this.partner);
   }
 
   sendMessage(form) {
@@ -61,6 +62,7 @@ export class MessageSendComponent implements OnInit {
     this.msgService
       .sendMessage(this.newMessage)
       .then(res => {
+        this.sendNewMsg.emit(res.data);
         this.alertifyService.success(
           'You send message to ' + this.recipient.email
         );

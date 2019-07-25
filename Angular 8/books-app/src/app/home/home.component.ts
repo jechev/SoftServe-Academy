@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
+    // If user is logged then redirect to /books and can't show home page
     if (this.userService.isAuth()) {
       this.router.navigate(['/books']);
     }
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
     this.registerMode = !this.registerMode;
   }
 
-  cancelRegisterMode(registerMode: boolean) {
+  cancelRegisterMode(registerMode) {
     this.registerMode = registerMode;
   }
 }

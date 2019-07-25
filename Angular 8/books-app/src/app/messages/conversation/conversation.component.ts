@@ -14,6 +14,7 @@ export class ConversationComponent implements OnInit {
   currentUserId = sessionStorage.getItem('userId');
   userAvatar = 'http://placehold.it/50/55C1E7/fff&text=U';
   myAvatar = 'http://placehold.it/50/FA6F57/fff&text=ME';
+
   otherUser: any;
   allMessages: Message[] = new Array();
   otherUserId: any;
@@ -23,12 +24,17 @@ export class ConversationComponent implements OnInit {
     private userService: UserService
   ) {}
 
+  addNewMsg($event) {
+    this.allMessages.push($event);
+  }
+
   ngOnInit() {
     this.otherUser = this.route.snapshot.paramMap.get('user');
     this.userService
       .getUserDetails(this.otherUser)
       .then(res => {
         this.otherUserId = res.data[0].id;
+        // get messages for this conversation for current user like sender
         return this.msgService.getConversation(
           this.currentUserId,
           this.otherUserId
@@ -38,7 +44,7 @@ export class ConversationComponent implements OnInit {
         res.data.forEach(element => {
           this.allMessages.push(element);
         });
-        console.log(this.allMessages);
+        // get messages for this conversation for current user like receiver
         return this.msgService.getConversation(
           this.otherUserId,
           this.currentUserId
