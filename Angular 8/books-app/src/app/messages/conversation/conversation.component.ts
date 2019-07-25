@@ -12,6 +12,8 @@ import { UserService } from 'src/app/_services/user.service';
 })
 export class ConversationComponent implements OnInit {
   currentUserId = sessionStorage.getItem('userId');
+  userAvatar = 'http://placehold.it/50/55C1E7/fff&text=U';
+  myAvatar = 'http://placehold.it/50/FA6F57/fff&text=ME';
   otherUser: any;
   allMessages: Message[] = new Array();
   otherUserId: any;

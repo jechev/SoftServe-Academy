@@ -164,6 +164,14 @@
       "author": "demo@demo.bg",
       "postDate": "2019-07-24T19:31:09.493Z",
       "id": 39
+    },
+    {
+      "text": "nice book, I like it",
+      "bookId": 13,
+      "userId": 2,
+      "author": "ivan@ivan.bg",
+      "postDate": "2019-07-25T07:05:58.650Z",
+      "id": 40
     }
   ],
   "messages": [
@@ -301,6 +309,24 @@
       "recipientId": 3,
       "postDate": 1563903498174,
       "id": 15
+    },
+    {
+      "sender": "ivan@ivan.bg",
+      "senderId": 2,
+      "content": "How are you, slark?",
+      "recipient": "slark@abv.bg",
+      "recipientId": 6,
+      "postDate": 1564038393680,
+      "id": 16
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "dada",
+      "recipient": "goshko@abv.bg",
+      "recipientId": 3,
+      "postDate": 1564042108414,
+      "id": 17
     }
   ]
 }

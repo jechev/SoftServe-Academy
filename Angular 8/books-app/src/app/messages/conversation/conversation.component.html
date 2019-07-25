@@ -1,11 +1,49 @@
 <div class="container text-center">
   <h3>Conversation with {{ otherUser }}</h3>
-  <div class="media mb-4" *ngFor="let msg of allMessages">
-    <div class="media-body">
-      <h5 class="mt-0">{{ msg.sender }}</h5>
-      <h6>Posted on {{ msg.postDate | date: 'medium' }}</h6>
-      {{ msg.content }}
+  <div class="row d-flex mx-auto justify-content-center mt-5">
+    <div class="col-md-9">
+      <div class="panel panel-primary">
+        <div class="panel-body ">
+          <ul class="chat">
+            <li
+              *ngFor="let msg of allMessages"
+              [ngClass]="msg.sender === otherUser ? 'left' : 'right'"
+              class="left clearfix"
+            >
+              <span
+                class="chat-img"
+                [ngClass]="
+                  msg.sender === otherUser ? 'pull-left' : 'pull-right'
+                "
+              >
+                <img
+                  [src]="msg.sender === otherUser ? userAvatar : myAvatar"
+                  alt="User Avatar"
+                  class="img-circle"
+                />
+              </span>
+              <div class="chat-body clearfix">
+                <div class="header">
+                  <strong
+                    class="primary-font"
+                    [ngClass]="msg.sender === otherUser ? 'pull-left' : ''"
+                    >{{ msg.sender }}</strong
+                  >
+                  <small class="pull-right text-muted">
+                    <span class="glyphicon glyphicon-time"></span
+                    >{{ msg.postDate | date: 'medium' }}</small
+                  >
+                </div>
+                <p>
+                  {{ msg.content }}
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
+  <br />
   <app-message-send [partner]="otherUser"></app-message-send>
 </div>

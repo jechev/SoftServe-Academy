@@ -51,7 +51,6 @@ import { AuthGuard } from './_guards/auth.guard';
     AddBookComponent,
     BookEditComponent,
     BookByUserComponent,
-    AuthorComponent,
     MessageSendComponent,
     InboxComponent,
     ConversationComponent
