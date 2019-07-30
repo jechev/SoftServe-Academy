@@ -54,17 +54,19 @@
       "email": "dido1@abv.bg",
       "password": "$2a$10$2.kYiMeI5nDhe3hLcJonUuLmgNJtCarht3c1w2VLQEuQ8Pd2AHMom",
       "id": 11
+    },
+    {
+      "email": "demo@d",
+      "password": "$2a$10$1u2JaLMsafU9C7ftu7fFl.xbbTtxvy5jaLZZuXq4s2EwsT1PrK4PO",
+      "id": 12
+    },
+    {
+      "email": "demo2@abv.bg",
+      "password": "$2a$10$gwTjo8HN5KuMLBKfy4ndNeb57cQz/8Dw70fJehza.WRAnR.3JkB.m",
+      "id": 13
     }
   ],
   "books": [
-    {
-      "userId": 1,
-      "title": "Angela’s Ashes",
-      "author": "Frank McCourt",
-      "pages": "400",
-      "genre": "Art",
-      "id": 2
-    },
     {
       "userId": 1,
       "title": "Look Me in the Eye",
@@ -188,73 +190,17 @@
           "id": 44
         }
       ]
+    },
+    {
+      "title": "hagman",
+      "author": "Dimitar",
+      "pages": 100,
+      "genre": "Science fiction",
+      "userId": 1,
+      "id": 23
     }
   ],
   "comments": [
-    {
-      "text": "hmm",
-      "bookId": 2,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "postDate": "2019-07-24T19:03:53.340Z",
-      "id": 33
-    },
-    {
-      "text": "dada",
-      "bookId": 2,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "postDate": "2019-07-24T19:06:59.878Z",
-      "id": 34
-    },
-    {
-      "text": "nooo",
-      "bookId": 2,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "postDate": "2019-07-24T19:07:03.560Z",
-      "id": 35
-    },
-    {
-      "text": "maybe it's work",
-      "bookId": 2,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "postDate": "2019-07-24T19:24:32.700Z",
-      "id": 36
-    },
-    {
-      "text": "yeeep",
-      "bookId": 2,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "postDate": "2019-07-24T19:30:50.229Z",
-      "id": 37
-    },
-    {
-      "text": "yoooooooooooooo",
-      "bookId": 2,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "postDate": "2019-07-24T19:31:00.973Z",
-      "id": 38
-    },
-    {
-      "text": "lorem",
-      "bookId": 2,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "postDate": "2019-07-24T19:31:09.493Z",
-      "id": 39
-    },
-    {
-      "text": "hmm",
-      "bookId": 2,
-      "userId": 1,
-      "author": "demo@demo.bg",
-      "postDate": "2019-07-25T10:27:17.850Z",
-      "id": 42
-    },
     {
       "text": "nice book. i like it",
       "bookId": 15,
@@ -478,6 +424,24 @@
       "recipientId": 10,
       "postDate": 1564055964028,
       "id": 22
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "mss",
+      "recipient": "goshko@abv.bg",
+      "recipientId": 3,
+      "postDate": 1564070915668,
+      "id": 23
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "czcz",
+      "recipient": "demo@d",
+      "recipientId": 12,
+      "postDate": 1564070926399,
+      "id": 24
     }
   ]
 }

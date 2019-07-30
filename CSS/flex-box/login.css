@@ -1,0 +1,45 @@
+header {
+  background-color: tomato;
+  width: 100%;
+  text-align: center;
+}
+header > ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer > ul {
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 5px;
+}
+
+section {
+  background-color: skyblue;
+  width: 200px;
+  height: 200px;
+}
+form {
+  text-align: center;
+}
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

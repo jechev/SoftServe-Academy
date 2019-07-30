@@ -1,0 +1,13 @@
+ul {
+  display: flex;
+  list-style: none;
+}
+li {
+  margin: 5px;
+}
+
+@media all and (max-width: 600px) {
+  ul {
+    flex-direction: column;
+  }
+}
