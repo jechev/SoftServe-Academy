@@ -17,10 +17,6 @@ const Todos = () => {
     setTodos(todos);
   }
 
-  function addToDo(todo) {
-    console.log(todo);
-  }
-
   const todosToListItem = todosState.map((el, index) => (
     <li key={index} id={index}>
       {el}
@@ -28,10 +24,18 @@ const Todos = () => {
     </li>
   ));
 
+  function addTodo(event) {
+    event.preventDefault();
+    const newTodo = event.target.elements.text.value;
+    event.target.elements.text.value = '';
+    const newTodosArr = [...todosState, newTodo];
+    setTodos(newTodosArr);
+  }
+
   return (
     <div>
       <h1>Go Go</h1>
-      <Add />
+      <Add addTodo={addTodo} />
       <ul>{todosToListItem}</ul>
     </div>
   );

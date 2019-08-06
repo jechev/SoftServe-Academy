@@ -1,15 +1,10 @@
 import React from 'react';
 
-const Add = () => {
-  function submitTodo(event) {
-    event.preventDefault();
-    console.log(event.target);
-  }
-
+const Add = props => {
   return (
-    <form onSubmit={submitTodo}>
+    <form onSubmit={props.addTodo}>
       <label>New Todo</label>
-      <input type='text' name='text' />
+      <input type="text" name="text" />
       <button>Add new Todo</button>
     </form>
   );
