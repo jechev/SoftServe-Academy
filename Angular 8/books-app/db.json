@@ -198,6 +198,14 @@
       "genre": "Science fiction",
       "userId": 1,
       "id": 23
+    },
+    {
+      "title": ".NET + Angular",
+      "author": "Murphy",
+      "pages": 145,
+      "genre": "Science fiction",
+      "userId": 1,
+      "id": 24
     }
   ],
   "comments": [
@@ -224,6 +232,62 @@
       "author": "ivan@ivan.bg",
       "postDate": "2019-07-25T11:55:36.250Z",
       "id": 45
+    },
+    {
+      "text": "dada",
+      "bookId": 3,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "postDate": "2019-08-03T09:11:34.621Z",
+      "id": 46
+    },
+    {
+      "text": "1123",
+      "bookId": 3,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "postDate": "2019-08-03T09:11:39.484Z",
+      "id": 47
+    },
+    {
+      "text": "4443",
+      "bookId": 3,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "postDate": "2019-08-03T09:11:40.829Z",
+      "id": 48
+    },
+    {
+      "text": "5353",
+      "bookId": 3,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "postDate": "2019-08-03T09:11:46.233Z",
+      "id": 49
+    },
+    {
+      "text": "hghgh",
+      "bookId": 3,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "postDate": "2019-08-03T09:12:06.171Z",
+      "id": 50
+    },
+    {
+      "text": "dada",
+      "bookId": 16,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "postDate": "2019-08-03T17:55:22.456Z",
+      "id": 51
+    },
+    {
+      "text": "dada",
+      "bookId": 3,
+      "userId": 1,
+      "author": "demo@demo.bg",
+      "postDate": "2019-08-03T17:55:53.829Z",
+      "id": 52
     }
   ],
   "messages": [
@@ -442,6 +506,24 @@
       "recipientId": 12,
       "postDate": 1564070926399,
       "id": 24
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "dada",
+      "recipient": "demo3@demo.bg",
+      "recipientId": 4,
+      "postDate": 1564823620992,
+      "id": 25
+    },
+    {
+      "sender": "demo@demo.bg",
+      "senderId": 1,
+      "content": "dada",
+      "recipient": "goshko@abv.bg",
+      "recipientId": 3,
+      "postDate": 1564823650534,
+      "id": 26
     }
   ]
 }
