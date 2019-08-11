@@ -63,7 +63,7 @@ class BurgerBuilder extends Component {
       ...this.state.ingridients
     };
     for (let key in disableInfo) {
-      disableInfo[key] = disableInfo <= 0;
+      disableInfo[key] = disableInfo[key] <= 0;
     }
     return (
       <Auxx>
@@ -72,6 +72,7 @@ class BurgerBuilder extends Component {
           ingridientsAdded={this.addIngridientHandler}
           ingridientsRemove={this.removeIngridientHandler}
           disabled={disableInfo}
+          price={this.state.totalPrice}
         />
       </Auxx>
     );
