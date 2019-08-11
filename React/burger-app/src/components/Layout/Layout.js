@@ -1,12 +1,12 @@
 import React from 'react';
-import Aux from '../../hoc/Aux';
+import Auxx from '../../hoc/Auxx';
 import './Layout.css';
 
 const layout = props => (
-  <Aux>
+  <Auxx>
     <div>Toolbar</div>
     <main className='Content'>{props.children}</main>
-  </Aux>
+  </Auxx>
 );
 
 export default layout;
