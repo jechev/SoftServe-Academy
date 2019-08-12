@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Auxx from '../../hoc/Auxx';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
 const INGRIDIENT_PRICES = {
   salad: 0.5,
@@ -22,8 +24,22 @@ class BurgerBuilder extends Component {
       cheese: 0,
       meat: 0
     },
-    totalPrice: 5
+    totalPrice: 5,
+    purchaseable: false,
+    purchasing: false
   };
+
+  updatePurchaseState(ingridients) {
+    const sum = Object.keys(ingridients)
+      .map(igKey => {
+        return ingridients[igKey];
+      })
+      .reduce((sum, el) => {
+        return sum + el;
+      }, 0);
+
+    this.setState({ purchaseable: sum > 0 });
+  }
 
   addIngridientHandler = type => {
     const oldCount = this.state.ingridients[type];
@@ -38,6 +54,7 @@ class BurgerBuilder extends Component {
     const newPrice = oldPrice + priceAddition;
 
     this.setState({ totalPrice: newPrice, ingridients: updatedIngridients });
+    this.updatePurchaseState(updatedIngridients);
   };
 
   removeIngridientHandler = type => {
@@ -56,6 +73,15 @@ class BurgerBuilder extends Component {
     const newPrice = oldPrice - priceDeduction;
 
     this.setState({ totalPrice: newPrice, ingridients: updatedIngridients });
+    this.updatePurchaseState(updatedIngridients);
+  };
+
+  purchaseHandler = () => {
+    this.setState({ purchasing: true });
+  };
+
+  purchaseCancelHandler = () => {
+    this.setState({ purchasing: false });
   };
 
   render() {
@@ -67,12 +93,20 @@ class BurgerBuilder extends Component {
     }
     return (
       <Auxx>
+        <Modal
+          show={this.state.purchasing}
+          modalClosed={this.purchaseCancelHandler}
+        >
+          <OrderSummary ingridients={this.state.ingridients} />
+        </Modal>
         <Burger ingridients={this.state.ingridients} />
         <BuildControls
           ingridientsAdded={this.addIngridientHandler}
           ingridientsRemove={this.removeIngridientHandler}
           disabled={disableInfo}
           price={this.state.totalPrice}
+          purchaseable={this.state.purchaseable}
+          ordered={this.purchaseHandler}
         />
       </Auxx>
     );
