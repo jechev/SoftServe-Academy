@@ -4,6 +4,7 @@ import './ContactData.css';
 import axios from '../../../axios-orders';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/Input/Input';
+import { connect } from 'react-redux';
 
 class ContactData extends Component {
   state = {
@@ -14,7 +15,11 @@ class ContactData extends Component {
           type: 'text',
           placeholder: 'Your name'
         },
-        value: ''
+        value: '',
+        validation: {
+          required: true
+        },
+        valid: false
       },
       street: {
         elementType: 'input',
@@ -22,7 +27,11 @@ class ContactData extends Component {
           type: 'text',
           placeholder: 'Your street'
         },
-        value: ''
+        value: '',
+        validation: {
+          required: true
+        },
+        valid: false
       },
       zipCode: {
         elementType: 'input',
@@ -30,7 +39,11 @@ class ContactData extends Component {
           type: 'text',
           placeholder: 'Zip code'
         },
-        value: ''
+        value: '',
+        validation: {
+          required: true
+        },
+        valid: false
       },
       email: {
         elementType: 'input',
@@ -38,7 +51,11 @@ class ContactData extends Component {
           type: 'email',
           placeholder: 'Your email'
         },
-        value: ''
+        value: '',
+        validation: {
+          required: true
+        },
+        valid: false
       },
       deliveryMethod: {
         elementType: 'select',
@@ -48,7 +65,10 @@ class ContactData extends Component {
             { value: 'normal', displayValue: 'Normal' }
           ]
         },
-        value: ''
+        value: '',
+        validation: {
+          required: true
+        }
       }
     },
     loading: false
@@ -62,8 +82,8 @@ class ContactData extends Component {
       formData[formElem] = this.state.orderForm[formElem].value;
     }
     const order = {
-      ingredients: this.props.ingredients,
-      price: this.props.price,
+      ingredients: this.props.ings,
+      price: this.props.totalPrice,
       orderData: formData
     };
     axios
@@ -77,12 +97,26 @@ class ContactData extends Component {
       });
   };
 
+  checkValidity(value, rules) {
+    let isValid = true;
+
+    if (rules.required) {
+      isValid = value.trim() !== '' && isValid;
+    }
+
+    return isValid;
+  }
+
   inputChangedHandler = (event, inputId) => {
     const updatedOrderForm = {
       ...this.state.orderForm
     };
     const updatedElement = { ...updatedOrderForm[inputId] };
     updatedElement.value = event.target.value;
+    updatedElement.valid = this.checkValidity(
+      updatedElement.value,
+      updatedElement.validation
+    );
     updatedOrderForm[inputId] = updatedElement;
     this.setState({ orderForm: updatedOrderForm });
   };
@@ -123,4 +157,11 @@ class ContactData extends Component {
   }
 }
 
-export default ContactData;
+const mapStateToProps = state => {
+  return {
+    ings: state.ingredients,
+    totalPrice: state.totalPrice
+  };
+};
+
+export default connect(mapStateToProps)(ContactData);
