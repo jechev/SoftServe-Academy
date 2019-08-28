@@ -67,6 +67,7 @@ class AlbumList extends Component {
             artist={album.artist}
             releaseDate={album.releaseDate}
             nbTracks={album.nbTracks}
+            id={album.id}
           />
         );
       });

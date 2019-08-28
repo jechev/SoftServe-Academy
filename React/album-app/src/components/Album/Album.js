@@ -1,5 +1,6 @@
 import React from 'react';
 import './Album.css';
+import { Link } from 'react-router-dom';
 
 const album = props => (
   <div className='tr'>
@@ -16,7 +17,11 @@ const album = props => (
       <span>{props.nbTracks}</span>
     </div>
     <div className='td'>
-      <span>Go go</span>
+      <span>
+        <Link to={`/album/${props.id}`} className='albumButton'>
+          Go to album
+        </Link>
+      </span>
     </div>
   </div>
 );

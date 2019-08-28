@@ -1,3 +1,27 @@
 main {
   margin-top: 80px;
 }
+
+.wrapper {
+  list-style-type: none;
+  padding: 0;
+  border-radius: 3px;
+}
+label {
+  color: white;
+}
+.form-row {
+  padding: 0.5em;
+}
+.form-row > label {
+  padding: 0.5em 1em 0.5em 0;
+}
+.form-row > input,
+.form-row > button {
+  padding: 0.5em;
+}
+.form-row > button {
+  background: #024e0f;
+  color: silver;
+  border: 0;
+}

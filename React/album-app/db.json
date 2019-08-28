@@ -134,6 +134,15 @@
       "nbTracks": 15,
       "albumLink": "https://open.spotify.com/album/7Jxv8TFzPJBRTJ3RmztbLh",
       "picture": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/32/94/42/32944249-68d0-624b-3688-e89a3f13ba55/cover.jpg/600x600bf.png"
+    },
+    {
+      "title": "Fear Inoculum",
+      "artist": "Tool",
+      "releaseDate": "2019-08-30T19:25:18.000Z",
+      "nbTracks": 1,
+      "albumLink": "https://open.spotify.com/album/5a70H0qHGgEGXOVLYXamHd",
+      "picture": "https://townsquare.media/site/295/files/2019/08/ToolFI.jpg?w=980&q=75",
+      "id": 16
     }
   ],
   "reviews": []
