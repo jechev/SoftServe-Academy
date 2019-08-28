@@ -5,7 +5,7 @@ import NavigationItem from './NavigationItem/NavigationItem';
 const navigationItems = () => (
   <ul className='NavigationItems'>
     <NavigationItem link='/'>Albums</NavigationItem>
-    <NavigationItem link='/orders'>Add Album</NavigationItem>
+    <NavigationItem link='/addAlbum'>Add Album</NavigationItem>
   </ul>
 );
 
