@@ -71,45 +71,47 @@ class AlbumList extends Component {
         );
       });
       return (
-        <div className='table'>
-          <div className='tr th'>
-            <div
-              className='td sortingTitle'
-              onClick={() => this.handleSort('title')}
-            >
-              Title
+        <main>
+          <div className='table'>
+            <div className='tr th'>
+              <div
+                className='td sortingTitle'
+                onClick={() => this.handleSort('title')}
+              >
+                Title
+              </div>
+              <div
+                className='td sortingTitle'
+                onClick={() => this.handleSort('artist')}
+              >
+                Artist
+              </div>
+              <div
+                className='td sortingTitle'
+                onClick={() => this.handleSort('releaseDate')}
+              >
+                Release date
+              </div>
+              <div
+                className='td sortingTitle'
+                onClick={() => this.handleSort('nbTracks')}
+              >
+                Number of tracks
+              </div>
+              <div className='td'>Go to Album</div>
             </div>
-            <div
-              className='td sortingTitle'
-              onClick={() => this.handleSort('artist')}
-            >
-              Artist
+            {albums}
+            <div className='paginationContainer'>
+              <Pagination
+                activePage={this.state.activePage}
+                itemsCountPerPage={5}
+                totalItemsCount={this.state.totalItems}
+                pageRangeDisplayed={5}
+                onChange={that.handlePageChange}
+              />
             </div>
-            <div
-              className='td sortingTitle'
-              onClick={() => this.handleSort('releaseDate')}
-            >
-              Release date
-            </div>
-            <div
-              className='td sortingTitle'
-              onClick={() => this.handleSort('nbTracks')}
-            >
-              Number of tracks
-            </div>
-            <div className='td'>Go to Album</div>
           </div>
-          {albums}
-          <div className='paginationContainer'>
-            <Pagination
-              activePage={this.state.activePage}
-              itemsCountPerPage={5}
-              totalItemsCount={this.state.totalItems}
-              pageRangeDisplayed={5}
-              onChange={that.handlePageChange}
-            />
-          </div>
-        </div>
+        </main>
       );
     } else {
       return (

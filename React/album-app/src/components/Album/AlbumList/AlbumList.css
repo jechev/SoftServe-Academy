@@ -1,3 +1,6 @@
+main {
+  margin-top: 80px;
+}
 .table {
   display: flex;
   flex-flow: column nowrap;
@@ -84,7 +87,7 @@
   padding: 6px 12px;
   line-height: 1.42857143;
   text-decoration: none;
-  color: #337ab7;
+  color: #024e0f;
   background-color: #fff;
   border: 1px solid #ddd;
   margin-left: -1px;
@@ -98,7 +101,7 @@
 .pagination > .active > span:hover {
   z-index: 3;
   color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #024e0f;
+  border-color: #024e0f;
   cursor: default;
 }
