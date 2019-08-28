@@ -1,0 +1,140 @@
+{
+  "albums": [
+    {
+      "id": 1,
+      "title": "So Much Fun",
+      "artist": "Young Thug",
+      "releaseDate": 1565902800000,
+      "nbTracks": 16,
+      "albumLink": "https://open.spotify.com/album/1bnHPO4dKK7IjvgrtVBcQh",
+      "picture": "https://charts-static.billboard.com/img/2019/08/young-thug-288-so-much-fun-ogx-344x344.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Control the Streets, Volume 2",
+      "artist": "Quality Control",
+      "releaseDate": 1565902800000,
+      "nbTracks": 36,
+      "albumLink": "https://open.spotify.com/album/59zpaLOByFkJhc9D5Xqna9",
+      "picture": "https://images.complex.com/complex/images/c_limit,dpr_auto,q_90,w_720/fl_lossy,pg_1/jsljyu8brxque5frz3qk/quality-control-control-the-streets-volume-2-stream"
+    },
+    {
+      "id": 3,
+      "title": "Hello From Las Vegas",
+      "artist": "Lionel Richie",
+      "releaseDate": 1565902800000,
+      "nbTracks": 13,
+      "albumLink": "https://open.spotify.com/album/7FIU253gt9jvbTeLfKQbPC",
+      "picture": "https://lionelrichie.com/wp-content/uploads/2019/05/LR-1.4.1-1024x1024.jpg"
+    },
+    {
+      "id": 4,
+      "title": "No.6 Collaborations Project",
+      "artist": "Ed Sheeran",
+      "releaseDate": 1562878800000,
+      "nbTracks": 15,
+      "albumLink": "https://open.spotify.com/album/3oIFxDIo2fwuk4lwCmFZCx",
+      "picture": "https://target.scene7.com/is/image/Target/GUEST_8f305d59-ec9c-42ac-9033-386c86d50aa5?wid=488&hei=488&fmt=pjpeg"
+    },
+    {
+      "id": 5,
+      "title": "7",
+      "artist": "Lil Nas X",
+      "releaseDate": 1561064400000,
+      "nbTracks": 8,
+      "albumLink": "https://open.spotify.com/album/4IRiXE5NROxknUSAUSjMoO",
+      "picture": "https://media.pitchfork.com/photos/5d091405303a816c21511bfc/1:1/w_600/7_LilNasX.jpg"
+    },
+    {
+      "id": 6,
+      "title": "We Are Not Your Kind",
+      "artist": "Slipknot",
+      "releaseDate": 1565298000000,
+      "nbTracks": 14,
+      "albumLink": "https://open.spotify.com/album/754RY5WpZ2LTUZsk8kDBju",
+      "picture": "https://i.ytimg.com/vi/QMMJpFvGMlU/hqdefault.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Beerbongs & Bentleys",
+      "artist": "Post Malone",
+      "releaseDate": 1524776400000,
+      "nbTracks": 18,
+      "albumLink": "https://open.spotify.com/album/6trNtQUgC8cgbWcqoMYkOR",
+      "picture": "https://i1.cdn.hhv.de/catalog/475x475/00587/587401.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Care Package",
+      "artist": "Drake",
+      "releaseDate": 1564693200000,
+      "nbTracks": 17,
+      "albumLink": "https://open.spotify.com/album/7dqpveMVcWgbzqYrOdkFTD",
+      "picture": "https://media.pitchfork.com/photos/5d446927b7933300085f827f/1:1/w_320/Drake_CarePackage.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Don't Smile at Me",
+      "artist": "Billie Eilish",
+      "releaseDate": 1502398800000,
+      "nbTracks": 11,
+      "albumLink": "https://open.spotify.com/album/5YCdlD3eREt72lTZxNL7id",
+      "picture": "https://i5.walmartimages.com/asr/7d2b81aa-e647-4538-b639-1a84e49cf099_1.510b07cf38ced4b2ed68fac96e992405.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF"
+    },
+    {
+      "id": 10,
+      "title": "ASTROWORLD",
+      "artist": "Travis Scott",
+      "releaseDate": 1533243600000,
+      "nbTracks": 17,
+      "albumLink": "https://open.spotify.com/album/41GuZcammIkupMPKH2OJ6I",
+      "picture": "https://consequenceofsound.net/wp-content/uploads/2018/07/travis-scott-astroworld-cover-art.png?w=807"
+    },
+    {
+      "id": 11,
+      "title": "Hoodie SZN",
+      "artist": "Boogie wit da Hoodie",
+      "releaseDate": 1545343200000,
+      "nbTracks": 20,
+      "albumLink": "https://open.spotify.com/album/0zv56LxhTq56QkzBVeRKUf",
+      "picture": "https://media.pitchfork.com/photos/5c1a6bb219f63059050d1ed3/1:1/w_320/hoodie%20szn_a%20boogie%20wit%20da%20hoodie.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Championships",
+      "artist": "Meek Mill",
+      "releaseDate": 1543528800000,
+      "nbTracks": 19,
+      "albumLink": "https://open.spotify.com/album/6UYZEYjpN1DYRW0kqFy9ZE",
+      "picture": "https://ssli.ulximg.com/image/740x493/cover/1544112986_ca4edd919502f1edb899bc5658bd220f.jpg/2b8521bb0ae8d8e9dfa238ddb88f0dfd/1544112986_1fb669b04af035709198ce01de7ae1fe.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Invasion Of Privacy",
+      "artist": "Cardi B",
+      "releaseDate": 1522962000000,
+      "nbTracks": 13,
+      "albumLink": "https://open.spotify.com/album/4KdtEKjY3Gi0mKiSdy96ML",
+      "picture": "https://i0.wp.com/culturedvultures.com/wp-content/uploads/2018/04/Cardi-B-Invasion-of-Privacy.jpg"
+    },
+    {
+      "id": 14,
+      "title": "Culture II",
+      "artist": "Migos",
+      "releaseDate": 1516917600000,
+      "nbTracks": 24,
+      "albumLink": "https://open.spotify.com/album/7fd7SEK25VS3gJAUgSwL6y",
+      "picture": "https://imagescdn.juno.co.uk/full/CS679658-01A-BIG.jpg"
+    },
+    {
+      "id": 15,
+      "title": "Nepravilen Rap",
+      "artist": "Itso Hazarta",
+      "releaseDate": 1558213200000,
+      "nbTracks": 15,
+      "albumLink": "https://open.spotify.com/album/7Jxv8TFzPJBRTJ3RmztbLh",
+      "picture": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/32/94/42/32944249-68d0-624b-3688-e89a3f13ba55/cover.jpg/600x600bf.png"
+    }
+  ],
+  "reviews": []
+}
