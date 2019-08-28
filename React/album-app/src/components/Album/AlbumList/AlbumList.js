@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Spinner from '../../UI/Spinner/Spinner';
 import Album from '../Album';
 import './AlbumList.css';
 import Pagination from 'react-js-pagination';
+
+import AlbumService from '../../../services/AlbumService';
 
 class AlbumList extends Component {
   constructor(props) {
@@ -12,20 +13,15 @@ class AlbumList extends Component {
       loading: true,
       albums: null,
       activePage: 1,
-      totalItems: null
+      totalItems: null,
+      sortingType: 'id'
     };
     this.handlePageChange = this.handlePageChange.bind(this);
   }
 
   componentDidMount() {
-    axios
-      .get(
-        'http://localhost:3000/albums?_page=' +
-          this.state.activePage +
-          '&_limit=5'
-      )
+    AlbumService.getAllAlbums(this.state.activePage, this.state.sortingType)
       .then(res => {
-        console.log(res);
         this.setState({ totalItems: res.headers['x-total-count'] });
         this.setState({ loading: false });
         this.setState({ albums: res.data });
@@ -36,12 +32,22 @@ class AlbumList extends Component {
   }
 
   handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
     this.setState({ activePage: pageNumber });
-    axios
-      .get('http://localhost:3000/albums?_page=' + pageNumber + '&_limit=5')
+    AlbumService.getAllAlbums(pageNumber, this.state.sortingType)
       .then(res => {
-        console.log(res);
+        this.setState({ loading: false });
+        this.setState({ albums: res.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  handleSort(sortValue) {
+    this.setState({ activePage: 1 });
+    this.setState({ sortingType: sortValue });
+    AlbumService.getAllAlbums(1, sortValue)
+      .then(res => {
         this.setState({ loading: false });
         this.setState({ albums: res.data });
       })
@@ -67,10 +73,30 @@ class AlbumList extends Component {
       return (
         <div className='table'>
           <div className='tr th'>
-            <div className='td'>Title</div>
-            <div className='td'>Artist</div>
-            <div className='td'>Release date</div>
-            <div className='td'>Number of tracks</div>
+            <div
+              className='td sortingTitle'
+              onClick={() => this.handleSort('title')}
+            >
+              Title
+            </div>
+            <div
+              className='td sortingTitle'
+              onClick={() => this.handleSort('artist')}
+            >
+              Artist
+            </div>
+            <div
+              className='td sortingTitle'
+              onClick={() => this.handleSort('releaseDate')}
+            >
+              Release date
+            </div>
+            <div
+              className='td sortingTitle'
+              onClick={() => this.handleSort('nbTracks')}
+            >
+              Number of tracks
+            </div>
             <div className='td'>Go to Album</div>
           </div>
           {albums}

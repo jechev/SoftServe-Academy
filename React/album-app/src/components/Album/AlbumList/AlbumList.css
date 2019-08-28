@@ -19,6 +19,10 @@
   justify-content: center;
 }
 
+.sortingTitle {
+  cursor: pointer;
+}
+
 .tr {
   width: 100%;
   display: flex;
