@@ -1,4 +1,4 @@
-.NavigationItem {
+.navigationItem {
   margin: 0;
   box-sizing: border-box;
   display: flex;
@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.NavigationItem a {
+.navigationItem a {
   color: white;
   text-decoration: none;
   width: 100%;
@@ -20,9 +20,9 @@
   border-bottom: 4px solid transparent;
 }
 
-.NavigationItem a:hover,
-.NavigationItem a:active,
-.NavigationItem a.active {
+.navigationItem a:hover,
+.navigationItem a:active,
+.navigationItem a.active {
   background-color: #5a5a5a;
   border-bottom: 4px solid #024e0f;
   color: white;

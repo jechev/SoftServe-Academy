@@ -5,10 +5,14 @@ import { Link } from 'react-router-dom';
 const album = props => (
   <div className='tr'>
     <div className='td'>
-      <span>{props.title}</span>
+      <span>
+        <strong>{props.title}</strong>
+      </span>
     </div>
     <div className='td'>
-      <span>{props.artist}</span>
+      <span>
+        <strong>{props.artist}</strong>
+      </span>
     </div>
     <div className='td'>
       <span>{new Date(props.releaseDate).toDateString()}</span>

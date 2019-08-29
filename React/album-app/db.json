@@ -28,13 +28,13 @@
       "picture": "https://lionelrichie.com/wp-content/uploads/2019/05/LR-1.4.1-1024x1024.jpg"
     },
     {
-      "id": 4,
       "title": "No.6 Collaborations Project",
       "artist": "Ed Sheeran",
-      "releaseDate": 1562878800000,
-      "nbTracks": 15,
+      "releaseDate": "2019-07-11T21:00:00.000Z",
+      "nbTracks": "15",
       "albumLink": "https://open.spotify.com/album/3oIFxDIo2fwuk4lwCmFZCx",
-      "picture": "https://target.scene7.com/is/image/Target/GUEST_8f305d59-ec9c-42ac-9033-386c86d50aa5?wid=488&hei=488&fmt=pjpeg"
+      "picture": "https://target.scene7.com/is/image/Target/GUEST_8f305d59-ec9c-42ac-9033-386c86d50aa5?wid=488&hei=488&fmt=pjpeg",
+      "id": 4
     },
     {
       "id": 5,

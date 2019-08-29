@@ -1,12 +1,12 @@
-.Label {
+.label {
   margin-right: 15px;
 }
-.Invalid {
+.invalid {
   border: 1px solid red;
   background-color: salmon;
 }
 
-.ValidationError {
+.validationError {
   color: red;
   margin: 5px 0;
 }

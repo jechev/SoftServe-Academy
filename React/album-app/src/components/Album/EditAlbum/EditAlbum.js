@@ -174,7 +174,7 @@ class EditAlbum extends Component {
                   disabled={!this.state.formIsValid}
                   className='editButton'
                 >
-                  Edit album
+                  Save Album
                 </button>
               </li>
             </ul>

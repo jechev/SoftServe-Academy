@@ -8,11 +8,11 @@ const input = props => {
   let validationError = null;
   if (props.invalid && props.touched) {
     validationError = (
-      <p className='ValidationError'>Please enter a valid value!</p>
+      <p className='validationError'>Please enter a valid value!</p>
     );
   }
   if (props.invalid && props.shouldValidate && props.touched) {
-    errorClass = 'Invalid';
+    errorClass = 'invalid';
   }
   switch (props.elementType) {
     case 'input':
@@ -48,8 +48,8 @@ const input = props => {
       );
   }
   return (
-    <div className='Input'>
-      <label className='Label'>{props.label}</label>
+    <div className='input'>
+      <label className='label'>{props.label}</label>
       {inputElement}
       {validationError}
     </div>
