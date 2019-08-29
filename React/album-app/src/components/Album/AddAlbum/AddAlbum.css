@@ -25,3 +25,8 @@ label {
   color: silver;
   border: 0;
 }
+button:disabled {
+  background: #ccc;
+  color: red;
+  cursor: not-allowed;
+}

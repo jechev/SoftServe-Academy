@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './AddAlbum.css';
 import AlbumService from '../../../services/AlbumService';
-import Spinner from '../../UI/Spinner/Spinner';
-import DatePicker from 'react-datepicker';
+import Input from '../../UI/Input/Input';
 import toast from 'toasted-notes';
 import 'toasted-notes/src/styles.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -11,131 +10,177 @@ class AddAlbum extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      artist: '',
-      releaseDate: new Date(),
-      nbTracks: 1,
-      albumLink: '',
-      picture: '',
-      loading: false
+      albumForm: {
+        title: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: "Album's Title"
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false
+        },
+        artist: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: "Album's Artist"
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false
+        },
+        releaseDate: {
+          elementType: 'date',
+          value: new Date(),
+          valid: true
+        },
+        nbTracks: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'number',
+            placeholder: ''
+          },
+          value: 0,
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false
+        },
+        albumLink: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: "Album's Link to Spotify"
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false
+        },
+        picture: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: "Album's cover"
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false
+        }
+      },
+      formIsValid: false
     };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSumbit = this.handleSumbit.bind(this);
   }
 
-  handleInputChange(event) {
-    //Check event is Date because datepicker return only value from input field
-    if (event instanceof Date) {
-      this.setState({ releaseDate: event });
-    } else {
-      const target = event.target;
-      const value = target.value;
-      const name = target.name;
-      this.setState({
-        [name]: value
-      });
-    }
-  }
-
-  handleSumbit(event) {
+  albumHandler = event => {
     event.preventDefault();
-    let newAlbum = this.state;
-    delete newAlbum.loading;
-    AlbumService.addNewAlbum(newAlbum)
+
+    const formData = {};
+    for (let formElem in this.state.albumForm) {
+      formData[formElem] = this.state.albumForm[formElem].value;
+    }
+    AlbumService.addNewAlbum(formData)
       .then(res => {
-        this.setState({ loading: true });
-        toast.notify('You created new album');
+        toast.notify('You created new album', {
+          duration: 2000
+        });
         this.props.history.push('/');
       })
       .catch(err => {
         console.log(err);
       });
+  };
+
+  checkValidity(value, rules) {
+    let isValid = true;
+
+    if (rules.required) {
+      isValid = value.trim() !== '' && isValid;
+    }
+
+    return isValid;
   }
 
-  render() {
-    let form = (
-      <form onSubmit={this.handleSumbit}>
-        <ul className='wrapper'>
-          <li className='form-row'>
-            <label htmlFor='title'>Title</label>
-            <input
-              type='text'
-              name='title'
-              id='title'
-              placeholder='Title'
-              value={this.state.title}
-              onChange={this.handleInputChange}
-            />
-          </li>
-          <li className='form-row'>
-            <label htmlFor='artist'>Artist</label>
-            <input
-              type='text'
-              name='artist'
-              id='artist'
-              placeholder='Artist'
-              value={this.state.artist}
-              onChange={this.handleInputChange}
-            />
-          </li>
-          <li className='form-row'>
-            <label htmlFor='releaseDate'>Release date</label>
-            <DatePicker
-              selected={this.state.releaseDate}
-              onChange={this.handleInputChange}
-              id='releaseDate'
-              name='realeaseDate'
-            />
-          </li>
-          <li className='form-row'>
-            <label htmlFor='nbTracks'>Number of Tracks</label>
-            <input
-              type='number'
-              name='nbTracks'
-              id='nbTracks'
-              min='1'
-              placeholder='Number of tracks'
-              value={this.state.nbTracks}
-              onChange={this.handleInputChange}
-            />
-          </li>
-          <li className='form-row'>
-            <label htmlFor='albumLink'>Album link </label>
-            <input
-              type='text'
-              name='albumLink'
-              id='albumLink'
-              placeholder='Link to spotify'
-              value={this.state.albumLink}
-              onChange={this.handleInputChange}
-            />
-          </li>
-          <li className='form-row'>
-            <label htmlFor='picture'>Cover link</label>
-            <input
-              type='text'
-              name='picture'
-              id='picture'
-              placeholder='Link for cover image'
-              value={this.state.picture}
-              onChange={this.handleInputChange}
-            />
-          </li>
-          <li className='form-row'>
-            <button>Add album</button>
-          </li>
-        </ul>
-      </form>
-    );
-    if (this.state.loading) {
-      form = <Spinner />;
+  inputChangedHandler = (event, inputId) => {
+    const updatedAlbumForm = {
+      ...this.state.albumForm
+    };
+    const updatedElement = { ...updatedAlbumForm[inputId] };
+
+    if (inputId === 'releaseDate') {
+      //This is because Datepicker send only value
+      updatedElement.value = event;
+    } else {
+      updatedElement.value = event.target.value;
+      updatedElement.valid = this.checkValidity(
+        updatedElement.value,
+        updatedElement.validation
+      );
+      console.log(updatedElement.valid);
+      updatedElement.touched = true;
     }
+    updatedAlbumForm[inputId] = updatedElement;
+    let formIsValid = true;
+    for (let inputId in updatedAlbumForm) {
+      formIsValid = updatedAlbumForm[inputId].valid && formIsValid;
+      console.log(inputId + ' ' + updatedAlbumForm[inputId].valid);
+    }
+
+    this.setState({ albumForm: updatedAlbumForm, formIsValid: formIsValid });
+  };
+
+  render() {
+    const formElementsArr = [];
+    for (let key in this.state.albumForm) {
+      formElementsArr.push({
+        id: key,
+        config: this.state.albumForm[key]
+      });
+    }
+
     return (
       <div>
         <main>
           <h3>Add new album</h3>
-          {form}
+          <form onSubmit={this.albumHandler}>
+            <ul className='wrapper'>
+              {formElementsArr.map(formElem => (
+                <li className='form-row' key={formElem.id}>
+                  <Input
+                    elementType={formElem.config.elementType}
+                    elementConfig={formElem.config.elementConfig}
+                    value={formElem.config.value}
+                    invalid={!formElem.config.valid}
+                    shouldValidate={formElem.config.validation}
+                    touched={formElem.config.touched}
+                    changed={event =>
+                      this.inputChangedHandler(event, formElem.id)
+                    }
+                    label={
+                      formElem.id.charAt(0).toUpperCase() + formElem.id.slice(1)
+                    }
+                  />
+                </li>
+              ))}
+              <li className='form-row'>
+                <button disabled={!this.state.formIsValid}>Add album</button>
+              </li>
+            </ul>
+          </form>
         </main>
       </div>
     );

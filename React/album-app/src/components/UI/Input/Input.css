@@ -1,0 +1,7 @@
+.Label {
+  margin-right: 15px;
+}
+.Invalid {
+  border: 1px solid red;
+  background-color: salmon;
+}

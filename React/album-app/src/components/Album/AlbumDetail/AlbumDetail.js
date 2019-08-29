@@ -35,7 +35,9 @@ class AlbumDetail extends Component {
     if (result) {
       AlbumService.deleteAlbum(albumId)
         .then(res => {
-          toast.notify('You deleted album');
+          toast.notify('You deleted album', {
+            duration: 2000
+          });
           this.props.history.push('/');
         })
         .catch(err => console.log(err));
