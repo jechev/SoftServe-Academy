@@ -9,5 +9,8 @@ export default {
   },
   getAlbumById(albumId) {
     return axios.get(baseUrl + '/' + albumId);
+  },
+  deleteAlbum(albumId) {
+    return axios.delete(baseUrl + '/' + albumId);
   }
 };

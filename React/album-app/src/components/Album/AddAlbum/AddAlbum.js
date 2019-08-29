@@ -3,7 +3,8 @@ import './AddAlbum.css';
 import AlbumService from '../../../services/AlbumService';
 import Spinner from '../../UI/Spinner/Spinner';
 import DatePicker from 'react-datepicker';
-
+import toast from 'toasted-notes';
+import 'toasted-notes/src/styles.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 class AddAlbum extends Component {
@@ -44,6 +45,7 @@ class AddAlbum extends Component {
     AlbumService.addNewAlbum(newAlbum)
       .then(res => {
         this.setState({ loading: true });
+        toast.notify('You created new album');
         this.props.history.push('/');
       })
       .catch(err => {

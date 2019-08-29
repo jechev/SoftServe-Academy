@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import AlbumService from '../../../services/AlbumService';
 import './AlbumDetail.css';
 
+import toast from 'toasted-notes';
+import 'toasted-notes/src/styles.css';
+
 class AlbumDetail extends Component {
   state = {};
+
+  constructor(props) {
+    super(props);
+    this.handleDeleteAlbum = this.handleDeleteAlbum.bind(this);
+  }
 
   componentDidMount() {
     const albumId = this.props.match.params.id;
@@ -17,8 +25,21 @@ class AlbumDetail extends Component {
       });
   }
 
-  handleClick(spotifyLink) {
+  handleClickForSpotify(spotifyLink) {
     window.open(spotifyLink, '_blank');
+  }
+
+  handleDeleteAlbum() {
+    const albumId = this.props.match.params.id;
+    let result = window.confirm('Are you sure you want to delete?');
+    if (result) {
+      AlbumService.deleteAlbum(albumId)
+        .then(res => {
+          toast.notify('You deleted album');
+          this.props.history.push('/');
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   render() {
@@ -41,10 +62,16 @@ class AlbumDetail extends Component {
             </span>
             <button
               className='myButton'
-              onClick={() => this.handleClick(this.state.albumLink)}
+              onClick={() => this.handleClickForSpotify(this.state.albumLink)}
             >
               Listen in spotify
             </button>
+            <div>
+              <button className='delete-album' onClick={this.handleDeleteAlbum}>
+                Delete the album
+              </button>
+              <button className='edit-album'>Edit the album</button>
+            </div>
           </div>
         </main>
       </div>
