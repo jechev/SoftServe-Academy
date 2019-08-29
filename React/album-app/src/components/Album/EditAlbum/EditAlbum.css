@@ -1,36 +1,4 @@
-main {
-  margin-top: 80px;
-}
-
-.wrapper {
-  list-style-type: none;
-  padding: 0;
-  border-radius: 3px;
-}
-label {
-  color: white;
-}
-.form-row {
-  padding: 0.5em;
-}
-.form-row > label {
-  padding: 0.5em 1em 0.5em 0;
-}
-.form-row > input,
-.form-row > button {
-  padding: 0.5em;
-}
-.form-row > button {
-  background: #024e0f;
-  color: silver;
-  border: 0;
-}
-.addButton:disabled {
-  background: #ccc;
-  color: red;
-  cursor: not-allowed;
-}
-.addButton {
+.editButton {
   -moz-box-shadow: inset 0px 1px 0px 0px #9acc85;
   -webkit-box-shadow: inset 0px 1px 0px 0px #9acc85;
   box-shadow: inset 0px 1px 0px 0px #9acc85;
@@ -51,7 +19,7 @@ label {
   padding: 6px 12px;
   text-decoration: none;
 }
-.addButton:hover {
+.editButton:hover {
   background: -moz-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
   background: -webkit-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
   background: -o-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
@@ -60,7 +28,12 @@ label {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#68a54b', endColorstr='#74ad5a',GradientType=0);
   background-color: #68a54b;
 }
-.addButton:active {
+.editButton:active {
   position: relative;
   top: 1px;
+}
+.editButton:disabled {
+  background: #ccc;
+  color: red;
+  cursor: not-allowed;
 }

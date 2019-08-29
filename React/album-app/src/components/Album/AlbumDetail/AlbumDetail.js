@@ -4,13 +4,16 @@ import './AlbumDetail.css';
 
 import toast from 'toasted-notes';
 import 'toasted-notes/src/styles.css';
+import EditAlbum from '../EditAlbum/EditAlbum';
 
 class AlbumDetail extends Component {
-  state = {};
+  state = { album: {}, isEditable: false };
 
   constructor(props) {
     super(props);
     this.handleDeleteAlbum = this.handleDeleteAlbum.bind(this);
+    this.handleEditAlbum = this.handleEditAlbum.bind(this);
+    this.takeEditAlbum = this.takeEditAlbum.bind(this);
   }
 
   componentDidMount() {
@@ -18,7 +21,7 @@ class AlbumDetail extends Component {
 
     AlbumService.getAlbumById(albumId)
       .then(res => {
-        this.setState(res.data);
+        this.setState({ album: res.data });
       })
       .catch(err => {
         console.log(err);
@@ -43,39 +46,56 @@ class AlbumDetail extends Component {
         .catch(err => console.log(err));
     }
   }
+  handleEditAlbum() {
+    this.setState({ isEditable: true });
+  }
+  takeEditAlbum(editedAlbum) {
+    this.setState({ album: { ...editedAlbum }, isEditable: false });
+  }
 
   render() {
+    let album = (
+      <div className='album-container'>
+        <img src={this.state.album.picture} alt='cover' />
+        <span className='album-info'>
+          Title: <strong>{this.state.album.title}</strong>
+        </span>
+        <span className='album-info'>
+          Artist: <strong>{this.state.album.artist}</strong>
+        </span>
+        <span className='album-info'>
+          Number of tracks: <strong>{this.state.album.nbTracks}</strong>
+        </span>
+        <span className='album-info'>
+          Release date: {new Date(this.state.album.releaseDate).toDateString()}
+        </span>
+        <button
+          className='myButton'
+          onClick={() => this.handleClickForSpotify(this.state.album.albumLink)}
+        >
+          Listen in spotify
+        </button>
+        <div>
+          <button className='delete-album' onClick={this.handleDeleteAlbum}>
+            Delete the album
+          </button>
+          <button className='edit-album' onClick={this.handleEditAlbum}>
+            Edit the album
+          </button>
+        </div>
+      </div>
+    );
+    if (this.state.isEditable) {
+      album = (
+        <EditAlbum
+          takeEditAlbum={this.takeEditAlbum}
+          album={this.state.album}
+        />
+      );
+    }
     return (
       <div>
-        <main>
-          <div className='album-container'>
-            <img src={this.state.picture} alt='cover' />
-            <span className='album-info'>
-              Title: <strong>{this.state.title}</strong>
-            </span>
-            <span className='album-info'>
-              Artist: <strong>{this.state.artist}</strong>
-            </span>
-            <span className='album-info'>
-              Number of tracks: <strong>{this.state.nbTracks}</strong>
-            </span>
-            <span className='album-info'>
-              Release date: {new Date(this.state.releaseDate).toDateString()}
-            </span>
-            <button
-              className='myButton'
-              onClick={() => this.handleClickForSpotify(this.state.albumLink)}
-            >
-              Listen in spotify
-            </button>
-            <div>
-              <button className='delete-album' onClick={this.handleDeleteAlbum}>
-                Delete the album
-              </button>
-              <button className='edit-album'>Edit the album</button>
-            </div>
-          </div>
-        </main>
+        <main>{album}</main>
       </div>
     );
   }

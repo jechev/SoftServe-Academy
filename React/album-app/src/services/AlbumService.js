@@ -10,6 +10,9 @@ export default {
   getAlbumById(albumId) {
     return axios.get(baseUrl + '/' + albumId);
   },
+  editAlbum(id, album) {
+    return axios.put(baseUrl + '/' + id, album);
+  },
   deleteAlbum(albumId) {
     return axios.delete(baseUrl + '/' + albumId);
   }

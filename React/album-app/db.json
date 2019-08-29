@@ -1,13 +1,13 @@
 {
   "albums": [
     {
-      "id": 1,
       "title": "So Much Fun",
       "artist": "Young Thug",
       "releaseDate": 1565902800000,
-      "nbTracks": 16,
+      "nbTracks": "16",
       "albumLink": "https://open.spotify.com/album/1bnHPO4dKK7IjvgrtVBcQh",
-      "picture": "https://charts-static.billboard.com/img/2019/08/young-thug-288-so-much-fun-ogx-344x344.jpg"
+      "picture": "https://charts-static.billboard.com/img/2019/08/young-thug-288-so-much-fun-ogx-344x344.jpg",
+      "id": 1
     },
     {
       "id": 2,
@@ -91,13 +91,13 @@
       "picture": "https://consequenceofsound.net/wp-content/uploads/2018/07/travis-scott-astroworld-cover-art.png?w=807"
     },
     {
-      "id": 11,
       "title": "Hoodie SZN",
       "artist": "Boogie wit da Hoodie",
       "releaseDate": 1545343200000,
-      "nbTracks": 20,
+      "nbTracks": "20",
       "albumLink": "https://open.spotify.com/album/0zv56LxhTq56QkzBVeRKUf",
-      "picture": "https://media.pitchfork.com/photos/5c1a6bb219f63059050d1ed3/1:1/w_320/hoodie%20szn_a%20boogie%20wit%20da%20hoodie.jpg"
+      "picture": "https://media.pitchfork.com/photos/5c1a6bb219f63059050d1ed3/1:1/w_320/hoodie%20szn_a%20boogie%20wit%20da%20hoodie.jpg",
+      "id": 11
     },
     {
       "id": 12,

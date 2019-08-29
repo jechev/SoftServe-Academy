@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './AddAlbum.css';
 import AlbumService from '../../../services/AlbumService';
 import Input from '../../UI/Input/Input';
 import toast from 'toasted-notes';
 import 'toasted-notes/src/styles.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import ValidationHelper from '../../../helpers/ValidationHelper';
+import { withRouter } from 'react-router-dom';
 
-class AddAlbum extends Component {
+class EditAlbum extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,11 +18,11 @@ class AddAlbum extends Component {
             type: 'text',
             placeholder: "Album's Title"
           },
-          value: '',
+          value: this.props.album.title,
           validation: {
             required: true
           },
-          valid: false,
+          valid: true,
           touched: false
         },
         artist: {
@@ -31,17 +31,17 @@ class AddAlbum extends Component {
             type: 'text',
             placeholder: "Album's Artist"
           },
-          value: '',
+          value: this.props.album.artist,
           validation: {
             required: true,
             minLength: 3
           },
-          valid: false,
+          valid: true,
           touched: false
         },
         releaseDate: {
           elementType: 'date',
-          value: new Date(),
+          value: new Date(this.props.album.releaseDate),
           valid: true
         },
         nbTracks: {
@@ -50,12 +50,12 @@ class AddAlbum extends Component {
             type: 'number',
             placeholder: ''
           },
-          value: 0,
+          value: this.props.album.nbTracks,
           validation: {
             required: true,
             positiveNumber: true
           },
-          valid: false,
+          valid: true,
           touched: false
         },
         albumLink: {
@@ -64,12 +64,12 @@ class AddAlbum extends Component {
             type: 'text',
             placeholder: "Album's Link to Spotify"
           },
-          value: '',
+          value: this.props.album.albumLink,
           validation: {
             required: true,
             isSpotifyLink: true
           },
-          valid: false,
+          valid: true,
           touched: false
         },
         picture: {
@@ -78,33 +78,35 @@ class AddAlbum extends Component {
             type: 'text',
             placeholder: "Album's cover"
           },
-          value: '',
+          value: this.props.album.picture,
           validation: {
             required: true
           },
-          valid: false,
+          valid: true,
           touched: false
         }
       },
-      formIsValid: false
+      formIsValid: true
     };
   }
 
   albumHandler = event => {
     event.preventDefault();
-
+    console.log(this.props.album.id);
     const formData = {};
     for (let formElem in this.state.albumForm) {
       formData[formElem] = this.state.albumForm[formElem].value;
     }
-    AlbumService.addNewAlbum(formData)
+    AlbumService.editAlbum(this.props.album.id, formData)
       .then(res => {
-        toast.notify('You created new album', {
+        this.props.takeEditAlbum(res.data);
+        toast.notify('You edited the album', {
           duration: 2000
         });
-        this.props.history.push('/');
+        this.props.history.push('/album/' + this.props.album.id);
       })
       .catch(err => {
+        this.props.changeEdit(true);
         console.log(err);
       });
   };
@@ -146,7 +148,7 @@ class AddAlbum extends Component {
     return (
       <div>
         <main>
-          <h3>Add new album</h3>
+          <h3>Edit this album</h3>
           <form onSubmit={this.albumHandler}>
             <ul className='wrapper'>
               {formElementsArr.map(formElem => (
@@ -170,17 +172,18 @@ class AddAlbum extends Component {
               <li className='form-row'>
                 <button
                   disabled={!this.state.formIsValid}
-                  className='addButton'
+                  className='editButton'
                 >
-                  Add album
+                  Edit album
                 </button>
               </li>
             </ul>
           </form>
+          <img src={this.state.albumForm.picture.value} alt='cover' />
         </main>
       </div>
     );
   }
 }
 
-export default AddAlbum;
+export default withRouter(EditAlbum);
