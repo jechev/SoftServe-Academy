@@ -32,7 +32,8 @@ class AddAlbum extends Component {
           },
           value: '',
           validation: {
-            required: true
+            required: true,
+            minLength: 3
           },
           valid: false,
           touched: false
@@ -48,9 +49,10 @@ class AddAlbum extends Component {
             type: 'number',
             placeholder: ''
           },
-          value: 0,
+          value: 1,
           validation: {
-            required: true
+            required: true,
+            positiveNumber: true
           },
           valid: false,
           touched: false
@@ -63,7 +65,8 @@ class AddAlbum extends Component {
           },
           value: '',
           validation: {
-            required: true
+            required: true,
+            isSpotifyLink: true
           },
           valid: false,
           touched: false
@@ -112,6 +115,17 @@ class AddAlbum extends Component {
       isValid = value.trim() !== '' && isValid;
     }
 
+    if (rules.minLength) {
+      isValid = value.length >= rules.minLength && isValid;
+    }
+
+    if (rules.isSpotifyLink) {
+      isValid = value.includes('open.spotify.com') && isValid;
+    }
+    if (rules.positiveNumber) {
+      isValid = Number(value) >= 1 && isValid;
+    }
+
     return isValid;
   }
 
@@ -120,9 +134,8 @@ class AddAlbum extends Component {
       ...this.state.albumForm
     };
     const updatedElement = { ...updatedAlbumForm[inputId] };
-
+    //This is because Datepicker send only value, not the whole event
     if (inputId === 'releaseDate') {
-      //This is because Datepicker send only value
       updatedElement.value = event;
     } else {
       updatedElement.value = event.target.value;
@@ -130,14 +143,12 @@ class AddAlbum extends Component {
         updatedElement.value,
         updatedElement.validation
       );
-      console.log(updatedElement.valid);
       updatedElement.touched = true;
     }
     updatedAlbumForm[inputId] = updatedElement;
     let formIsValid = true;
     for (let inputId in updatedAlbumForm) {
       formIsValid = updatedAlbumForm[inputId].valid && formIsValid;
-      console.log(inputId + ' ' + updatedAlbumForm[inputId].valid);
     }
 
     this.setState({ albumForm: updatedAlbumForm, formIsValid: formIsValid });

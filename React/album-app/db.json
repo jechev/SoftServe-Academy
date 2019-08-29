@@ -16,7 +16,7 @@
       "releaseDate": 1565902800000,
       "nbTracks": 36,
       "albumLink": "https://open.spotify.com/album/59zpaLOByFkJhc9D5Xqna9",
-      "picture": "https://images.complex.com/complex/images/c_limit,dpr_auto,q_90,w_720/fl_lossy,pg_1/jsljyu8brxque5frz3qk/quality-control-control-the-streets-volume-2-stream"
+      "picture": "https://miro.medium.com/max/750/1*C-LEJIfaX1_KWmEYrQL_aw.jpeg"
     },
     {
       "id": 3,
@@ -143,6 +143,15 @@
       "albumLink": "https://open.spotify.com/album/5a70H0qHGgEGXOVLYXamHd",
       "picture": "https://townsquare.media/site/295/files/2019/08/ToolFI.jpg?w=980&q=75",
       "id": 16
+    },
+    {
+      "title": "Culture",
+      "artist": "Migos",
+      "releaseDate": "2017-01-26T22:00:00.000Z",
+      "nbTracks": "13",
+      "albumLink": "https://open.spotify.com/album/0wGBMvq7f2ThcvfvfdcC7k",
+      "picture": "https://upload.wikimedia.org/wikipedia/en/1/10/MigosCulture.jpg",
+      "id": 17
     }
   ],
   "reviews": []

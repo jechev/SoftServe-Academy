@@ -5,7 +5,12 @@ import DatePicker from 'react-datepicker';
 const input = props => {
   let inputElement = null;
   let errorClass = null;
-
+  let validationError = null;
+  if (props.invalid && props.touched) {
+    validationError = (
+      <p className='ValidationError'>Please enter a valid value!</p>
+    );
+  }
   if (props.invalid && props.shouldValidate && props.touched) {
     errorClass = 'Invalid';
   }
@@ -46,6 +51,7 @@ const input = props => {
     <div className='Input'>
       <label className='Label'>{props.label}</label>
       {inputElement}
+      {validationError}
     </div>
   );
 };
