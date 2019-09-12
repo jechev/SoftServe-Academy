@@ -260,6 +260,23 @@ header {
 .main-nav li a:active {
   border-bottom: 2px solid #e67e22;
 }
+.mobile-nav-icon {
+  float: right;
+  margin-top: 30px;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  display: none;
+}
+
+.mobile-nav-icon:visited,
+.mobile-nav-icon:link {
+  border-bottom: 1px solid transparent;
+}
+
+.mobile-nav-icon ion-icon {
+  font-size: 200%;
+  color: #fff;
+}
 
 /* Sticky navigation */
 .sticky {
@@ -631,4 +648,13 @@ footer p {
 .footer-nav li a:hover,
 .footer-nav li a:active {
   color: #ddd;
+}
+
+/* Animation */
+.js-wp-1 {
+  opacity: 0;
+}
+
+.js-wp-1.animated {
+  opacity: 1;
 }

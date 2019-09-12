@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="./vendors/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./vendors/css/animate.css" />
     <link rel="stylesheet" type="text/css" href="./vendors/css/grid.css" />
     <link rel="stylesheet" type="text/css" href="./resources/css/style.css" />
     <link rel="stylesheet" type="text/css" href="./resources/css/queries.css" />
@@ -41,20 +42,23 @@
             class="logo-black"
           />
           <ul class="main-nav">
-            <li><a href="#">Food delivery</a></li>
-            <li><a href="#">How it works</a></li>
-            <li><a href="#">Our cities</a></li>
-            <li><a href="#">Sign up</a></li>
+            <li><a href="#features">Food delivery</a></li>
+            <li><a href="#works">How it works</a></li>
+            <li><a href="#cities">Our cities</a></li>
+            <li><a href="#plans">Sign up</a></li>
           </ul>
+          <a href="#" class="mobile-nav-icon js-mobile-nav"
+            ><ion-icon name="menu"></ion-icon
+          ></a>
         </div>
       </nav>
       <div class="hero-text-box">
         <h1>Goodbye junk food.<br />Hello super healthy meals.</h1>
-        <a href="#" class="btn btn-full">I’m hungry</a>
-        <a href="#" class="btn btn-ghost">Show me more</a>
+        <a href="#" class="btn btn-full js-scroll-to-plans">I’m hungry</a>
+        <a href="#" class="btn btn-ghost js-scroll-to-start">Show me more</a>
       </div>
     </header>
-    <section class="section-features js-section-features">
+    <section class="section-features js-section-features" id="features">
       <div class="row">
         <h2>Get food fast &mdash; not fast food</h2>
         <p class="long-copy">
@@ -63,7 +67,7 @@
           we’re really good at it, we promise!
         </p>
       </div>
-      <div class="row">
+      <div class="row js-wp-1">
         <div class="col span-1-of-4 box">
           <ion-icon name="infinite" class="icon-big"></ion-icon>
           <h3>Up to 365 days/year</h3>
@@ -169,7 +173,7 @@
         </li>
       </ul>
     </section>
-    <section class="section-steps">
+    <section class="section-steps" id="works">
       <div class="row">
         <h2>How it works &mdash; Simple as 1, 2, 3</h2>
       </div>
@@ -214,7 +218,7 @@
         </div>
       </div>
     </section>
-    <section class="section-cities">
+    <section class="section-cities" id="cities">
       <div class="row">
         <h2>We're currently in these cities</h2>
       </div>
@@ -331,7 +335,7 @@
         </div>
       </div>
     </section>
-    <section class="section-plans">
+    <section class="section-plans js-section-plans" id="plans">
       <div class="row">
         <h2>Start eating healthy today</h2>
       </div>
