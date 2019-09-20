@@ -23,12 +23,22 @@
     overflow: hidden;
     opacity: 0;
     transition: all 0.4s 0.2s;
+
+    @include respond(phone) {
+      width: 90%;
+      transform: translate(0%, 0%) scale(0.5);
+      position: relative;
+    }
   }
 
   &__left {
     width: 33.3333333%;
     display: table-cell;
     vertical-align: middle;
+
+    @include respond(phone) {
+      display: inline-block;
+    }
   }
 
   &__right {
@@ -36,6 +46,10 @@
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+
+    @include respond(phone) {
+      display: inline-block;
+    }
   }
 
   &__img {
