@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "~8.0.3",
     "@angular/router": "~8.0.3",
     "alertifyjs": "^1.11.4",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "bootswatch": "^4.3.1",
     "font-awesome": "^4.7.0",
